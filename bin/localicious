@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+const program = require("commander");
+const VERSION = require("../package.json").version;
+
+program
+  .version(VERSION)
+  .description(
+    "A toolchain for working with localization files in a platform-agnostic way."
+  )
+  .command("validate <localicipe>", "Validate a Localicipe.")
+  .command("render <localicipe> <outputPath>", "Render a Localicipe.")
+  .command(
+    "install <localiciousConfig> <outputPath>",
+    "Pull a Localicipe from a source, validate and render it."
+  );
+
+program.parse(process.argv);

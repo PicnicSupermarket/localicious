@@ -1,0 +1,10 @@
+source:
+  # git:
+    # url: "git@github.com:PicnicSupermarket/picnic-i18n.git"
+    # branch: "master"
+  path: "./tests/localicipe.yaml"
+languages:
+  - en
+platforms:
+  - ios
+  - android

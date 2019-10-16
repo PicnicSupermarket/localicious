@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+const program = require("commander");
+
+const { loadYaml } = require("../src/utils/yamlUtils");
+const validate = require("../src/actions/validate");
+
+const commaSeparatedList = value => {
+  return value.split(",");
+};
+
+program
+  .option(
+    "-r --required-languages <items>",
+    "required languages",
+    commaSeparatedList
+  )
+  .option(
+    "-o --optional-languages <items>",
+    "optional languages",
+    commaSeparatedList
+  )
+  .parse(process.argv);
+
+const localicipePath = program.args[0];
+
+loadYaml(localicipePath)
+  .flatMap(data =>
+    validate(data, program.requiredLanguages, program.optionalLanguages)
+  )
+  .onSuccess(() => {
+    console.log("✅ Your Localicipe is perfect, keep up the good work!");
+    process.exit(0);
+  })
+  .onError(error => {
+    console.error(error.description);
+    process.exit(1);
+  });

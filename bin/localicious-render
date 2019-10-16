@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+const program = require("commander");
+const validateAndRender = require("../src/actions/validateAndRender");
+
+const commaSeparatedList = value => {
+  return value.split(",");
+};
+
+program
+  .option("-l --languages <languages>", "output languages", commaSeparatedList)
+  .option("-p --platforms <platforms>", "target platforms", commaSeparatedList)
+  .parse(process.argv);
+
+const localicipePath = program.args[0];
+const outputPath = program.args[1];
+
+if (program.languages === undefined || program.languages.length == 0) {
+  console.error(`This command requires one or more output languages.`);
+  process.exit(1);
+}
+
+const supportedPlatforms = ["ios", "android"];
+if (program.platforms === undefined || program.platforms.length == 0) {
+  console.error(
+    `This command requires one or more target platforms. Supported target platforms: '${supportedPlatforms.join(
+      " | "
+    )}'.`
+  );
+  process.exit(1);
+}
+
+let invalidPlatforms = program.platforms.filter(option => {
+  return !supportedPlatforms.includes(option);
+});
+if (invalidPlatforms.length != 0) {
+  console.error(
+    `Received invalid target platforms: '${invalidPlatforms.join(
+      " | "
+    )}'. Supported target platforms: '${supportedPlatforms.join(" | ")}'.`
+  );
+  process.exit(1);
+}
+
+validateAndRender(
+  localicipePath,
+  outputPath,
+  program.languages,
+  program.platforms
+)
+  .onSuccess(() => {
+    console.log(
+      `✅ Your Localicipe has been rendered successfully for platforms: ${program.platforms} and languages: ${program.languages}.`
+    );
+    process.exit(0);
+  })
+  .onError(error => {
+    console.log(`❌ Something went wrong rendering.`);
+    console.error(error.description);
+    process.exit(1);
+  });

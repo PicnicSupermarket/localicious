@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+const program = require("commander");
+
+const load = require("../src/actions/load");
+const { loadYaml } = require("../src/utils/yamlUtils");
+const validateAndRender = require("../src/actions/validateAndRender");
+
+program.parse(process.argv);
+
+const localiciousConfig = program.args[0];
+const outputPath = program.args[1];
+
+loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
+  load(localiciousConfig.source).then(result => {
+    result
+      .map(path => {
+        return {
+          path,
+          options: {
+            languages: localiciousConfig.languages,
+            platforms: localiciousConfig.platforms
+          }
+        };
+      })
+      .flatMap(configuration => {
+        const { path, options } = configuration;
+        
+        return validateAndRender(
+          path,
+          outputPath,
+          options.languages,
+          options.platforms
+        )
+          
+      }).onSuccess(() => {
+        console.log(
+          `✅ Your Localicipe was downloaded and rendered successfully for platforms: ${options.platforms} and languages: ${options.languages}.`
+        );
+        process.exit(0);
+      })
+      .onError(error => {
+        console.log(`❌ Something went wrong installing your Localicipe.`);
+        console.error(error.description);
+        console.error(error.underlyingError);
+        process.exit(1);
+      });
+  });
+});

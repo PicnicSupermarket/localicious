@@ -1,0 +1,57 @@
+---
+# Strings that are used in Android only
+android:
+  Checkout:
+    OrderOverview:
+      Total:
+        en: 'Total price: %1{{s}}'  # This placeholder will expand to %1$@ on iOS and %1$s on Android
+        nl: 'Totaal: %1{{s}}'
+      Subtotal:
+        en: 'Total price before taxes: %1{{s}}'
+        nl: 'Subtotaal: %1{{s}}'
+# Strings that are used in iOS only
+ios:
+  Settings:
+    PushPermissionsRequest:
+      Title:
+        en: 'Stay up to date'
+        nl: 'Blijf op de hoogte'
+      Subtitle:
+        en: 'Stay up to date'
+# Strings that are shared between Android and iOS
+shared:
+  Something:
+    With:
+      An:
+        Arbitrary:
+          Amount:
+            Of:
+              Nesting:
+                en: "We support nesting as deep as you like"
+                nl: "Je kan zo veel lagen maken als je zelf wil"
+  Delivery:
+    Widget:
+      Title:
+        en: "Help: %1{{s}}"
+        nl: "Help %1{{s}}"
+      SubTitle:
+        plural:
+          zero:
+            en: '%1{{d}} Pending order'
+            nl: '%1{{d}} Lopende bestelling'
+          one:
+            en: '%1{{d}} Pending order'
+            nl: '%1{{d}} Lopende bestelling'
+          other:
+            en: '%1{{d}} Pending Orders'
+            nl: '%1{{d}} Lopende bestellingen'
+      SpecialCharacters:
+        en: "This > is a special <<Character>>"
+        nl: "Dit > is een speciaal <<Karakter>>"
+      MultilineStrings:
+        en: |-
+          This is a multiline string that may contain <a href="about:blank">links</a>
+          You better watch out!
+        nl: |-
+          Dit is een string van meerdere regels die <a href="about:blank">links</a> kan bevatten.
+          Let maar eens op!

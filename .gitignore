@@ -1,0 +1,20 @@
+# OSX
+#
+.DS_Store
+
+# VS Code
+.vscode
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Jest
+.jest/
+
+# Specifics
+test-results.json
+
+**/*.orig

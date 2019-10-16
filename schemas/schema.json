@@ -1,0 +1,49 @@
+{
+  "definitions": {
+    "Node": {
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": {
+        "^((?!plural).)*$": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Translation"
+            },
+            {
+              "$ref": "#/definitions/Node"
+            }
+          ]
+        },
+        "^plural$": {
+          "$ref": "#/definitions/PluralWrapper"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Translation": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "PluralWrapper": {
+      "type": "object",
+      "properties": {
+        "zero": {
+          "$ref": "#/definitions/Translation"
+        },
+        "one": {
+          "$ref": "#/definitions/Translation"
+        },
+        "other": {
+          "$ref": "#/definitions/Translation"
+        }
+      },
+      "required": ["zero", "one", "other"]
+    }
+  },
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/definitions/Node"
+  }
+}

@@ -1,0 +1,8 @@
+{{# SINGULAR}}
+"{{ key }}" = "{{ value }}";
+{{/ SINGULAR}}
+{{# PLURAL}}
+{{# value}}
+"{{# PLURAL}}{{# key }}{{ key }}{{/ key}}{{/ PLURAL }}.{{ key }}" = "{{ value }}";
+{{/ value}}
+{{/ PLURAL}}
