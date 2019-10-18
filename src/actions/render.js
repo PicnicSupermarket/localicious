@@ -1,6 +1,6 @@
 const { groupByKey } = require("../utils/arrayUtils");
 const { mapObject } = require("../utils/objectUtils");
-const { normalizeYaml, PLURAL, SINGULAR } = require("../utils/normalize");
+const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
 const Mustache = require("mustache");
 const { platforms, SHARED } = require("../model/platforms");

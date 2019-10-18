@@ -46,8 +46,8 @@ const generateSchema = (requiredLanguages, optionalLanguages) => {
       return acc;
     }, {});
     schema["definitions"]["Translation"]["required"] = requiredLanguages;
+    schema["definitions"]["Translation"]["additionalProperties"] = false;
   }
-
   return schema;
 };
 

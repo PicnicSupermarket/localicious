@@ -25,7 +25,7 @@ const load = async source => {
 const pullRepository = async source => {
   return new Promise((resolve, reject) => {
     createTmpDir("localicious-").map(path => {
-      const branch = source.branch || "master"
+      const branch = source.branch || "master";
       const cloneOptions = {
         checkout: branch,
         shallow: branch === "master"

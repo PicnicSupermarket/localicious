@@ -1,4 +1,4 @@
-const r = require("../src/utils/result");
+const r = require("../../src/utils/result");
 
 test("result.success returns a successful result", () => {
   let res = r.success(1);
@@ -42,4 +42,20 @@ test("result.flatMap propagates error", () => {
   });
   expect(res.value).toBeUndefined();
   expect(res.error.description).toBe("something went wrong");
+});
+
+test("onSuccess gets called on a successful result", done => {
+  let res = r.success(42);
+  res.onError().onSuccess(value => {
+    expect(value).toBe(42);
+    done();
+  });
+});
+
+test("onError gets called on an unsuccessful result", done => {
+  let res = r.error("Something went wrong");
+  res.onSuccess().onError(error => {
+    expect(error.description).toBe("Something went wrong");
+    done();
+  });
 });

@@ -24,17 +24,17 @@ loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
       })
       .flatMap(configuration => {
         const { path, options } = configuration;
-        
+
         return validateAndRender(
           path,
           outputPath,
           options.languages,
           options.platforms
-        )
-          
-      }).onSuccess(() => {
+        );
+      })
+      .onSuccess(() => {
         console.log(
-          `✅ Your Localicipe was downloaded and rendered successfully for platforms: ${options.platforms} and languages: ${options.languages}.`
+          `✅ Your Localicipe was downloaded and rendered successfully.`
         );
         process.exit(0);
       })
