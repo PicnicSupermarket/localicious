@@ -9,7 +9,8 @@ const load = async source => {
   if (source.git !== undefined) {
     try {
       let cloneResult = await pullRepository(source.git);
-      return Result.success(`${cloneResult}/Localicipe.yml`);
+      let filename = source.git.filename || "Localicipe.yml"
+      return Result.success(`${cloneResult}/${filename}`);
     } catch (error) {
       return Result.error("Could not clone repository.", error);
     }
