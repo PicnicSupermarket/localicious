@@ -2,7 +2,6 @@
   "definitions": {
     "Node": {
       "type": "object",
-      "minProperties": 1,
       "patternProperties": {
         "^((?!plural).)*$": {
           "oneOf": [
