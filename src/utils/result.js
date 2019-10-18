@@ -6,6 +6,14 @@ class Error {
 }
 
 class Result {
+  get isSuccess() {
+    return this.value !== undefined && this.error === undefined;
+  }
+
+  get isError() {
+    return this.value === undefined && this.error !== undefined;
+  }
+
   // (X) -> Result<X>
   static success(value) {
     let result = new Result();
