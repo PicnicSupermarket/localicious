@@ -41,7 +41,6 @@ loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
       .onError(error => {
         console.log(`❌ Something went wrong installing your Localicipe.`);
         console.error(error.description);
-        console.error(error.underlyingError);
         process.exit(1);
       });
   });

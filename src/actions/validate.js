@@ -1,5 +1,5 @@
 const Ajv = require("ajv");
-const betterAjvErrors = require('better-ajv-errors');
+const betterAjvErrors = require("better-ajv-errors");
 
 const Result = require("../utils/result");
 const schemaTemplate = require("../../schemas/schema.json");
@@ -17,8 +17,20 @@ const validateData = (schema, data) => {
   if (valid) {
     return Result.success({});
   } else {
-    return Result.error("❌ Your Localicipe contains some issues.", {
-      allErrors: betterAjvErrors(schema, data, validator.errors, { format: "js" })
+    const errorMessages = ["❌ Your Localicipe contains validation issues:"];
+    const allErrors = betterAjvErrors(schema, data, validator.errors, {
+      format: "js"
+    });
+    const errorDescription = errorMessages
+      .concat(
+        allErrors.reduce(
+          (acc, error) => acc.concat([`    - ${error.error}`]),
+          []
+        )
+      )
+      .join("\n");
+    return Result.error(errorDescription, {
+      allErrors: allErrors
     });
   }
 };
