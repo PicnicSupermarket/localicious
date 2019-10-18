@@ -33,9 +33,7 @@ loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
         );
       })
       .onSuccess(() => {
-        console.log(
-          `✅ Your Localicipe was downloaded and rendered successfully.`
-        );
+        console.log(`✅ Your Localicipe was rendered successfully.`);
         process.exit(0);
       })
       .onError(error => {
