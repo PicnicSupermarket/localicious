@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 'en' works as expected for all platforms 1`] = `
+Result {
+  "value": Array [
+    Object {
+      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Stay up to date\\";
+\\"Settings.PushPermissionsRequest.Subtitle\\" = \\"Stay up to date\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"We support nesting as deep as you like\\";
+\\"Delivery.Widget.Title\\" = \\"Help: %1$@\\";
+\\"Delivery.Widget.SpecialCharacters\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+You better watch out!\\";
+\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Pending Orders\\";
+",
+      "path": ".//ios/en/Localizable.strings",
+    },
+    Object {
+      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+  <string name=\\"Checkout_OrderOverview_Total\\">Total price: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal\\">Total price before taxes: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">We support nesting as deep as you like</string>
+  <string name=\\"Delivery_Widget_Title\\">Help: %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+You better watch out!</string>
+  <plurals name=\\"Delivery_Widget_SubTitle\\">
+    <item quantity=\\"zero\\">%1$d Pending order</item>
+    <item quantity=\\"one\\">%1$d Pending order</item>
+    <item quantity=\\"other\\">%1$d Pending Orders</item>
+  </plurals>
+</resources>
+",
+      "path": ".//android/en/strings.xml",
+    },
+  ],
+}
+`;
+
+exports[`rendering 'en' works as expected for android only 1`] = `
+Result {
+  "value": Array [
+    Object {
+      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+  <string name=\\"Checkout_OrderOverview_Total\\">Total price: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal\\">Total price before taxes: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">We support nesting as deep as you like</string>
+  <string name=\\"Delivery_Widget_Title\\">Help: %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+You better watch out!</string>
+  <plurals name=\\"Delivery_Widget_SubTitle\\">
+    <item quantity=\\"zero\\">%1$d Pending order</item>
+    <item quantity=\\"one\\">%1$d Pending order</item>
+    <item quantity=\\"other\\">%1$d Pending Orders</item>
+  </plurals>
+</resources>
+",
+      "path": ".//android/en/strings.xml",
+    },
+  ],
+}
+`;
+
+exports[`rendering 'en' works as expected for iOS only 1`] = `
+Result {
+  "value": Array [
+    Object {
+      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Stay up to date\\";
+\\"Settings.PushPermissionsRequest.Subtitle\\" = \\"Stay up to date\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"We support nesting as deep as you like\\";
+\\"Delivery.Widget.Title\\" = \\"Help: %1$@\\";
+\\"Delivery.Widget.SpecialCharacters\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+You better watch out!\\";
+\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Pending Orders\\";
+",
+      "path": ".//ios/en/Localizable.strings",
+    },
+  ],
+}
+`;
+
+exports[`rendering multiple languages works as expected 1`] = `
+Result {
+  "value": Array [
+    Object {
+      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+  <string name=\\"Checkout_OrderOverview_Total\\">Total price: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal\\">Total price before taxes: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">We support nesting as deep as you like</string>
+  <string name=\\"Delivery_Widget_Title\\">Help: %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+You better watch out!</string>
+  <plurals name=\\"Delivery_Widget_SubTitle\\">
+    <item quantity=\\"zero\\">%1$d Pending order</item>
+    <item quantity=\\"one\\">%1$d Pending order</item>
+    <item quantity=\\"other\\">%1$d Pending Orders</item>
+  </plurals>
+</resources>
+",
+      "path": ".//android/en/strings.xml",
+    },
+    Object {
+      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Stay up to date\\";
+\\"Settings.PushPermissionsRequest.Subtitle\\" = \\"Stay up to date\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"We support nesting as deep as you like\\";
+\\"Delivery.Widget.Title\\" = \\"Help: %1$@\\";
+\\"Delivery.Widget.SpecialCharacters\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+You better watch out!\\";
+\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Pending Orders\\";
+",
+      "path": ".//ios/en/Localizable.strings",
+    },
+    Object {
+      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+  <string name=\\"Checkout_OrderOverview_Total\\">Totaal: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal\\">Subtotaal: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">Je kan zo veel lagen maken als je zelf wil</string>
+  <string name=\\"Delivery_Widget_Title\\">Help %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters\\">Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings\\">Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+Let maar eens op!</string>
+  <plurals name=\\"Delivery_Widget_SubTitle\\">
+    <item quantity=\\"zero\\">%1$d Lopende bestelling</item>
+    <item quantity=\\"one\\">%1$d Lopende bestelling</item>
+    <item quantity=\\"other\\">%1$d Lopende bestellingen</item>
+  </plurals>
+</resources>
+",
+      "path": ".//android/nl/strings.xml",
+    },
+    Object {
+      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Blijf op de hoogte\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
+\\"Delivery.Widget.Title\\" = \\"Help %1$@\\";
+\\"Delivery.Widget.SpecialCharacters\\" = \\"Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings\\" = \\"Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+Let maar eens op!\\";
+\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Lopende bestelling\\";
+\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Lopende bestelling\\";
+\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Lopende bestellingen\\";
+",
+      "path": ".//ios/nl/Localizable.strings",
+    },
+  ],
+}
+`;

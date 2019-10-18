@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`grouping an array 1`] = `
+Object {
+  "en": Array [
+    Object {
+      "language": "en",
+      "translation": "A translation",
+    },
+  ],
+  "nl": Array [
+    Object {
+      "language": "nl",
+      "translation": "Een vertaling",
+    },
+  ],
+}
+`;

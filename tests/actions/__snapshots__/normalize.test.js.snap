@@ -1,0 +1,554 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`normalizing works as expected with Android only 1`] = `
+Array [
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Total",
+    ],
+    "language": "en",
+    "platform": "android",
+    "translation": "Total price: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Total",
+    ],
+    "language": "nl",
+    "platform": "android",
+    "translation": "Totaal: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Subtotal",
+    ],
+    "language": "en",
+    "platform": "android",
+    "translation": "Total price before taxes: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Subtotal",
+    ],
+    "language": "nl",
+    "platform": "android",
+    "translation": "Subtotaal: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "We support nesting as deep as you like",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Je kan zo veel lagen maken als je zelf wil",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "Help: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Help %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": Object {
+      "one": "%1{{d}} Pending order",
+      "other": "%1{{d}} Pending Orders",
+      "zero": "%1{{d}} Pending order",
+    },
+    "type": "PLURAL",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": Object {
+      "one": "%1{{d}} Lopende bestelling",
+      "other": "%1{{d}} Lopende bestellingen",
+      "zero": "%1{{d}} Lopende bestelling",
+    },
+    "type": "PLURAL",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "This > is a special <<Character>>",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Dit > is een speciaal <<Karakter>>",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+You better watch out!",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
+Let maar eens op!",
+    "type": "SINGULAR",
+  },
+]
+`;
+
+exports[`normalizing works as expected with all platforms 1`] = `
+Array [
+  Object {
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Title",
+    ],
+    "language": "en",
+    "platform": "ios",
+    "translation": "Stay up to date",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Title",
+    ],
+    "language": "nl",
+    "platform": "ios",
+    "translation": "Blijf op de hoogte",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Subtitle",
+    ],
+    "language": "en",
+    "platform": "ios",
+    "translation": "Stay up to date",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Total",
+    ],
+    "language": "en",
+    "platform": "android",
+    "translation": "Total price: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Total",
+    ],
+    "language": "nl",
+    "platform": "android",
+    "translation": "Totaal: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Subtotal",
+    ],
+    "language": "en",
+    "platform": "android",
+    "translation": "Total price before taxes: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Checkout",
+      "OrderOverview",
+      "Subtotal",
+    ],
+    "language": "nl",
+    "platform": "android",
+    "translation": "Subtotaal: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "We support nesting as deep as you like",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Je kan zo veel lagen maken als je zelf wil",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "Help: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Help %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": Object {
+      "one": "%1{{d}} Pending order",
+      "other": "%1{{d}} Pending Orders",
+      "zero": "%1{{d}} Pending order",
+    },
+    "type": "PLURAL",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": Object {
+      "one": "%1{{d}} Lopende bestelling",
+      "other": "%1{{d}} Lopende bestellingen",
+      "zero": "%1{{d}} Lopende bestelling",
+    },
+    "type": "PLURAL",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "This > is a special <<Character>>",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Dit > is een speciaal <<Karakter>>",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+You better watch out!",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
+Let maar eens op!",
+    "type": "SINGULAR",
+  },
+]
+`;
+
+exports[`normalizing works as expected with iOS only 1`] = `
+Array [
+  Object {
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Title",
+    ],
+    "language": "en",
+    "platform": "ios",
+    "translation": "Stay up to date",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Title",
+    ],
+    "language": "nl",
+    "platform": "ios",
+    "translation": "Blijf op de hoogte",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Subtitle",
+    ],
+    "language": "en",
+    "platform": "ios",
+    "translation": "Stay up to date",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "We support nesting as deep as you like",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Je kan zo veel lagen maken als je zelf wil",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "Help: %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Help %1{{s}}",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": Object {
+      "one": "%1{{d}} Pending order",
+      "other": "%1{{d}} Pending Orders",
+      "zero": "%1{{d}} Pending order",
+    },
+    "type": "PLURAL",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": Object {
+      "one": "%1{{d}} Lopende bestelling",
+      "other": "%1{{d}} Lopende bestellingen",
+      "zero": "%1{{d}} Lopende bestelling",
+    },
+    "type": "PLURAL",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "This > is a special <<Character>>",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Dit > is een speciaal <<Karakter>>",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "en",
+    "platform": "shared",
+    "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+You better watch out!",
+    "type": "SINGULAR",
+  },
+  Object {
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "nl",
+    "platform": "shared",
+    "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
+Let maar eens op!",
+    "type": "SINGULAR",
+  },
+]
+`;
