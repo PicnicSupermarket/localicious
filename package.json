@@ -11,6 +11,7 @@
   "private": false,
   "dependencies": {
     "ajv": "^6.10.2",
+    "better-ajv-errors": "^0.6.7",
     "commander": "^3.0.1",
     "git-clone": "^0.1.0",
     "js-yaml": "^3.13.1",
