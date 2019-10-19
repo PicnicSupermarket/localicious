@@ -3,21 +3,31 @@
     "Node": {
       "type": "object",
       "patternProperties": {
-        "^((?!plural).)*$": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Translation"
-            },
-            {
-              "$ref": "#/definitions/Node"
-            }
-          ]
+        "^ACCESSIBILITY$": {
+          "$ref": "#/definitions/AccessibilityWrapper"
         },
-        "^plural$": {
-          "$ref": "#/definitions/PluralWrapper"
+        "^COPY$": {
+          "$ref": "#/definitions/TranslationWrapper"
+        },
+        "^(?!COPY|ACCESSIBILITY).*$": {
+          "$ref": "#/definitions/Node"
         }
       },
       "additionalProperties": false
+    },
+    "AccessibilityWrapper": {
+      "type": "object",
+      "properties": {
+        "LABEL": {
+          "$ref": "#/definitions/TranslationWrapper"
+        },
+        "HINT": {
+          "$ref": "#/definitions/TranslationWrapper"
+        },
+        "VALUE": {
+          "$ref": "#/definitions/TranslationWrapper"
+        }
+      }
     },
     "Translation": {
       "type": "object",
@@ -25,20 +35,30 @@
       "required": [],
       "additionalProperties": false
     },
+    "TranslationWrapper": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Translation"
+        },
+        {
+          "$ref": "#/definitions/PluralWrapper"
+        }
+      ]
+    },
     "PluralWrapper": {
       "type": "object",
       "properties": {
-        "zero": {
+        "ZERO": {
           "$ref": "#/definitions/Translation"
         },
-        "one": {
+        "ONE": {
           "$ref": "#/definitions/Translation"
         },
-        "other": {
+        "OTHER": {
           "$ref": "#/definitions/Translation"
         }
       },
-      "required": ["zero", "one", "other"]
+      "required": ["ONE", "OTHER"]
     }
   },
   "type": "object",

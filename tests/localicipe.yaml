@@ -4,20 +4,24 @@ android:
   Checkout:
     OrderOverview:
       Total:
-        en: 'Total price: %1{{s}}'  # This placeholder will expand to %1$@ on iOS and %1$s on Android
-        nl: 'Totaal: %1{{s}}'
+        COPY:
+          en: 'Total price: %1{{s}}'  # This placeholder will expand to %1$@ on iOS and %1$s on Android
+          nl: 'Totaal: %1{{s}}'
       Subtotal:
-        en: 'Total price before taxes: %1{{s}}'
-        nl: 'Subtotaal: %1{{s}}'
+        COPY:
+          en: 'Total price before taxes: %1{{s}}'
+          nl: 'Subtotaal: %1{{s}}'
 # Strings that are used in iOS only
 ios:
   Settings:
     PushPermissionsRequest:
       Title:
-        en: 'Stay up to date'
-        nl: 'Blijf op de hoogte'
+        COPY:
+          en: 'Stay up to date'
+          nl: 'Blijf op de hoogte'
       Subtitle:
-        en: 'Stay up to date'
+        COPY:
+          en: 'Stay up to date'
 # Strings that are shared between Android and iOS
 shared:
   Something:
@@ -27,31 +31,73 @@ shared:
           Amount:
             Of:
               Nesting:
-                en: "We support nesting as deep as you like"
-                nl: "Je kan zo veel lagen maken als je zelf wil"
+                COPY:
+                  en: "We support nesting as deep as you like"
+                  nl: "Je kan zo veel lagen maken als je zelf wil"
   Delivery:
     Widget:
       Title:
-        en: "Help: %1{{s}}"
-        nl: "Help %1{{s}}"
+        COPY:
+          en: "Help: %1{{s}}"
+          nl: "Help %1{{s}}"
       SubTitle:
-        plural:
-          zero:
+        COPY:
+          ZERO:
             en: '%1{{d}} Pending order'
             nl: '%1{{d}} Lopende bestelling'
-          one:
+          ONE:
             en: '%1{{d}} Pending order'
             nl: '%1{{d}} Lopende bestelling'
-          other:
+          OTHER:
             en: '%1{{d}} Pending Orders'
             nl: '%1{{d}} Lopende bestellingen'
       SpecialCharacters:
-        en: "This > is a special <<Character>>"
-        nl: "Dit > is een speciaal <<Karakter>>"
+        COPY:
+          en: "This > is a special <<Character>>"
+          nl: "Dit > is een speciaal <<Karakter>>"
       MultilineStrings:
-        en: |-
-          This is a multiline string that may contain <a href="about:blank">links</a>
-          You better watch out!
-        nl: |-
-          Dit is een string van meerdere regels die <a href="about:blank">links</a> kan bevatten.
-          Let maar eens op!
+        COPY:
+          en: |-
+            This is a multiline string that may contain <a href="about:blank">links</a>
+            You better watch out!
+          nl: |-
+            Dit is een string van meerdere regels die <a href="about:blank">links</a> kan bevatten.
+            Let maar eens op!
+  Accessible:
+    RegularComponent:
+      COPY:
+        en: "This component with accessiblity support"
+        nl: "Dit is een component met accessiblity support"
+      ACCESSIBILITY:
+        HINT:        
+          en: "This is the hint"
+          nl: "Dit is de hint"
+        LABEL:
+          en: "This is the label"
+          nl: "Dit is de label"
+    PluralComponent:
+      COPY:
+        ONE:
+          en: "The singular copy"
+          nl: "De enkelvoudige copy"
+        OTHER:
+          en: "The plural copy"
+          nl: "De meervoudige copy"
+      ACCESSIBILITY:
+        HINT:        
+          ONE:
+            en: "The singular hint"
+            nl: "De enkelvoudige hint"
+          OTHER:
+            en: "The plural hint"
+            nl: "De meervoudige hint"
+        LABEL:
+          ONE:
+            en: "The singular label"
+            nl: "De enkelvoudige label"
+          OTHER:
+            en: "The plural label"
+            nl: "De meervoudige label"
+
+
+    
