@@ -1,6 +1,11 @@
 const { flatten } = require("../utils/arrayUtils");
-const { mapObject } = require("../utils/objectUtils");
 const { SHARED } = require("../model/platforms");
+const {
+  groupKeywords,
+  accessiblityKeywords,
+  isPluralGroup,
+  isLeafGroup
+} = require("../model/keywords");
 
 const SINGULAR = "SINGULAR";
 const PLURAL = "PLURAL";
@@ -11,11 +16,11 @@ const PLURAL = "PLURAL";
  * @param {*} data The YAML data to normalize.
  * @param {*} platforms The platforms to extract.
  */
-const normalizeYaml = (data, platforms) => {
+const normalizeYaml = (data, platforms, languages) => {
   return flatten(
     platforms
-      .map(platform => aggregate(data[platform], platform))
-      .concat(aggregate(data[SHARED], SHARED))
+      .map(platform => aggregate(data[platform], platform, languages))
+      .concat(aggregate(data[SHARED], SHARED, languages))
   );
 };
 
@@ -24,58 +29,69 @@ const normalizeYaml = (data, platforms) => {
  * Each translation encodes the language, the type of translation,
  * the keypath and the localized copy for the keypath.
  */
-const aggregate = (data, platform, keyPath) => {
+const aggregate = (data, platform, languages, keyPath) => {
   if (data === undefined) {
     return [];
   }
-
-  let result = Object.keys(data).map(key => {
+  
+  let result = Object.keys(data).reduce((acc, key) => {
     let value = data[key];
-    if (typeof value === "object" && value !== null && key != "plural") {
-      var newKeyPath = (keyPath || []).slice(0);
-      newKeyPath.push(key);
-      return aggregate(value, platform, newKeyPath);
-    } else {
-      if (key === "plural") {
-        return processPlural(keyPath, value, platform);
-      }
-      return {
-        type: SINGULAR,
-        platform: platform,
-        language: key,
-        keyPath: keyPath,
-        translation: value
-      };
+
+    if (isLeafGroup(value)) {
+      const newKeyPath = [...keyPath, key];
+      const entries = languages.map(language => {
+        const accessibilty =
+          groupKeywords.ACCESSIBILITY in value &&
+          processAccessiblity(language, value[groupKeywords.ACCESSIBILITY]);
+        const copy =
+          groupKeywords.COPY in value &&
+          processTranslation(language, value[groupKeywords.COPY]);
+        return {
+          platform: platform,
+          language: language,
+          keyPath: newKeyPath,
+          ...(accessibilty && { [groupKeywords.ACCESSIBILITY]: accessibilty }),
+          ...(copy && { [groupKeywords.COPY]: copy })
+        };
+      });
+      return [...acc, ...entries];
     }
-  });
+    const newKeyPath = [...(keyPath || []), key];
+    return [...acc, aggregate(value, platform, languages, newKeyPath)];
+  }, []);
   return flatten(result);
 };
 
-const processPlural = (keyPath, plurals, platform) => {
-  let pluralPerLanguage = {};
-  Object.keys(plurals).forEach(quantity => {
-    let obj = mapObject(plurals[quantity], translation => {
-      return {
-        quantity,
-        translation
-      };
-    });
-    Object.keys(obj).forEach(language => {
-      if (pluralPerLanguage[language] === undefined) {
-        pluralPerLanguage[language] = {
-          type: PLURAL,
-          platform: platform,
-          language,
-          keyPath,
-          translation: {}
-        };
-      }
-      let quantity = obj[language].quantity;
-      let translation = obj[language].translation;
-      pluralPerLanguage[language].translation[quantity] = translation;
-    });
-  });
-  return Object.values(pluralPerLanguage);
+const processAccessiblity = (language, value) => ({
+  ...processAccessiblityItem(accessiblityKeywords.HINT, language, value),
+  ...processAccessiblityItem(accessiblityKeywords.LABEL, language, value),
+  ...processAccessiblityItem(accessiblityKeywords.VALUE, language, value)
+});
+
+const processAccessiblityItem = (keyword, language, value) =>
+  keyword in value && {
+    [keyword]: processTranslation(language, value[keyword])
+  };
+
+const processTranslation = (language, value) => {
+  if (isPluralGroup(value)) {
+    return processPlural(value, language);
+  }
+  return {
+    type: SINGULAR,
+    translation: value[language]
+  };
+};
+
+const processPlural = (plurals, language) => {
+  const pluralMap = Object.keys(plurals).reduce(
+    (result, key) => ({
+      ...result,
+      [key]: plurals[key][language]
+    }),
+    {}
+  );
+  return { type: PLURAL, translation: pluralMap };
 };
 
 module.exports = { normalizeYaml, PLURAL, SINGULAR };

@@ -1,26 +1,32 @@
 const path = require("path");
-const { groupByKey } = require("../utils/arrayUtils");
-const { mapObject } = require("../utils/objectUtils");
+const Mustache = require("mustache");
+const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
-const Mustache = require("mustache");
 const { platforms, SHARED } = require("../model/platforms");
-const Result = require("../utils/result");
+const { groupKeywords } = require("../model/keywords");
+const { groupByKey } = require("../utils/arrayUtils");
+const { flatten } = require("../utils/arrayUtils");
 
 const render = (data, outputPath, platforms, languages) => {
-  const translations = normalizeYaml(data, platforms);
+  const translations = normalizeYaml(data, platforms, languages);
   return languages
     .reduce((acc, language) => {
-      let translationsForLanguage = translations.filter(
-        translation => translation.language === language
+      const translationsForLanguage = translations.filter(
+        t => t.language === language
       );
       platforms.forEach(platform => {
-        let translationsForPlatform = translationsForLanguage.filter(
+        const translationsForPlatform = translationsForLanguage.filter(
           translation => [platform, SHARED].includes(translation.platform)
         );
 
-        let view = viewForPlatform(translationsForPlatform, platform);
-        let renderedView = renderPlatform(view, platform, language, outputPath);
+        const view = viewForPlatform(translationsForPlatform, platform);
+        const renderedView = renderPlatform(
+          view,
+          platform,
+          language,
+          outputPath
+        );
         acc.push(renderedView);
       });
       return acc;
@@ -102,32 +108,62 @@ const substitute = (value, valueSubstitutions) => {
   return value;
 };
 
-const createView = (translations, delimiter, valueSubstitutions) => {
-  let translationsPerType = groupByKey(translations, val => val.type);
-  return mapObject(translationsPerType, translations => {
-    return translations.map(translation => {
-      switch (translation.type) {
-        case SINGULAR:
-          return {
-            key: translation.keyPath.join(delimiter),
-            value: substitute(translation.translation, valueSubstitutions)
-          };
-        case PLURAL:
-          return {
-            key: translation.keyPath.join(delimiter),
-            value: Object.keys(translation.translation).map(quantity => {
-              return {
-                key: quantity,
-                value: substitute(
-                  translation.translation[quantity],
-                  valueSubstitutions
-                )
-              };
-            })
-          };
-      }
+const createView = (translations, delimiter, substitutions) => {
+  const copyViews = translations
+    .filter(t => groupKeywords.COPY in t)
+    .map(t =>
+      createTranslationView(
+        t[groupKeywords.COPY],
+        [...t.keyPath, groupKeywords.COPY],
+        delimiter,
+        substitutions
+      )
+    );
+
+  const accessibilityViews = translations
+    .filter(t => groupKeywords.ACCESSIBILITY in t)
+    .map(t => {
+      const keyword = groupKeywords.ACCESSIBILITY;
+      const group = t[keyword];
+      return Object.keys(group).map(key =>
+        createTranslationView(
+          group[key],
+          [...t.keyPath, keyword, key],
+          delimiter,
+          substitutions
+        )
+      );
     });
-  });
+  const allViews = [...copyViews, ...flatten(accessibilityViews)];
+  return groupByKey(allViews, val => val.type);
+};
+
+const createTranslationView = (
+  translation,
+  keyPath,
+  delimiter,
+  substitutions
+) => {
+  const key = keyPath.join(delimiter);
+  switch (translation.type) {
+    case SINGULAR:
+      return {
+        key,
+        type: translation.type,
+        value: substitute(translation.translation, substitutions)
+      };
+    case PLURAL:
+      return {
+        key,
+        type: translation.type,
+        value: Object.keys(translation.translation).map(quantity => {
+          return {
+            quantity,
+            value: substitute(translation.translation[quantity], substitutions)
+          };
+        })
+      };
+  }
 };
 
 module.exports = render;
