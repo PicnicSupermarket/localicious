@@ -28,6 +28,7 @@
   },
   "scripts": {
     "lint": "yarn eslint --fix bin/**/* src/**/*.js tests/**/*.js",
+    "lint-on-ci": "yarn eslint bin/**/* src/**/*.js tests/**/*.js",
     "test": "jest"
   }
 }
