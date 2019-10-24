@@ -25,6 +25,10 @@ const normalizeYaml = (data, platforms) => {
  * the keypath and the localized copy for the keypath.
  */
 const aggregate = (data, platform, keyPath) => {
+  if (data === undefined) {
+    return [];
+  }
+
   let result = Object.keys(data).map(key => {
     let value = data[key];
     if (typeof value === "object" && value !== null && key != "plural") {

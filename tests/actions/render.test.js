@@ -29,3 +29,18 @@ test("rendering multiple languages works as expected", () => {
   );
   expect(res.value).toMatchSnapshot();
 });
+
+test("rendering works for a Localicipe with only shared keys", () => {
+  const res = loadYaml("tests/localicipe.yaml").map(data => {
+    const changedData = {
+      shared: data.shared
+    };
+    return render(
+      changedData,
+      "./",
+      [platforms.ANDROID, platforms.IOS],
+      ["en", "nl"]
+    );
+  });
+  expect(res.value).toMatchSnapshot();
+});
