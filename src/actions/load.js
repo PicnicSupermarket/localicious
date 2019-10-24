@@ -1,5 +1,5 @@
-const { createTmpDir } = require("../utils/fileUtils");
 const clone = require("git-clone");
+const { createTmpDir } = require("../utils/fileUtils");
 const Result = require("../utils/result");
 
 /**

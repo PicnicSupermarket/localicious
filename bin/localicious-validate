@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const path = require("path");
 const program = require("commander");
-
 const { loadYaml } = require("../src/utils/yamlUtils");
 const validate = require("../src/actions/validate");
 
