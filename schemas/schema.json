@@ -27,7 +27,8 @@
         "VALUE": {
           "$ref": "#/definitions/TranslationWrapper"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "Translation": {
       "type": "object",
@@ -58,11 +59,21 @@
           "$ref": "#/definitions/Translation"
         }
       },
-      "required": ["ONE", "OTHER"]
+      "required": ["ONE", "OTHER"],
+      "additionalProperties": false
     }
   },
   "type": "object",
-  "additionalProperties": {
-    "$ref": "#/definitions/Node"
-  }
+  "properties": {
+    "IOS": {
+      "$ref": "#/definitions/Node"
+    },
+    "ANDROID": {
+      "$ref": "#/definitions/Node"
+    },
+    "SHARED": {
+      "$ref": "#/definitions/Node"
+    }
+  },
+  "additionalProperties": false
 }
