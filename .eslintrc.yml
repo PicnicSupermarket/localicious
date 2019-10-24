@@ -8,6 +8,7 @@ extends:
   - plugin:jest/recommended
   - plugin:jest/style
   - plugin:prettier/recommended
+  - plugin:import/errors
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -18,3 +19,4 @@ plugins:
   - prettier
 rules:
   prettier/prettier: "error"
+  import/order: ["error", {"newlines-between": "never"}]
