@@ -17,8 +17,7 @@ const render = (data, outputPath, platforms, languages) => {
 
       platforms.forEach(platform => {
         const translationsForPlatform = translationsForLanguage.filter(
-          translation =>
-            [platform, platformKeywords.SHARED].includes(translation.platform)
+          translation => [platform, platformKeywords.SHARED].includes(translation.platform)
         );
         const view = viewForPlatform(translationsForPlatform, platform);
         const renderedView = renderPlatform(
@@ -65,9 +64,7 @@ const templateForPlatform = platform => {
 };
 
 const outputPathForPlatform = (basePath, platform, language) => {
-  return `${basePath}/${platform.toLowerCase()}/${language}/${filenameForPlatform(
-    platform
-  )}`;
+  return `${basePath}/${platform.toLowerCase()}/${language}/${filenameForPlatform(platform)}`;
 };
 
 const filenameForPlatform = platform => {

@@ -25,12 +25,7 @@ test("rendering 'en' works as expected for iOS only", () => {
 
 test("rendering multiple languages works as expected", () => {
   const res = loadYaml("tests/input/localicipe.yaml").map(data =>
-    render(
-      data,
-      "./",
-      [platformKeywords.ANDROID, platformKeywords.IOS],
-      ["en", "nl"]
-    )
+    render(data, "./", [platformKeywords.ANDROID, platformKeywords.IOS], ["en", "nl"])
   );
   expect(res.value).toMatchSnapshot();
 });
