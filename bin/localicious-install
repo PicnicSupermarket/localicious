@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const path = require("path");
 const program = require("commander");
 
 const load = require("../src/actions/load");
@@ -7,8 +8,13 @@ const validateAndRender = require("../src/actions/validateAndRender");
 
 program.parse(process.argv);
 
-const localiciousConfig = program.args[0];
-const outputPath = program.args[1];
+if (program.args.length < 2) {
+  console.log(`Usage: localicious install <localiciousConfig> <outputPath>`);
+  process.exit(1);
+}
+
+const localiciousConfig = path.resolve(process.cwd(), program.args[0]);
+const outputPath = path.resolve(process.cwd(), program.args[1]);
 
 loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
   load(localiciousConfig.source).then(result => {

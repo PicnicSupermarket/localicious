@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const path = require("path");
 const program = require("commander");
 const validateAndRender = require("../src/actions/validateAndRender");
 
@@ -11,8 +12,15 @@ program
   .option("-p --platforms <platforms>", "target platforms", commaSeparatedList)
   .parse(process.argv);
 
-const localicipePath = program.args[0];
-const outputPath = program.args[1];
+if (program.args.length < 2) {
+  console.log(
+    `Usage: localicious render <localicipe> <outputPath> -l <languages> -p <platforms>`
+  );
+  process.exit(1);
+}
+
+const localicipePath = path.resolve(process.cwd(), program.args[0]);
+const outputPath = path.resolve(process.cwd(), program.args[1]);
 
 if (program.languages === undefined || program.languages.length == 0) {
   console.error(`This command requires one or more output languages.`);

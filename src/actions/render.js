@@ -1,3 +1,4 @@
+const path = require("path");
 const { groupByKey } = require("../utils/arrayUtils");
 const { mapObject } = require("../utils/objectUtils");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
@@ -43,9 +44,16 @@ const renderPlatform = (view, platform, language, basePath) => {
 const templateForPlatform = platform => {
   switch (platform) {
     case platforms.ANDROID:
-      return loadFile("templates/strings_xml_file.mustache");
+      return loadFile(
+        path.resolve(__dirname, "../../templates/strings_xml_file.mustache")
+      );
     case platforms.IOS:
-      return loadFile("templates/localizable_strings_file.mustache");
+      return loadFile(
+        path.resolve(
+          __dirname,
+          "../../templates/localizable_strings_file.mustache"
+        )
+      );
   }
 };
 
