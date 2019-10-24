@@ -1,0 +1,12 @@
+IOS:
+  Checkout:
+    OrderOverview:
+      Total:
+        COPY:
+          ZERO:
+            en: 'Total price: %1{{s}}'
+            nl: 'Totaal: %1{{s}}'
+          ONE:
+            en: 'Total price: %1{{s}}'
+            nl: 'Totaal: %1{{s}}'
+    

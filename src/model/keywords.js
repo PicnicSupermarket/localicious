@@ -15,6 +15,12 @@ const accessiblityKeywords = {
   VALUE: "VALUE"
 };
 
+const platformKeywords = {
+  ANDROID: "ANDROID",
+  IOS: "IOS",
+  SHARED: "SHARED"
+}
+
 const isLeafGroup = group =>
   groupKeywords.ACCESSIBILITY in group || groupKeywords.COPY in group;
 
@@ -26,6 +32,7 @@ const isPluralGroup = group =>
 module.exports = {
   groupKeywords,
   accessiblityKeywords,
+  platformKeywords,
   isLeafGroup,
   isPluralGroup
 };

@@ -3,8 +3,7 @@ const Mustache = require("mustache");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
-const { platforms, SHARED } = require("../model/platforms");
-const { groupKeywords } = require("../model/keywords");
+const { groupKeywords, platformKeywords } = require("../model/keywords");
 const { groupByKey } = require("../utils/arrayUtils");
 const { flatten } = require("../utils/arrayUtils");
 
@@ -15,11 +14,11 @@ const render = (data, outputPath, platforms, languages) => {
       const translationsForLanguage = translations.filter(
         t => t.language === language
       );
+
       platforms.forEach(platform => {
         const translationsForPlatform = translationsForLanguage.filter(
-          translation => [platform, SHARED].includes(translation.platform)
+          translation => [platform, platformKeywords.SHARED].includes(translation.platform)
         );
-
         const view = viewForPlatform(translationsForPlatform, platform);
         const renderedView = renderPlatform(
           view,
@@ -37,6 +36,7 @@ const render = (data, outputPath, platforms, languages) => {
 };
 
 const renderPlatform = (view, platform, language, basePath) => {
+  view.lowerCase = () => (text, render) => render(text).toLowerCase()
   return templateForPlatform(platform)
     .map(template => Mustache.render(template, view))
     .map(data => {
@@ -49,29 +49,26 @@ const renderPlatform = (view, platform, language, basePath) => {
 
 const templateForPlatform = platform => {
   switch (platform) {
-    case platforms.ANDROID:
-      return loadFile(
-        path.resolve(__dirname, "../../templates/strings_xml_file.mustache")
-      );
-    case platforms.IOS:
-      return loadFile(
-        path.resolve(
-          __dirname,
-          "../../templates/localizable_strings_file.mustache"
-        )
-      );
+    case platformKeywords.ANDROID:
+      const file = path
+        .resolve(__dirname, "../../templates/strings_xml_file.mustache")
+      return loadFile(pafileth);
+    case platformKeywords.IOS:
+      const file = path
+        .resolve(__dirname, "../../templates/localizable_strings_file.mustache")
+      return loadFile(file);
   }
 };
 
 const outputPathForPlatform = (basePath, platform, language) => {
-  return `${basePath}/${platform}/${language}/${filenameForPlatform(platform)}`;
+  return `${basePath}/${platform.toLowerCase()}/${language}/${filenameForPlatform(platform)}`;
 };
 
 const filenameForPlatform = platform => {
   switch (platform) {
-    case platforms.ANDROID:
+    case platformKeywords.ANDROID:
       return "strings.xml";
-    case platforms.IOS:
+    case platformKeywords.IOS:
       return "Localizable.strings";
   }
 };
@@ -79,21 +76,21 @@ const filenameForPlatform = platform => {
 const viewForPlatform = (translations, platform) => {
   let substitutions = substitutionsForPlatform(platform);
   switch (platform) {
-    case platforms.ANDROID:
+    case platformKeywords.ANDROID:
       return createView(translations, "_", substitutions);
-    case platforms.IOS:
+    case platformKeywords.IOS:
       return createView(translations, ".", substitutions);
   }
 };
 
 const substitutionsForPlatform = platform => {
   switch (platform) {
-    case platforms.ANDROID:
+    case platformKeywords.ANDROID:
       return {
         s: "$s",
         d: "$d"
       };
-    case platforms.IOS:
+    case platformKeywords.IOS:
       return {
         s: "$@",
         d: "$d"
@@ -150,16 +147,17 @@ const createTranslationView = (
       return {
         key,
         type: translation.type,
-        value: substitute(translation.translation, substitutions)
+        value: translation.translation && substitute(translation.translation, substitutions)
       };
     case PLURAL:
       return {
         key,
         type: translation.type,
         value: Object.keys(translation.translation).map(quantity => {
+          const translationForQuantity = translation.translation[quantity]
           return {
             quantity,
-            value: substitute(translation.translation[quantity], substitutions)
+            value: translationForQuantity && substitute(translationForQuantity, substitutions)
           };
         })
       };

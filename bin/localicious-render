@@ -37,9 +37,10 @@ if (program.platforms === undefined || program.platforms.length == 0) {
   process.exit(1);
 }
 
-let invalidPlatforms = program.platforms.filter(option => {
+const invalidPlatforms = program.platforms.filter(option => {
   return !supportedPlatforms.includes(option);
 });
+
 if (invalidPlatforms.length != 0) {
   console.error(
     `Received invalid target platforms: '${invalidPlatforms.join(
@@ -49,11 +50,13 @@ if (invalidPlatforms.length != 0) {
   process.exit(1);
 }
 
+const platforms = program.platforms.map(platform => platform.toUpperCase())
+
 validateAndRender(
   localicipePath,
   outputPath,
   program.languages,
-  program.platforms
+  platforms
 )
   .onSuccess(() => {
     console.log(
