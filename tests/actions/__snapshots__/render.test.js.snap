@@ -4,33 +4,65 @@ exports[`rendering 'en' works as expected for all platforms 1`] = `
 Result {
   "value": Array [
     Object {
-      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Stay up to date\\";
-\\"Settings.PushPermissionsRequest.Subtitle\\" = \\"Stay up to date\\";
-\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"We support nesting as deep as you like\\";
-\\"Delivery.Widget.Title\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+      "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Stay up to date\\";
+\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you like\\";
+\\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
 You better watch out!\\";
-\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Pending Orders\\";
+\\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"This is the label\\";
+\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Pending Orders\\";
+\\"Accessible.PluralComponent.COPY.ONE\\" = \\"The singular copy\\";
+\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"The plural copy\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"The singular hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"The plural hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"The singular label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"The plural label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"No value for this component\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"The singular value\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The plural value\\";
 ",
       "path": ".//ios/en/Localizable.strings",
     },
     Object {
       "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <resources>
-  <string name=\\"Checkout_OrderOverview_Total\\">Total price: %1$s</string>
-  <string name=\\"Checkout_OrderOverview_Subtotal\\">Total price before taxes: %1$s</string>
-  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">We support nesting as deep as you like</string>
-  <string name=\\"Delivery_Widget_Title\\">Help: %1$s</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+  <string name=\\"Checkout_OrderOverview_Total_COPY\\">Total price: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">Total price before taxes: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">We support nesting as deep as you like</string>
+  <string name=\\"Delivery_Widget_Title_COPY\\">Help: %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
 You better watch out!</string>
-  <plurals name=\\"Delivery_Widget_SubTitle\\">
+  <string name=\\"Accessible_RegularComponent_COPY\\">This is a component with accessiblity support</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">This is the hint</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">This is the label</string>
+  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
     <item quantity=\\"zero\\">%1$d Pending order</item>
     <item quantity=\\"one\\">%1$d Pending order</item>
     <item quantity=\\"other\\">%1$d Pending Orders</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_COPY\\">
+    <item quantity=\\"one\\">The singular copy</item>
+    <item quantity=\\"other\\">The plural copy</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
+    <item quantity=\\"one\\">The singular hint</item>
+    <item quantity=\\"other\\">The plural hint</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
+    <item quantity=\\"one\\">The singular label</item>
+    <item quantity=\\"other\\">The plural label</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
+    <item quantity=\\"zero\\">No value for this component</item>
+    <item quantity=\\"one\\">The singular value</item>
+    <item quantity=\\"other\\">The plural value</item>
   </plurals>
 </resources>
 ",
@@ -46,17 +78,37 @@ Result {
     Object {
       "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <resources>
-  <string name=\\"Checkout_OrderOverview_Total\\">Total price: %1$s</string>
-  <string name=\\"Checkout_OrderOverview_Subtotal\\">Total price before taxes: %1$s</string>
-  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">We support nesting as deep as you like</string>
-  <string name=\\"Delivery_Widget_Title\\">Help: %1$s</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+  <string name=\\"Checkout_OrderOverview_Total_COPY\\">Total price: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">Total price before taxes: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">We support nesting as deep as you like</string>
+  <string name=\\"Delivery_Widget_Title_COPY\\">Help: %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
 You better watch out!</string>
-  <plurals name=\\"Delivery_Widget_SubTitle\\">
+  <string name=\\"Accessible_RegularComponent_COPY\\">This is a component with accessiblity support</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">This is the hint</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">This is the label</string>
+  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
     <item quantity=\\"zero\\">%1$d Pending order</item>
     <item quantity=\\"one\\">%1$d Pending order</item>
     <item quantity=\\"other\\">%1$d Pending Orders</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_COPY\\">
+    <item quantity=\\"one\\">The singular copy</item>
+    <item quantity=\\"other\\">The plural copy</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
+    <item quantity=\\"one\\">The singular hint</item>
+    <item quantity=\\"other\\">The plural hint</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
+    <item quantity=\\"one\\">The singular label</item>
+    <item quantity=\\"other\\">The plural label</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
+    <item quantity=\\"zero\\">No value for this component</item>
+    <item quantity=\\"one\\">The singular value</item>
+    <item quantity=\\"other\\">The plural value</item>
   </plurals>
 </resources>
 ",
@@ -70,16 +122,28 @@ exports[`rendering 'en' works as expected for iOS only 1`] = `
 Result {
   "value": Array [
     Object {
-      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Stay up to date\\";
-\\"Settings.PushPermissionsRequest.Subtitle\\" = \\"Stay up to date\\";
-\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"We support nesting as deep as you like\\";
-\\"Delivery.Widget.Title\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+      "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Stay up to date\\";
+\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you like\\";
+\\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
 You better watch out!\\";
-\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Pending Orders\\";
+\\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"This is the label\\";
+\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Pending Orders\\";
+\\"Accessible.PluralComponent.COPY.ONE\\" = \\"The singular copy\\";
+\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"The plural copy\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"The singular hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"The plural hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"The singular label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"The plural label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"No value for this component\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"The singular value\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The plural value\\";
 ",
       "path": ".//ios/en/Localizable.strings",
     },
@@ -93,65 +157,130 @@ Result {
     Object {
       "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <resources>
-  <string name=\\"Checkout_OrderOverview_Total\\">Total price: %1$s</string>
-  <string name=\\"Checkout_OrderOverview_Subtotal\\">Total price before taxes: %1$s</string>
-  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">We support nesting as deep as you like</string>
-  <string name=\\"Delivery_Widget_Title\\">Help: %1$s</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+  <string name=\\"Checkout_OrderOverview_Total_COPY\\">Total price: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">Total price before taxes: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">We support nesting as deep as you like</string>
+  <string name=\\"Delivery_Widget_Title_COPY\\">Help: %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
 You better watch out!</string>
-  <plurals name=\\"Delivery_Widget_SubTitle\\">
+  <string name=\\"Accessible_RegularComponent_COPY\\">This is a component with accessiblity support</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">This is the hint</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">This is the label</string>
+  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
     <item quantity=\\"zero\\">%1$d Pending order</item>
     <item quantity=\\"one\\">%1$d Pending order</item>
     <item quantity=\\"other\\">%1$d Pending Orders</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_COPY\\">
+    <item quantity=\\"one\\">The singular copy</item>
+    <item quantity=\\"other\\">The plural copy</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
+    <item quantity=\\"one\\">The singular hint</item>
+    <item quantity=\\"other\\">The plural hint</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
+    <item quantity=\\"one\\">The singular label</item>
+    <item quantity=\\"other\\">The plural label</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
+    <item quantity=\\"zero\\">No value for this component</item>
+    <item quantity=\\"one\\">The singular value</item>
+    <item quantity=\\"other\\">The plural value</item>
   </plurals>
 </resources>
 ",
       "path": ".//android/en/strings.xml",
     },
     Object {
-      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Stay up to date\\";
-\\"Settings.PushPermissionsRequest.Subtitle\\" = \\"Stay up to date\\";
-\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"We support nesting as deep as you like\\";
-\\"Delivery.Widget.Title\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+      "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Stay up to date\\";
+\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you like\\";
+\\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
 You better watch out!\\";
-\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Pending Orders\\";
+\\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"This is the label\\";
+\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Pending Orders\\";
+\\"Accessible.PluralComponent.COPY.ONE\\" = \\"The singular copy\\";
+\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"The plural copy\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"The singular hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"The plural hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"The singular label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"The plural label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"No value for this component\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"The singular value\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The plural value\\";
 ",
       "path": ".//ios/en/Localizable.strings",
     },
     Object {
       "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <resources>
-  <string name=\\"Checkout_OrderOverview_Total\\">Totaal: %1$s</string>
-  <string name=\\"Checkout_OrderOverview_Subtotal\\">Subtotaal: %1$s</string>
-  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting\\">Je kan zo veel lagen maken als je zelf wil</string>
-  <string name=\\"Delivery_Widget_Title\\">Help %1$s</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters\\">Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings\\">Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+  <string name=\\"Checkout_OrderOverview_Total_COPY\\">Totaal: %1$s</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">Subtotaal: %1$s</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">Je kan zo veel lagen maken als je zelf wil</string>
+  <string name=\\"Delivery_Widget_Title_COPY\\">Help %1$s</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
 Let maar eens op!</string>
-  <plurals name=\\"Delivery_Widget_SubTitle\\">
+  <string name=\\"Accessible_RegularComponent_COPY\\">Dit is een component met accessiblity support</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">Dit is de hint</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">Dit is de label</string>
+  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
     <item quantity=\\"zero\\">%1$d Lopende bestelling</item>
     <item quantity=\\"one\\">%1$d Lopende bestelling</item>
     <item quantity=\\"other\\">%1$d Lopende bestellingen</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_COPY\\">
+    <item quantity=\\"one\\">De enkelvoudige copy</item>
+    <item quantity=\\"other\\">De meervoudige copy</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
+    <item quantity=\\"one\\">De enkelvoudige hint</item>
+    <item quantity=\\"other\\">De meervoudige hint</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
+    <item quantity=\\"one\\">De enkelvoudige label</item>
+    <item quantity=\\"other\\">De meervoudige label</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
+    <item quantity=\\"zero\\">Geen waarde voor dit component</item>
+    <item quantity=\\"one\\">De enkelvoudige waarde</item>
+    <item quantity=\\"other\\">The meervoudige waarde</item>
   </plurals>
 </resources>
 ",
       "path": ".//android/nl/strings.xml",
     },
     Object {
-      "data": "\\"Settings.PushPermissionsRequest.Title\\" = \\"Blijf op de hoogte\\";
-\\"Something.With.An.Arbitrary.Amount.Of.Nesting\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
-\\"Delivery.Widget.Title\\" = \\"Help %1$@\\";
-\\"Delivery.Widget.SpecialCharacters\\" = \\"Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings\\" = \\"Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+      "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Blijf op de hoogte\\";
+\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
+\\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
 Let maar eens op!\\";
-\\"Delivery.Widget.SubTitle.zero\\" = \\"%1$d Lopende bestelling\\";
-\\"Delivery.Widget.SubTitle.one\\" = \\"%1$d Lopende bestelling\\";
-\\"Delivery.Widget.SubTitle.other\\" = \\"%1$d Lopende bestellingen\\";
+\\"Accessible.RegularComponent.COPY\\" = \\"Dit is een component met accessiblity support\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"Dit is de hint\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"Dit is de label\\";
+\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Lopende bestelling\\";
+\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Lopende bestelling\\";
+\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Lopende bestellingen\\";
+\\"Accessible.PluralComponent.COPY.ONE\\" = \\"De enkelvoudige copy\\";
+\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"De meervoudige copy\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"De enkelvoudige hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"De meervoudige hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"De enkelvoudige label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"De meervoudige label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"Geen waarde voor dit component\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"De enkelvoudige waarde\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The meervoudige waarde\\";
 ",
       "path": ".//ios/nl/Localizable.strings",
     },

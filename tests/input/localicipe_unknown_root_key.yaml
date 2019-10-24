@@ -1,0 +1,11 @@
+UNKNOWN_KEY:
+  Checkout:
+    OrderOverview:
+      Total:
+        COPY:
+          en: 'Total price: %1{{s}}'  # This placeholder will expand to %1$@ on iOS and %1$s on Android
+          nl: 'Totaal: %1{{s}}'
+      Subtotal:
+        COPY:
+          en: 'Total price before taxes: %1{{s}}'
+          nl: 'Subtotaal: %1{{s}}'

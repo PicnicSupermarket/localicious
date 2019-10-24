@@ -1,8 +1,8 @@
 const { flatten } = require("../utils/arrayUtils");
-const { SHARED } = require("../model/platforms");
 const {
   groupKeywords,
   accessiblityKeywords,
+  platformKeywords,
   isPluralGroup,
   isLeafGroup
 } = require("../model/keywords");
@@ -20,7 +20,7 @@ const normalizeYaml = (data, platforms, languages) => {
   return flatten(
     platforms
       .map(platform => aggregate(data[platform], platform, languages))
-      .concat(aggregate(data[SHARED], SHARED, languages))
+      .concat(aggregate(data[platformKeywords.SHARED], platformKeywords.SHARED, languages))
   );
 };
 

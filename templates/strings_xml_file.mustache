@@ -6,7 +6,7 @@
   {{# PLURAL}}
   <plurals name="{{ key }}">
   {{# value}}
-    <item quantity="{{ quantity }}">{{ value }}</item>
+    <item quantity="{{#lowerCase}}{{ quantity }}{{/lowerCase}}">{{ value }}</item>
   {{/ value}}
   </plurals>
   {{/ PLURAL}}
