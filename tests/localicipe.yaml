@@ -1,6 +1,6 @@
 ---
 # Strings that are used in Android only
-android:
+ANDROID:
   Checkout:
     OrderOverview:
       Total:
@@ -12,7 +12,7 @@ android:
           en: 'Total price before taxes: %1{{s}}'
           nl: 'Subtotaal: %1{{s}}'
 # Strings that are used in iOS only
-ios:
+IOS:
   Settings:
     PushPermissionsRequest:
       Title:
@@ -23,7 +23,7 @@ ios:
         COPY:
           en: 'Stay up to date'
 # Strings that are shared between Android and iOS
-shared:
+SHARED:
   Something:
     With:
       An:
