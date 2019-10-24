@@ -66,7 +66,7 @@ shared:
   Accessible:
     RegularComponent:
       COPY:
-        en: "This component with accessiblity support"
+        en: "This is a component with accessiblity support"
         nl: "Dit is een component met accessiblity support"
       ACCESSIBILITY:
         HINT:        
@@ -98,6 +98,16 @@ shared:
           OTHER:
             en: "The plural label"
             nl: "De meervoudige label"
+        VALUE:
+          ZERO:
+            en: "No value for this component"
+            nl: "Geen waarde voor dit component"
+          ONE:
+            en: "The singular value"
+            nl: "De enkelvoudige waarde"
+          OTHER:
+            en: "The plural value"
+            nl: "The meervoudige waarde"
 
 
     
