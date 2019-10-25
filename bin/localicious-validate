@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const path = require("path");
 const program = require("commander");
 
 const { loadYaml } = require("../src/utils/yamlUtils");
@@ -10,23 +11,30 @@ const commaSeparatedList = value => {
 
 program
   .option(
-    "-r --required-languages <items>",
+    "-r --required-languages <languages>",
     "required languages",
     commaSeparatedList
   )
   .option(
-    "-o --optional-languages <items>",
+    "-o --optional-languages <languages>",
     "optional languages",
     commaSeparatedList
   )
   .parse(process.argv);
 
-const localicipePath = program.args[0];
+if (program.args.length < 1) {
+  console.log(
+    `Usage: localicious validate <localicipe> -r <required languages> -o <optional languages>`
+  );
+  process.exit(1);
+}
+
+const localicipePath = path.resolve(process.cwd(), program.args[0]);
 
 loadYaml(localicipePath)
-  .flatMap(data =>
-    validate(data, program.requiredLanguages, program.optionalLanguages)
-  )
+  .flatMap(data => {
+    return validate(data, program.requiredLanguages, program.optionalLanguages);
+  })
   .onSuccess(() => {
     console.log("✅ Your Localicipe is perfect, keep up the good work!");
     process.exit(0);
