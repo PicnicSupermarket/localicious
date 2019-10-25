@@ -147,7 +147,7 @@ const createTranslationView = (
       return {
         key,
         type: translation.type,
-        value: translation.translation && substitute(translation.translation, substitutions)
+        value: substitute(translation.translation, substitutions)
       };
     case PLURAL:
       return {
@@ -157,7 +157,7 @@ const createTranslationView = (
           const translationForQuantity = translation.translation[quantity]
           return {
             quantity,
-            value: translationForQuantity && substitute(translationForQuantity, substitutions)
+            value: substitute(translation.translation[quantity], substitutions)
           };
         })
       };

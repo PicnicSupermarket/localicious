@@ -260,7 +260,7 @@ Let maar eens op!</string>
     },
     Object {
       "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Blijf op de hoogte\\";
-\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"\\";
+\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Blijf op de hoogte\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
 \\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;\\";
