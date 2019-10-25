@@ -25,20 +25,25 @@ test("rendering 'en' works as expected for iOS only", () => {
 
 test("rendering multiple languages works as expected", () => {
   const res = loadYaml("tests/input/localicipe.yaml").map(data =>
-    render(data, "./", [platformKeywords.ANDROID, platformKeywords.IOS], ["en", "nl"])
+    render(
+      data,
+      "./",
+      [platformKeywords.ANDROID, platformKeywords.IOS],
+      ["en", "nl"]
+    )
   );
   expect(res.value).toMatchSnapshot();
 });
 
 test("rendering works for a Localicipe with only shared keys", () => {
-  const res = loadYaml("tests/localicipe.yaml").map(data => {
+  const res = loadYaml("tests/input/localicipe.yaml").map(data => {
     const changedData = {
-      shared: data.shared
+      SHARED: data.SHARED
     };
     return render(
       changedData,
       "./",
-      [platforms.ANDROID, platforms.IOS],
+      [platformKeywords.ANDROID, platformKeywords.IOS],
       ["en", "nl"]
     );
   });
