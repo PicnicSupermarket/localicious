@@ -17,7 +17,8 @@ const render = (data, outputPath, platforms, languages) => {
 
       platforms.forEach(platform => {
         const translationsForPlatform = translationsForLanguage.filter(
-          translation => [platform, platformKeywords.SHARED].includes(translation.platform)
+          translation =>
+            [platform, platformKeywords.SHARED].includes(translation.platform)
         );
         const view = viewForPlatform(translationsForPlatform, platform);
         const renderedView = renderPlatform(
@@ -36,7 +37,7 @@ const render = (data, outputPath, platforms, languages) => {
 };
 
 const renderPlatform = (view, platform, language, basePath) => {
-  view.lowerCase = () => (text, render) => render(text).toLowerCase()
+  view.lowerCase = () => (text, render) => render(text).toLowerCase();
   return templateForPlatform(platform)
     .map(template => Mustache.render(template, view))
     .map(data => {
@@ -50,18 +51,23 @@ const renderPlatform = (view, platform, language, basePath) => {
 const templateForPlatform = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
-      const file = path
-        .resolve(__dirname, "../../templates/strings_xml_file.mustache")
-      return loadFile(pafileth);
+      return loadFile(
+        path.resolve(__dirname, "../../templates/strings_xml_file.mustache")
+      );
     case platformKeywords.IOS:
-      const file = path
-        .resolve(__dirname, "../../templates/localizable_strings_file.mustache")
-      return loadFile(file);
+      return loadFile(
+        path.resolve(
+          __dirname,
+          "../../templates/localizable_strings_file.mustache"
+        )
+      );
   }
 };
 
 const outputPathForPlatform = (basePath, platform, language) => {
-  return `${basePath}/${platform.toLowerCase()}/${language}/${filenameForPlatform(platform)}`;
+  return `${basePath}/${platform.toLowerCase()}/${language}/${filenameForPlatform(
+    platform
+  )}`;
 };
 
 const filenameForPlatform = platform => {
@@ -147,17 +153,21 @@ const createTranslationView = (
       return {
         key,
         type: translation.type,
-        value: substitute(translation.translation, substitutions)
+        value:
+          translation.translation &&
+          substitute(translation.translation, substitutions)
       };
     case PLURAL:
       return {
         key,
         type: translation.type,
         value: Object.keys(translation.translation).map(quantity => {
-          const translationForQuantity = translation.translation[quantity]
+          const translationForQuantity = translation.translation[quantity];
           return {
             quantity,
-            value: substitute(translation.translation[quantity], substitutions)
+            value:
+              translationForQuantity &&
+              substitute(translationForQuantity, substitutions)
           };
         })
       };

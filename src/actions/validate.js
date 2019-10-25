@@ -1,6 +1,5 @@
 const Ajv = require("ajv");
 const betterAjvErrors = require("better-ajv-errors");
-
 const Result = require("../utils/result");
 const schemaTemplate = require("../../schemas/schema.json");
 

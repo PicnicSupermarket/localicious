@@ -50,14 +50,9 @@ if (invalidPlatforms.length != 0) {
   process.exit(1);
 }
 
-const platforms = program.platforms.map(platform => platform.toUpperCase())
+const platforms = program.platforms.map(platform => platform.toUpperCase());
 
-validateAndRender(
-  localicipePath,
-  outputPath,
-  program.languages,
-  platforms
-)
+validateAndRender(localicipePath, outputPath, program.languages, platforms)
   .onSuccess(() => {
     console.log(
       `✅ Your Localicipe has been rendered successfully for platforms: ${program.platforms} and languages: ${program.languages}.`

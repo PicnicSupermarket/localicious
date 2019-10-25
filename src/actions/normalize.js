@@ -20,7 +20,13 @@ const normalizeYaml = (data, platforms, languages) => {
   return flatten(
     platforms
       .map(platform => aggregate(data[platform], platform, languages))
-      .concat(aggregate(data[platformKeywords.SHARED], platformKeywords.SHARED, languages))
+      .concat(
+        aggregate(
+          data[platformKeywords.SHARED],
+          platformKeywords.SHARED,
+          languages
+        )
+      )
   );
 };
 
@@ -33,7 +39,7 @@ const aggregate = (data, platform, languages, keyPath) => {
   if (data === undefined) {
     return [];
   }
-  
+
   let result = Object.keys(data).reduce((acc, key) => {
     let value = data[key];
 
