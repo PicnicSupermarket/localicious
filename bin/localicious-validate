@@ -24,7 +24,7 @@ program
 
 if (program.args.length < 1) {
   console.log(
-    `Usage: localicious validate <localicipe> -r <languages> -o <languages>`
+    `Usage: localicious validate <localicipe> -r <required languages> -o <optional languages>`
   );
   process.exit(1);
 }
@@ -33,7 +33,6 @@ const localicipePath = path.resolve(process.cwd(), program.args[0]);
 
 loadYaml(localicipePath)
   .flatMap(data => {
-    console.log(program.requiredLanguages);
     return validate(data, program.requiredLanguages, program.optionalLanguages);
   })
   .onSuccess(() => {

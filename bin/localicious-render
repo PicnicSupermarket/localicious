@@ -14,7 +14,7 @@ program
 
 if (program.args.length < 2) {
   console.log(
-    `Usage: localicious render <localicipe> <outputPath> -l <languages> -p <platforms>`
+    `Usage: localicious render <localicipe> <output path> -l <languages> -p <platforms>`
   );
   process.exit(1);
 }

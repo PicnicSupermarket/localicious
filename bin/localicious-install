@@ -9,7 +9,7 @@ const validateAndRender = require("../src/actions/validateAndRender");
 program.parse(process.argv);
 
 if (program.args.length < 2) {
-  console.log(`Usage: localicious install <localiciousConfig> <outputPath>`);
+  console.log(`Usage: localicious install <localicious config> <output path>`);
   process.exit(1);
 }
 
