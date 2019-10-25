@@ -2,7 +2,7 @@
 
 localicious is a toolchain for working with localization files in a platform-agnostic way. With it, you can:
 
-* Maintain all your localization key/value pairs in one file
+* Maintain all your localized copy and accessibility key/value pairs in one file, grouped per component.
 * Verify the integrity of your base localization file against a schema
 * Generate locale files for both Android and iOS from your base localization file
 
@@ -35,16 +35,25 @@ localicious requires node 10.12.0 or later.
 
 ## The Localicipe
 
-The central concept of localicious is the so-called Localicipe. It is a YAML file that contains all localized strings grouped by platform, feature and screen:
+The central concept of localicious is the so-called Localicipe. It is a YAML file that contains all localized copy and accessibility strings grouped by platform, feature and screen:
 
 ```
-ios|android|shared
+IOS|ANDROID|SHARED
   Feature
     Screen
       Element
-        en: "Translation for English speakers"
-        nl: "Vertaling voor Nederlandstaligen"
+        COPY:
+          en: "Translation for English speakers"
+          nl: "Vertaling voor Nederlandstaligen"
+        ACCESSIBILITY:
+          HINT|LABEL|VALUE:
+            en: "Accessibility for English speakers"
+            nl: "Toegankelijkheid voor Nederlandstaligen"
       AnotherElement
+        COPY:
+          ZERO|ONE|OTHER:
+            en: "Plural translation for English speakers"
+            nl: "Meervoudige vertaling voor Nederlandstaligen"
         ...
       ...
     ...
@@ -70,35 +79,38 @@ Consider the following Localicipe:
 ```
 ---
 # Strings that are used in Android only
-android:
+ANDROID:
   Checkout:
     OrderOverview:
       Total:
-        en: 'Total price: %1{{s}}'  # This placeholder will expand to %1$@ on iOS and %1$s on Android
-        nl: 'Totaal: %1{{s}}'
+        COPY:
+          en: 'Total price: %1{{s}}'  # This placeholder will expand to %1$@ on iOS and %1$s on Android
+          nl: 'Totaal: %1{{s}}'
 # Strings that are used in iOS only
-ios:
+IOS:
   Settings:
     PushPermissionsRequest:
       Title:
-        en: 'Stay up to date'
-        nl: 'Blijf op de hoogte'
+        COPY:
+          en: 'Stay up to date'
+          nl: 'Blijf op de hoogte'
 # Strings that are shared between Android and iOS
-shared:
+SHARED:
   Delivery:
     Widget:
       Title:
-        en: "Help"
-        nl: "Help"
+        COPY:
+          en: "Help"
+          nl: "Help"
       SubTitle:
-        plural:
-          zero:
+        COPY:
+          ZERO:
             en: '%1{{d}} Pending order'
             nl: '%1{{d}} Lopende bestelling'
-          one:
+          ONE:
             en: '%1{{d}} Pending order'
             nl: '%1{{d}} Lopende bestelling'
-          other:
+          OTHER:
             en: '%1{{d}} Pending Orders'
             nl: '%1{{d}} Lopende bestellingen'
 ```
@@ -112,9 +124,9 @@ We can generate a strings.xml file for Android with the English translations pro
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="Checkout.OrderOverview.Total">Total price: %1$s</string>
-  <string name="Delivery.Widget.Title">Help</string>
-  <plurals name="Delivery.Widget.SubTitle">
+  <string name="Checkout.OrderOverview.Total.COPY">Total price: %1$s</string>
+  <string name="Delivery.Widget.Title.COPY">Help</string>
+  <plurals name="Delivery.Widget.SubTitle.COPY">
     <item quantity="zero">%1$d Pending order</item>
     <item quantity="one">%1$d Pending order</item>
     <item quantity="other">%1$d Pending Orders</item>
@@ -133,11 +145,11 @@ By changing the destination, like so:
 the following Localizable.strings file will be generated for iOS:
 
 ```
-"Settings.PushPermissionsRequest.Title" = "Stay up to date";
-"Delivery.Widget.Title" = "Help";
-"Delivery.Widget.SubTitle.zero" = "%1$d Pending order";
-"Delivery.Widget.SubTitle.one" = "%1$d Pending order";
-"Delivery.Widget.SubTitle.other" = "%1$d Pending Orders";
+"Settings.PushPermissionsRequest.Title.COPY" = "Stay up to date";
+"Delivery.Widget.Title.COPY" = "Help";
+"Delivery.Widget.SubTitle.COPY.ZERO" = "%1$d Pending order";
+"Delivery.Widget.SubTitle.COPY.ONE" = "%1$d Pending order";
+"Delivery.Widget.SubTitle.COPY.OTHER" = "%1$d Pending Orders";
 ```
 
 ## Validating
@@ -148,14 +160,15 @@ Whenever we make changes to the Localicipe, it is important to verify that the f
 Settings:
   PushPermissionsRequest:
     Subtitle:
-      en: 'Stay up to date'
+      COPY
+        en: 'Stay up to date'
 ```
 
 Using the validation feature, we can validate whether the structure of the file is still correct after the change:
 
 `localicious validate ./copy.yaml --required-languages en,nl`
 
-Since we forgot to add a Dutch localization for the `Settings.PushPermissionsRequest.Subtitle` key, this will fail:
+Since we forgot to add a Dutch localization for the `Settings.PushPermissionsRequest.Subtitle.COPY` key, this will fail:
 
 ```
 ❌ Your Localicipe contains some issues.
