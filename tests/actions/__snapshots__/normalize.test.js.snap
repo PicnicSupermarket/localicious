@@ -370,7 +370,7 @@ Array [
   },
   Object {
     "COPY": Object {
-      "translation": undefined,
+      "translation": "Blijf op de hoogte",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -749,7 +749,7 @@ Array [
   },
   Object {
     "COPY": Object {
-      "translation": undefined,
+      "translation": "Blijf op de hoogte",
       "type": "SINGULAR",
     },
     "keyPath": Array [

@@ -22,6 +22,7 @@ IOS:
       Subtitle:
         COPY:
           en: 'Stay up to date'
+          nl: 'Blijf op de hoogte'
 # Strings that are shared between Android and iOS
 SHARED:
   Something:
