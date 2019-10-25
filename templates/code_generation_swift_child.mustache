@@ -1,0 +1,16 @@
+    {{#hasChildren}}
+    struct {{name}} {
+        {{#children}}
+        {{> child}}
+        {{/children}}
+    }
+    {{/hasChildren}}
+    {{^hasChildren}}
+    static let {{name}} = LocaliciousData(
+        accessibilityIdentifier: "{{identifier}}",
+        accessibilityHintKey: {{#ACCESSIBILITY.HINT}}"{{.}}"{{/ACCESSIBILITY.HINT}}{{^ACCESSIBILITY.HINT}}nil{{/ACCESSIBILITY.HINT}},
+        accessibilityLabelKey: {{#ACCESSIBILITY.LABEL}}"{{.}}"{{/ACCESSIBILITY.LABEL}}{{^ACCESSIBILITY.LABEL}}nil{{/ACCESSIBILITY.LABEL}},
+        accessibilityValueKey: {{#ACCESSIBILITY.VALUE}}"{{.}}"{{/ACCESSIBILITY.VALUE}}{{^ACCESSIBILITY.VALUE}}nil{{/ACCESSIBILITY.VALUE}},
+        translationKey: {{#COPY}}"{{.}}"{{/COPY}}{{^COPY}}nil{{/COPY}}
+    )
+    {{/hasChildren}}

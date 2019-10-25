@@ -9,45 +9,54 @@ const { flatten } = require("../utils/arrayUtils");
 
 const render = (data, outputPath, platforms, languages) => {
   const translations = normalizeYaml(data, platforms, languages);
-  return languages
-    .reduce((acc, language) => {
-      const translationsForLanguage = translations.filter(
-        t => t.language === language
-      );
+  const translationsPerLanguage = groupByKey(translations, t => t.language);
 
-      platforms.forEach(platform => {
-        const translationsForPlatform = translationsForLanguage.filter(
-          translation => [platform, platformKeywords.SHARED].includes(translation.platform)
+  const localizationRenders = Object.keys(translationsPerLanguage).reduce(
+    (acc, language) => {
+      const translationsForLanguage = translationsPerLanguage[language];
+      const renderResults = platforms.map(platform => {
+        const translations = translationsForLanguage.filter(t =>
+          includeInPlatform(t, platform)
         );
-        const view = viewForPlatform(translationsForPlatform, platform);
-        const renderedView = renderPlatform(
-          view,
-          platform,
-          language,
-          outputPath
-        );
-        acc.push(renderedView);
+        const view = createLocalizationView(translations, platform);
+        return renderLocalization(view, platform, language, outputPath);
       });
-      return acc;
-    }, [])
-    .reduce((acc, result) => {
-      return acc.flatMap(value => result.map(r => value.concat([r])));
-    }, Result.success([]));
+      return [...acc, ...renderResults];
+    },
+    []
+  );
+
+  const codeGenerationRenders = platforms
+    .map(platform => [createCodeGenView(translations, platform), platform])
+    .map(([view, platform]) => renderCodeGenView(view, platform, outputPath));
+
+  return [...localizationRenders, ...codeGenerationRenders]
+    .filter(render => !!render)
+    .reduce(
+      (acc, result) => acc.flatMap(value => result.map(r => value.concat([r]))),
+      Result.success([])
+    );
 };
 
-const renderPlatform = (view, platform, language, basePath) => {
+const includeInPlatform = (translation, platform) =>
+  [platform, platformKeywords.SHARED].includes(translation.platform);
+
+const renderLocalization = (view, platform, language, basePath) => {
+  const outputPath = localizationOutputPath(basePath, platform, language);
   view.lowerCase = () => (text, render) => render(text).toLowerCase();
-  return templateForPlatform(platform)
+  return localizationTemplate(platform)
     .map(template => Mustache.render(template, view))
-    .map(data => {
-      return {
-        path: outputPathForPlatform(basePath, platform, language),
-        data: data
-      };
-    });
+    .map(render => ({ path: outputPath, data: render }));
 };
 
-const templateForPlatform = platform => {
+const renderCodeGenView = (view, platform, basePath) => {
+  const outputPath = codeGenerationOutputPath(basePath, platform);
+  return codeGenerationTemplate(platform)
+    .map(({ template, partials }) => Mustache.render(template, view, partials))
+    .map(render => ({ path: outputPath, data: render }));
+};
+
+const localizationTemplate = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
       return loadFile(
@@ -63,11 +72,34 @@ const templateForPlatform = platform => {
   }
 };
 
-const outputPathForPlatform = (basePath, platform, language) => {
-  return `${basePath}/${platform.toLowerCase()}/${language}/${filenameForPlatform(platform)}`;
+const codeGenerationTemplate = platform => {
+  switch (platform) {
+    case platformKeywords.ANDROID:
+      return Result.success({ template: "", partial: null });
+    case platformKeywords.IOS:
+      return loadFile("templates/code_generation_swift_file.mustache").flatMap(
+        template =>
+          loadFile("templates/code_generation_swift_child.mustache").flatMap(
+            partial =>
+              Result.success({ template, partials: { child: partial } })
+          )
+      );
+  }
 };
 
-const filenameForPlatform = platform => {
+const localizationOutputPath = (basePath, platform, language) => {
+  return `${basePath}/${platform.toLowerCase()}/${language}/${localizationFileName(
+    platform
+  )}`;
+};
+
+const codeGenerationOutputPath = (basePath, platform) => {
+  return `${basePath}/${platform.toLowerCase()}/${codeGenerationFileName(
+    platform
+  )}`;
+};
+
+const localizationFileName = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
       return "strings.xml";
@@ -76,13 +108,12 @@ const filenameForPlatform = platform => {
   }
 };
 
-const viewForPlatform = (translations, platform) => {
-  let substitutions = substitutionsForPlatform(platform);
+const codeGenerationFileName = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
-      return createView(translations, "_", substitutions);
+      return "Localizable.kt";
     case platformKeywords.IOS:
-      return createView(translations, ".", substitutions);
+      return "Localizable.swift";
   }
 };
 
@@ -101,6 +132,15 @@ const substitutionsForPlatform = platform => {
   }
 };
 
+const keyDelimiterForPlatform = platform => {
+  switch (platform) {
+    case platformKeywords.ANDROID:
+      return "_";
+    case platformKeywords.IOS:
+      return ".";
+  }
+};
+
 const substitute = (value, valueSubstitutions) => {
   Object.keys(valueSubstitutions).forEach(search => {
     value = value.replace(`{{${search}}}`, valueSubstitutions[search]);
@@ -108,7 +148,60 @@ const substitute = (value, valueSubstitutions) => {
   return value;
 };
 
-const createView = (translations, delimiter, substitutions) => {
+const createCodeGenView = (translations, platform) => {
+  const delimiter = keyDelimiterForPlatform(platform);
+
+  let view = {};
+  translations.forEach(item => {
+    let result = view;
+    item.keyPath.forEach((name, index) => {
+      if (index === item.keyPath.length - 1) {
+        const copyKeyword = groupKeywords.COPY;
+        const accKeyword = groupKeywords.ACCESSIBILITY;
+        const leaf = {
+          name,
+          identifier: item.keyPath.join(delimiter),
+          ...(item[copyKeyword] && {
+            [copyKeyword]: [...item.keyPath, copyKeyword].join(delimiter)
+          }),
+          ...(item[accKeyword] && {
+            [accKeyword]: createAccessibilityKeyPaths(item, delimiter)
+          })
+        };
+        result.children = [
+          ...(result.children || []),
+          { ...leaf, hasChildren: false }
+        ];
+      } else {
+        const child =
+          result.children && result.children.find(child => child.name === name);
+        if (child) {
+          result = child;
+        } else {
+          const child = { name, hasChildren: true };
+          result.children = [...(result.children || []), child];
+          result = child;
+        }
+      }
+    });
+  });
+  return view;
+};
+
+const createAccessibilityKeyPaths = (translation, delimiter) => {
+  const keyword = groupKeywords.ACCESSIBILITY;
+  const group = translation[keyword];
+  return Object.keys(group).reduce((acc, key) => {
+    return {
+      ...acc,
+      [key]: [...translation.keyPath, keyword, key].join(delimiter)
+    };
+  }, {});
+};
+
+const createLocalizationView = (translations, platform) => {
+  const substitutions = substitutionsForPlatform(platform);
+  const delimiter = keyDelimiterForPlatform(platform);
   const copyViews = translations
     .filter(t => groupKeywords.COPY in t)
     .map(t =>
