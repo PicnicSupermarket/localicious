@@ -15,6 +15,23 @@ struct LocaliciousData: LocalisationProvider {
     let translationKey: String?
 }
 
+enum LocaliciousQuantity: String {
+    case zero = "ZERO"
+    case one = "ONE"
+    case other = "OTHER"
+
+    init(quanitity: Int) {
+        switch true {
+        case quanitity == 0:
+            self = .zero
+        case quanitity == 1:
+            self = .one
+        default:
+            self = .other
+        }
+    }
+}
+
 extension LocalisationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil

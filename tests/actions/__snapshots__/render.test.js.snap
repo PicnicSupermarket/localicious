@@ -86,6 +86,23 @@ struct LocaliciousData: LocalisationProvider {
     let translationKey: String?
 }
 
+enum LocaliciousQuantity: String {
+    case zero = \\"ZERO\\"
+    case one = \\"ONE\\"
+    case other = \\"OTHER\\"
+
+    init(quanitity: Int) {
+        switch true {
+        case quanitity == 0:
+            self = .zero
+        case quanitity == 1:
+            self = .one
+        default:
+            self = .other
+        }
+    }
+}
+
 extension LocalisationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
@@ -193,13 +210,16 @@ struct L {
                         accessibilityValueKey: nil,
                         translationKey: \\"Delivery.Widget.Title.COPY\\"
                     )
-                    static let SubTitle = LocaliciousData(
+                    static func SubTitle(quantity: Int) -> LocaliciousData {
+                        let quantityType = LocaliciousQuantity(quanitity: quantity)
+                        return LocaliciousData(
                         accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                         accessibilityHintKey: nil,
                         accessibilityLabelKey: nil,
                         accessibilityValueKey: nil,
-                        translationKey: \\"Delivery.Widget.SubTitle.COPY\\"
+                        translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\"
                     )
+                    }
                     static let SpecialCharacters = LocaliciousData(
                         accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                         accessibilityHintKey: nil,
@@ -224,13 +244,16 @@ struct L {
                 accessibilityValueKey: nil,
                 translationKey: \\"Accessible.RegularComponent.COPY\\"
             )
-            static let PluralComponent = LocaliciousData(
+            static func PluralComponent(quantity: Int) -> LocaliciousData {
+                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT\\",
-                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL\\",
-                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE\\",
-                translationKey: \\"Accessible.PluralComponent.COPY\\"
+                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
+                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
+                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
+                translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\"
             )
+            }
     }
 }",
       "path": ".//ios/Localizable.swift",
@@ -340,6 +363,23 @@ struct LocaliciousData: LocalisationProvider {
     let translationKey: String?
 }
 
+enum LocaliciousQuantity: String {
+    case zero = \\"ZERO\\"
+    case one = \\"ONE\\"
+    case other = \\"OTHER\\"
+
+    init(quanitity: Int) {
+        switch true {
+        case quanitity == 0:
+            self = .zero
+        case quanitity == 1:
+            self = .one
+        default:
+            self = .other
+        }
+    }
+}
+
 extension LocalisationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
@@ -429,13 +469,16 @@ struct L {
                         accessibilityValueKey: nil,
                         translationKey: \\"Delivery.Widget.Title.COPY\\"
                     )
-                    static let SubTitle = LocaliciousData(
+                    static func SubTitle(quantity: Int) -> LocaliciousData {
+                        let quantityType = LocaliciousQuantity(quanitity: quantity)
+                        return LocaliciousData(
                         accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                         accessibilityHintKey: nil,
                         accessibilityLabelKey: nil,
                         accessibilityValueKey: nil,
-                        translationKey: \\"Delivery.Widget.SubTitle.COPY\\"
+                        translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\"
                     )
+                    }
                     static let SpecialCharacters = LocaliciousData(
                         accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                         accessibilityHintKey: nil,
@@ -460,13 +503,16 @@ struct L {
                 accessibilityValueKey: nil,
                 translationKey: \\"Accessible.RegularComponent.COPY\\"
             )
-            static let PluralComponent = LocaliciousData(
+            static func PluralComponent(quantity: Int) -> LocaliciousData {
+                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT\\",
-                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL\\",
-                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE\\",
-                translationKey: \\"Accessible.PluralComponent.COPY\\"
+                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
+                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
+                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
+                translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\"
             )
+            }
     }
 }",
       "path": ".//ios/Localizable.swift",
@@ -630,6 +676,23 @@ struct LocaliciousData: LocalisationProvider {
     let translationKey: String?
 }
 
+enum LocaliciousQuantity: String {
+    case zero = \\"ZERO\\"
+    case one = \\"ONE\\"
+    case other = \\"OTHER\\"
+
+    init(quanitity: Int) {
+        switch true {
+        case quanitity == 0:
+            self = .zero
+        case quanitity == 1:
+            self = .one
+        default:
+            self = .other
+        }
+    }
+}
+
 extension LocalisationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
@@ -779,20 +842,26 @@ struct L {
                         accessibilityValueKey: nil,
                         translationKey: \\"Delivery.Widget.Title.COPY\\"
                     )
-                    static let SubTitle = LocaliciousData(
+                    static func SubTitle(quantity: Int) -> LocaliciousData {
+                        let quantityType = LocaliciousQuantity(quanitity: quantity)
+                        return LocaliciousData(
                         accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                         accessibilityHintKey: nil,
                         accessibilityLabelKey: nil,
                         accessibilityValueKey: nil,
-                        translationKey: \\"Delivery.Widget.SubTitle.COPY\\"
+                        translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\"
                     )
-                    static let SubTitle = LocaliciousData(
+                    }
+                    static func SubTitle(quantity: Int) -> LocaliciousData {
+                        let quantityType = LocaliciousQuantity(quanitity: quantity)
+                        return LocaliciousData(
                         accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                         accessibilityHintKey: nil,
                         accessibilityLabelKey: nil,
                         accessibilityValueKey: nil,
-                        translationKey: \\"Delivery.Widget.SubTitle.COPY\\"
+                        translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\"
                     )
+                    }
                     static let SpecialCharacters = LocaliciousData(
                         accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                         accessibilityHintKey: nil,
@@ -838,20 +907,26 @@ struct L {
                 accessibilityValueKey: nil,
                 translationKey: \\"Accessible.RegularComponent.COPY\\"
             )
-            static let PluralComponent = LocaliciousData(
+            static func PluralComponent(quantity: Int) -> LocaliciousData {
+                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT\\",
-                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL\\",
-                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE\\",
-                translationKey: \\"Accessible.PluralComponent.COPY\\"
+                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
+                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
+                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
+                translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\"
             )
-            static let PluralComponent = LocaliciousData(
+            }
+            static func PluralComponent(quantity: Int) -> LocaliciousData {
+                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT\\",
-                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL\\",
-                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE\\",
-                translationKey: \\"Accessible.PluralComponent.COPY\\"
+                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
+                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
+                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
+                translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\"
             )
+            }
     }
 }",
       "path": ".//ios/Localizable.swift",
@@ -984,6 +1059,219 @@ Let maar eens op!\\";
 \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The meervoudige waarde\\";
 ",
       "path": ".//ios/nl/Localizable.strings",
+    },
+    Object {
+      "data": Object {},
+      "path": ".//android/Localizable.kt",
+    },
+    Object {
+      "data": "import UIKit
+
+protocol LocalisationProvider {
+    var translationKey: String? { get }
+    var accessibilityHintKey: String? { get }
+    var accessibilityLabelKey: String? { get }
+    var accessibilityValueKey: String? { get }
+}
+
+struct LocaliciousData: LocalisationProvider {
+    let accessibilityIdentifier: String
+    let accessibilityHintKey: String?
+    let accessibilityLabelKey: String?
+    let accessibilityValueKey: String?
+    let translationKey: String?
+}
+
+enum LocaliciousQuantity: String {
+    case zero = \\"ZERO\\"
+    case one = \\"ONE\\"
+    case other = \\"OTHER\\"
+
+    init(quanitity: Int) {
+        switch true {
+        case quanitity == 0:
+            self = .zero
+        case quanitity == 1:
+            self = .one
+        default:
+            self = .other
+        }
+    }
+}
+
+extension LocalisationProvider {
+    var translation: String? {
+        return translationKey.map(translation) ?? nil
+    }
+
+    var accessibilityHint: String? {
+        return accessibilityHintKey.map(translation) ?? nil
+    }
+
+    var accessibilityLabel: String? {
+        return accessibilityLabelKey.map(translation) ?? nil
+    }
+
+    var accessibilityValue: String? {
+        return accessibilityValueKey.map(translation) ?? nil
+    }
+
+    private func translation(forKey key: String) -> String? {
+        return NSLocalizedString(key, comment: \\"\\")
+    }
+}
+
+extension UIButton {
+    func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
+        setTitle(data.translation, for: controlState)
+        self.accessibilityIdentifier = data.accessibilityIdentifier
+        self.accessibilityValue = data.accessibilityValue
+        self.accessibilityHint = data.accessibilityHint
+        self.accessibilityLabel = data.accessibilityLabel
+    }
+}
+
+extension UILabel {
+    func setLocalicious(_ data: LocaliciousData) {
+        self.text = data.translation
+        self.accessibilityIdentifier = data.accessibilityIdentifier
+        self.accessibilityValue = data.accessibilityValue
+        self.accessibilityHint = data.accessibilityHint
+        self.accessibilityLabel = data.accessibilityLabel
+    }
+}
+
+struct L {
+    struct Something {
+            struct With {
+                    struct An {
+                            struct Arbitrary {
+                                    struct Amount {
+                                            struct Of {
+                                                    static let Nesting = LocaliciousData(
+                                                        accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
+                                                        accessibilityHintKey: nil,
+                                                        accessibilityLabelKey: nil,
+                                                        accessibilityValueKey: nil,
+                                                        translationKey: \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\"
+                                                    )
+                                                    static let Nesting = LocaliciousData(
+                                                        accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
+                                                        accessibilityHintKey: nil,
+                                                        accessibilityLabelKey: nil,
+                                                        accessibilityValueKey: nil,
+                                                        translationKey: \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\"
+                                                    )
+                                            }
+                                    }
+                            }
+                    }
+            }
+    }
+    struct Delivery {
+            struct Widget {
+                    static let Title = LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.Title\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.Title.COPY\\"
+                    )
+                    static let Title = LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.Title\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.Title.COPY\\"
+                    )
+                    static func SubTitle(quantity: Int) -> LocaliciousData {
+                        let quantityType = LocaliciousQuantity(quanitity: quantity)
+                        return LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\"
+                    )
+                    }
+                    static func SubTitle(quantity: Int) -> LocaliciousData {
+                        let quantityType = LocaliciousQuantity(quanitity: quantity)
+                        return LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\"
+                    )
+                    }
+                    static let SpecialCharacters = LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\"
+                    )
+                    static let SpecialCharacters = LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\"
+                    )
+                    static let MultilineStrings = LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.MultilineStrings.COPY\\"
+                    )
+                    static let MultilineStrings = LocaliciousData(
+                        accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
+                        accessibilityHintKey: nil,
+                        accessibilityLabelKey: nil,
+                        accessibilityValueKey: nil,
+                        translationKey: \\"Delivery.Widget.MultilineStrings.COPY\\"
+                    )
+            }
+    }
+    struct Accessible {
+            static let RegularComponent = LocaliciousData(
+                accessibilityIdentifier: \\"Accessible.RegularComponent\\",
+                accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
+                accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
+                accessibilityValueKey: nil,
+                translationKey: \\"Accessible.RegularComponent.COPY\\"
+            )
+            static let RegularComponent = LocaliciousData(
+                accessibilityIdentifier: \\"Accessible.RegularComponent\\",
+                accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
+                accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
+                accessibilityValueKey: nil,
+                translationKey: \\"Accessible.RegularComponent.COPY\\"
+            )
+            static func PluralComponent(quantity: Int) -> LocaliciousData {
+                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                return LocaliciousData(
+                accessibilityIdentifier: \\"Accessible.PluralComponent\\",
+                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
+                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
+                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
+                translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\"
+            )
+            }
+            static func PluralComponent(quantity: Int) -> LocaliciousData {
+                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                return LocaliciousData(
+                accessibilityIdentifier: \\"Accessible.PluralComponent\\",
+                accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
+                accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
+                accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
+                translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\"
+            )
+            }
+    }
+}",
+      "path": ".//ios/Localizable.swift",
     },
   ],
 }

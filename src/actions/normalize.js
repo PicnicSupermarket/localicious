@@ -20,13 +20,7 @@ const normalizeYaml = (data, platforms, languages) => {
   return flatten(
     platforms
       .map(platform => aggregate(data[platform], platform, languages))
-      .concat(
-        aggregate(
-          data[platformKeywords.SHARED],
-          platformKeywords.SHARED,
-          languages
-        )
-      )
+      .concat(aggregate(data[platformKeywords.SHARED], platformKeywords.SHARED, languages))
   );
 };
 
@@ -50,8 +44,7 @@ const aggregate = (data, platform, languages, keyPath) => {
           groupKeywords.ACCESSIBILITY in value &&
           processAccessiblity(language, value[groupKeywords.ACCESSIBILITY]);
         const copy =
-          groupKeywords.COPY in value &&
-          processTranslation(language, value[groupKeywords.COPY]);
+          groupKeywords.COPY in value && processTranslation(language, value[groupKeywords.COPY]);
         return {
           platform: platform,
           language: language,

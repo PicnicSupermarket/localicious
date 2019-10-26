@@ -30,12 +30,7 @@ loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
       .flatMap(configuration => {
         const { path, options } = configuration;
 
-        return validateAndRender(
-          path,
-          outputPath,
-          options.languages,
-          options.platforms
-        );
+        return validateAndRender(path, outputPath, options.languages, options.platforms);
       })
       .onSuccess(() => {
         console.log(`✅ Your Localicipe was rendered successfully.`);

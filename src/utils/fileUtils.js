@@ -39,9 +39,7 @@ const writeFiles = files => {
       return acc;
     }, []);
   if (errors.length != 0) {
-    return Result.error(
-      `Could not write the following files:\n${errors.join("\n")}`
-    );
+    return Result.error(`Could not write the following files:\n${errors.join("\n")}`);
   }
   return Result.success(files.map(file => file.path));
 };

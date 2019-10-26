@@ -6,11 +6,23 @@
     }
     {{/hasChildren}}
     {{^hasChildren}}
+    {{#containsQuantity}}
+    static func {{name}}(quantity: Int) -> LocaliciousData {
+        let quantityType = LocaliciousQuantity(quanitity: quantity)
+        return LocaliciousData(
+    {{/containsQuantity}}
+    {{^containsQuantity}}
     static let {{name}} = LocaliciousData(
+    {{/containsQuantity}}
+        {{#ACCESSIBILITY}}
         accessibilityIdentifier: "{{identifier}}",
-        accessibilityHintKey: {{#ACCESSIBILITY.HINT}}"{{.}}"{{/ACCESSIBILITY.HINT}}{{^ACCESSIBILITY.HINT}}nil{{/ACCESSIBILITY.HINT}},
-        accessibilityLabelKey: {{#ACCESSIBILITY.LABEL}}"{{.}}"{{/ACCESSIBILITY.LABEL}}{{^ACCESSIBILITY.LABEL}}nil{{/ACCESSIBILITY.LABEL}},
-        accessibilityValueKey: {{#ACCESSIBILITY.VALUE}}"{{.}}"{{/ACCESSIBILITY.VALUE}}{{^ACCESSIBILITY.VALUE}}nil{{/ACCESSIBILITY.VALUE}},
-        translationKey: {{#COPY}}"{{.}}"{{/COPY}}{{^COPY}}nil{{/COPY}}
+        accessibilityHintKey: {{#HINT}}"{{keyPath}}{{#containsQuantity}}.\(quantityType){{/containsQuantity}}"{{/HINT}}{{^HINT}}nil{{/HINT}},
+        accessibilityLabelKey: {{#LABEL}}"{{keyPath}}{{#containsQuantity}}.\(quantityType){{/containsQuantity}}"{{/LABEL}}{{^LABEL}}nil{{/LABEL}},
+        accessibilityValueKey: {{#VALUE}}"{{keyPath}}{{#containsQuantity}}.\(quantityType){{/containsQuantity}}"{{/VALUE}}{{^VALUE}}nil{{/VALUE}},
+        {{/ACCESSIBILITY}}
+        translationKey: {{#COPY}}"{{keyPath}}{{#containsQuantity}}.\(quantityType){{/containsQuantity}}"{{/COPY}}{{^COPY}}nil{{/COPY}}
     )
+    {{#containsQuantity}}
+    }
+    {{/containsQuantity}}
     {{/hasChildren}}
