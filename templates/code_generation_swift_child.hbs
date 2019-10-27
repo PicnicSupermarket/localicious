@@ -1,0 +1,28 @@
+    {{#hasChildren}}
+    struct {{name}} {
+        {{#children}}
+        {{> child}}
+        {{/children}}
+    }
+    {{/hasChildren}}
+    {{^hasChildren}}
+    {{#containsQuantity}}
+    static func {{name}}(quantity: Int) -> LocaliciousData {
+        let quantityType = LocaliciousQuantity(quanitity: quantity)
+        return LocaliciousData(
+    {{/containsQuantity}}
+    {{^containsQuantity}}
+    static let {{name}} = LocaliciousData(
+    {{/containsQuantity}}
+        {{#ACCESSIBILITY}}
+        accessibilityIdentifier: "{{../identifier}}",
+        accessibilityHintKey: {{#HINT}}"{{keyPath}}{{#../../containsQuantity}}.\(quantityType){{/../../containsQuantity}}"{{/HINT}}{{^HINT}}nil{{/HINT}},
+        accessibilityLabelKey: {{#LABEL}}"{{keyPath}}{{#../../containsQuantity}}.\(quantityType){{/../../containsQuantity}}"{{/LABEL}}{{^LABEL}}nil{{/LABEL}},
+        accessibilityValueKey: {{#VALUE}}"{{keyPath}}{{#../../containsQuantity}}.\(quantityType){{/../../containsQuantity}}"{{/VALUE}}{{^VALUE}}nil{{/VALUE}},
+        {{/ACCESSIBILITY}}
+        translationKey: {{#COPY}}"{{keyPath}}{{#../containsQuantity}}.\(quantityType){{/../containsQuantity}}"{{/COPY}}{{^COPY}}nil{{/COPY}}
+    )
+    {{#containsQuantity}}
+    }
+    {{/containsQuantity}}
+    {{/hasChildren}}

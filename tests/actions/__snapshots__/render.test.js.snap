@@ -9,7 +9,7 @@ Result {
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
 \\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!\\";
 \\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
 \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
@@ -37,7 +37,7 @@ You better watch out!\\";
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">We support nesting as deep as you like</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">Help: %1$s</string>
   <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">This is a component with accessiblity support</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">This is the hint</string>
@@ -277,7 +277,7 @@ Result {
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">We support nesting as deep as you like</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">Help: %1$s</string>
   <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">This is a component with accessiblity support</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">This is the hint</string>
@@ -325,7 +325,7 @@ Result {
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
 \\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!\\";
 \\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
 \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
@@ -532,7 +532,7 @@ Result {
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">We support nesting as deep as you like</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">Help: %1$s</string>
   <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">This is a component with accessiblity support</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">This is the hint</string>
@@ -569,7 +569,7 @@ You better watch out!</string>
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
 \\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!\\";
 \\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
 \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
@@ -597,7 +597,7 @@ You better watch out!\\";
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">Je kan zo veel lagen maken als je zelf wil</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">Help %1$s</string>
   <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.
 Let maar eens op!</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">Dit is een component met accessiblity support</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">Dit is de hint</string>
@@ -634,7 +634,7 @@ Let maar eens op!</string>
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
 \\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.
 Let maar eens op!\\";
 \\"Accessible.RegularComponent.COPY\\" = \\"Dit is een component met accessiblity support\\";
 \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"Dit is de hint\\";
@@ -944,7 +944,7 @@ Result {
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">We support nesting as deep as you like</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">Help: %1$s</string>
   <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">This &gt; is a special &lt;&lt;Character&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">This is a component with accessiblity support</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">This is the hint</string>
@@ -979,7 +979,7 @@ You better watch out!</string>
       "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
 \\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"This &gt; is a special &lt;&lt;Character&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt;
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt;
 You better watch out!\\";
 \\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
 \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
@@ -1005,7 +1005,7 @@ You better watch out!\\";
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">Je kan zo veel lagen maken als je zelf wil</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">Help %1$s</string>
   <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.
 Let maar eens op!</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">Dit is een component met accessiblity support</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">Dit is de hint</string>
@@ -1040,7 +1040,7 @@ Let maar eens op!</string>
       "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
 \\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"Dit &gt; is een speciaal &lt;&lt;Karakter&gt;&gt;\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;&#x2F;a&gt; kan bevatten.
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die &lt;a href&#x3D;&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.
 Let maar eens op!\\";
 \\"Accessible.RegularComponent.COPY\\" = \\"Dit is een component met accessiblity support\\";
 \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"Dit is de hint\\";

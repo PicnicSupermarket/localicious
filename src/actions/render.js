@@ -1,5 +1,5 @@
 const path = require("path");
-const Mustache = require("mustache");
+const Handlebars = require("handlebars");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
@@ -38,36 +38,41 @@ const includeInPlatform = (translation, platform) =>
 
 const renderLocalization = (view, platform, language, basePath) => {
   const outputPath = localizationOutputPath(basePath, platform, language);
-  view.lowerCase = () => (text, render) => render(text).toLowerCase();
+  Handlebars.registerHelper("lowerCase", string => string.toLowerCase());
   return localizationTemplate(platform)
-    .map(template => Mustache.render(template, view))
+    .map(source => Handlebars.compile(source))
+    .map(template => template(view))
     .map(render => ({ path: outputPath, data: render }));
 };
 
 const renderCodeGenView = (view, platform, basePath) => {
   const outputPath = codeGenerationOutputPath(basePath, platform);
   return codeGenerationTemplate(platform)
-    .map(({ template, partials }) => Mustache.render(template, view, partials))
+    .map(({ fileTemplate, childTemplate }) => {
+      Handlebars.registerPartial("child", childTemplate);
+      return Handlebars.compile(fileTemplate);
+    })
+    .map(template => template(view))
     .map(render => ({ path: outputPath, data: render }));
 };
 
 const localizationTemplate = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
-      return loadFile(path.resolve(__dirname, "../../templates/strings_xml_file.mustache"));
+      return loadFile(path.resolve(__dirname, "../../templates/strings_xml_file.hbs"));
     case platformKeywords.IOS:
-      return loadFile(path.resolve(__dirname, "../../templates/localizable_strings_file.mustache"));
+      return loadFile(path.resolve(__dirname, "../../templates/localizable_strings_file.hbs"));
   }
 };
 
 const codeGenerationTemplate = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
-      return Result.success({ template: "", partial: null });
+      return Result.success({ fileTemplate: "", childTemplate: "" });
     case platformKeywords.IOS:
-      return loadFile("templates/code_generation_swift_file.mustache").flatMap(template =>
-        loadFile("templates/code_generation_swift_child.mustache").flatMap(partial =>
-          Result.success({ template, partials: { child: partial } })
+      return loadFile("templates/code_generation_swift_file.hbs").flatMap(fileTemplate =>
+        loadFile("templates/code_generation_swift_child.hbs").flatMap(childTemplate =>
+          Result.success({ fileTemplate, childTemplate })
         )
       );
   }
