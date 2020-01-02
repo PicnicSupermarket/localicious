@@ -17,7 +17,7 @@ const loadFile = filePath => {
   try {
     return Result.success(fs.readFileSync(filePath, "utf8"));
   } catch (error) {
-    return Result.error("Something went wrong.", error);
+    return Result.error(`Could not read file at path: ${filePath} .`, error);
   }
 };
 
