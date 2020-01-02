@@ -1,5 +1,5 @@
 const path = require("path");
-const Mustache = require("mustache");
+const Handlebars = require("handlebars");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
@@ -38,36 +38,41 @@ const includeInPlatform = (translation, platform) =>
 
 const renderLocalizationView = (view, platform, language, basePath) => {
   const outputPath = localizationOutputPath(basePath, platform, language);
-  view.lowerCase = () => (text, render) => render(text).toLowerCase();
+  Handlebars.registerHelper("lowerCase", string => string.toLowerCase());
   return localizationTemplate(platform)
-    .map(template => Mustache.render(template, view))
+    .map(source => Handlebars.compile(source))
+    .map(template => template(view))
     .map(render => ({ path: outputPath, data: render }));
 };
 
 const renderCodeGenView = (view, platform, basePath) => {
   const outputPath = codeGenerationOutputPath(basePath, platform);
   return codeGenerationTemplate(platform)
-    .map(({ template, partials }) => Mustache.render(template, view, partials))
+    .map(({ fileTemplate, childTemplate }) => {
+      Handlebars.registerPartial("child", childTemplate);
+      return Handlebars.compile(fileTemplate);
+    })
+    .map(template => template(view))
     .map(render => ({ path: outputPath, data: render }));
 };
 
 const localizationTemplate = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
-      return loadFile(path.resolve(__dirname, "../../templates/strings_xml_file.mustache"));
+      return loadFile(path.resolve(__dirname, "../../templates/strings_xml_file.hbs"));
     case platformKeywords.IOS:
-      return loadFile(path.resolve(__dirname, "../../templates/localizable_strings_file.mustache"));
+      return loadFile(path.resolve(__dirname, "../../templates/localizable_strings_file.hbs"));
   }
 };
 
 const codeGenerationTemplate = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
-      return Result.success({ template: "", partial: null });
+      return Result.success({ fileTemplate: "", childTemplate: "" });
     case platformKeywords.IOS:
-      return loadFile("templates/code_generation_swift_file.mustache").flatMap(template =>
-        loadFile("templates/code_generation_swift_child.mustache").flatMap(partial =>
-          Result.success({ template, partials: { child: partial } })
+      return loadFile("templates/code_generation_swift_file.hbs").flatMap(fileTemplate =>
+        loadFile("templates/code_generation_swift_child.hbs").flatMap(childTemplate =>
+          Result.success({ fileTemplate, childTemplate })
         )
       );
   }
@@ -142,14 +147,23 @@ const createCodeGenView = (translations, platform) => {
         const accKey = groupKeywords.ACCESSIBILITY;
 
         const containsQuantity =
-          (item[copyKey] && item[copyKey].type == PLURAL) ||
-          containsPlural(item[accKey], accessiblityKeywords.HINT) ||
-          containsPlural(item[accKey], accessiblityKeywords.LABEL) ||
-          containsPlural(item[accKey], accessiblityKeywords.VALUE);
+          groupContainsQuantity(item, copyKey) ||
+          groupContainsQuantity(item[accKey], accessiblityKeywords.HINT) ||
+          groupContainsQuantity(item[accKey], accessiblityKeywords.LABEL) ||
+          groupContainsQuantity(item[accKey], accessiblityKeywords.VALUE);
+
+        const containsFormatting =
+          groupContainsFormatting(item, copyKey) ||
+          groupContainsFormatting(item[accKey], accessiblityKeywords.HINT) ||
+          groupContainsFormatting(item[accKey], accessiblityKeywords.LABEL) ||
+          groupContainsFormatting(item[accKey], accessiblityKeywords.VALUE);
 
         const view = {
           name,
           containsQuantity,
+          containsFormatting,
+          containsQuantityAndFormatting: containsFormatting && containsQuantity,
+          requiresFunction: containsFormatting || containsQuantity,
           identifier: item.keyPath.join(delimiter),
           ...{ [copyKey]: (item[copyKey] && createCopyView(item, delimiter)) || {} },
           ...{ [accKey]: (item[accKey] && createAccessibilityViews(item, delimiter)) || {} }
@@ -170,7 +184,11 @@ const createCodeGenView = (translations, platform) => {
   return view;
 };
 
-const containsPlural = (item, keyword) => {
+const groupContainsFormatting = (item, keyword) => {
+  return item && item[keyword] && item[keyword].containsFormatting;
+};
+
+const groupContainsQuantity = (item, keyword) => {
   return item && item[keyword] && item[keyword].type === PLURAL;
 };
 
@@ -230,17 +248,16 @@ const createTranslationView = (translation, keyPath, delimiter, substitutions) =
       return {
         key,
         type: translation.type,
-        value: translation.translation && substitute(translation.translation, substitutions)
+        value: substitute(translation.translation, substitutions)
       };
     case PLURAL:
       return {
         key,
         type: translation.type,
         value: Object.keys(translation.translation).map(quantity => {
-          const translationForQuantity = translation.translation[quantity];
           return {
             quantity,
-            value: translationForQuantity && substitute(translationForQuantity, substitutions)
+            value: substitute(translation.translation[quantity], substitutions)
           };
         })
       };
