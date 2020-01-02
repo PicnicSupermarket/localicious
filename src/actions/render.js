@@ -16,7 +16,7 @@ const render = (data, outputPath, platforms, languages) => {
     const renderResults = platforms.map(platform => {
       const translations = translationsForLanguage.filter(t => includeInPlatform(t, platform));
       const view = createLocalizationView(translations, platform);
-      return renderLocalization(view, platform, language, outputPath);
+      return renderLocalizationView(view, platform, language, outputPath);
     });
     return [...acc, ...renderResults];
   }, []);
@@ -36,7 +36,7 @@ const render = (data, outputPath, platforms, languages) => {
 const includeInPlatform = (translation, platform) =>
   [platform, platformKeywords.SHARED].includes(translation.platform);
 
-const renderLocalization = (view, platform, language, basePath) => {
+const renderLocalizationView = (view, platform, language, basePath) => {
   const outputPath = localizationOutputPath(basePath, platform, language);
   Handlebars.registerHelper("lowerCase", string => string.toLowerCase());
   return localizationTemplate(platform)

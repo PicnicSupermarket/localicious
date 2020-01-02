@@ -18,7 +18,7 @@ The goals of localicious are:
 
 * **Robustness**
 
-  One cannot blindly import localisation files into the app and expect everything to work. Therefore, localicious enables both validation and conversion. Together, these two operations can support a robust workflow that minimises the potential for mistakes.
+  One cannot blindly import localization files into the app and expect everything to work. Therefore, localicious enables both validation and conversion. Together, these two operations can support a robust workflow that minimises the potential for mistakes.
 
 ## Workflow
 
@@ -27,7 +27,7 @@ localicious assumes the following workflow:
 1. You keep all your localizable strings in a YAML file that adheres to the structure defined by localicious.
 2. When committed to a source repository, the YAML file is guaranteed to have passed localicious verification.
 3. You point to the current working version of the YAML file in your iOS or Android project.
-4. Using localicious, you generate the localisation files when desired.
+4. Using localicious, you generate the localization files when desired.
 
 ## Requirements and installation
 
