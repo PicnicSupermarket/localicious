@@ -233,7 +233,7 @@ struct L {
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\",
+                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
                 translationArgs: args
             )
             }
@@ -268,10 +268,10 @@ struct L {
             let quantityType = LocaliciousQuantity(quanitity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
-            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
-            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
-            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\",
+            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
+            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
+            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
+            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
             translationArgs: []
         )
         }
@@ -507,7 +507,7 @@ struct L {
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\",
+                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
                 translationArgs: args
             )
             }
@@ -542,10 +542,10 @@ struct L {
             let quantityType = LocaliciousQuantity(quanitity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
-            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
-            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
-            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\",
+            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
+            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
+            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
+            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
             translationArgs: []
         )
         }
@@ -913,7 +913,7 @@ struct L {
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\",
+                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
                 translationArgs: args
             )
             }
@@ -924,7 +924,7 @@ struct L {
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\",
+                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
                 translationArgs: args
             )
             }
@@ -983,10 +983,10 @@ struct L {
             let quantityType = LocaliciousQuantity(quanitity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
-            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
-            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
-            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\",
+            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
+            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
+            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
+            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
             translationArgs: []
         )
         }
@@ -994,10 +994,10 @@ struct L {
             let quantityType = LocaliciousQuantity(quanitity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
-            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
-            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
-            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\",
+            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
+            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
+            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
+            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
             translationArgs: []
         )
         }
@@ -1277,7 +1277,7 @@ struct L {
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\",
+                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
                 translationArgs: args
             )
             }
@@ -1288,7 +1288,7 @@ struct L {
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType)\\",
+                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
                 translationArgs: args
             )
             }
@@ -1347,10 +1347,10 @@ struct L {
             let quantityType = LocaliciousQuantity(quanitity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
-            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
-            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
-            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\",
+            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
+            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
+            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
+            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
             translationArgs: []
         )
         }
@@ -1358,10 +1358,10 @@ struct L {
             let quantityType = LocaliciousQuantity(quanitity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType)\\",
-            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType)\\",
-            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType)\\",
-            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType)\\",
+            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
+            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
+            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
+            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
             translationArgs: []
         )
         }
