@@ -1,13 +1,13 @@
 import UIKit
 
-protocol LocalisationProvider {
+protocol LocalizationProvider {
     var translationKey: String? { get }
     var accessibilityHintKey: String? { get }
     var accessibilityLabelKey: String? { get }
     var accessibilityValueKey: String? { get }
 }
 
-struct LocaliciousData: LocalisationProvider {
+struct LocaliciousData: LocalizationProvider {
     let accessibilityIdentifier: String
     let accessibilityHintKey: String?
     let accessibilityLabelKey: String?
@@ -32,7 +32,7 @@ enum LocaliciousQuantity: String {
     }
 }
 
-extension LocalisationProvider {
+extension LocalizationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
     }
