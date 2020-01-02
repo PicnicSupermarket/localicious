@@ -1,28 +1,34 @@
-    {{#hasChildren}}
+{{#if hasChildren}}
     struct {{name}} {
-        {{#children}}
-        {{> child}}
-        {{/children}}
+{{#each children}}
+    {{> child}}
+{{/each}}
     }
-    {{/hasChildren}}
-    {{^hasChildren}}
-    {{#containsQuantity}}
+{{else}}
+{{#if containsQuantityAndFormatting}}
+    static func {{name}}(quantity: Int, args: CVarArg...) -> LocaliciousData {
+        let quantityType = LocaliciousQuantity(quanitity: quantity)
+        return LocaliciousData(
+{{else if containsQuantity}}
     static func {{name}}(quantity: Int) -> LocaliciousData {
         let quantityType = LocaliciousQuantity(quanitity: quantity)
         return LocaliciousData(
-    {{/containsQuantity}}
-    {{^containsQuantity}}
+{{else if containsFormatting}}
+    static func {{name}}(args: CVarArg...) -> LocaliciousData {
+        return LocaliciousData(
+{{else}}
     static let {{name}} = LocaliciousData(
-    {{/containsQuantity}}
-        {{#ACCESSIBILITY}}
+{{/if}}
+{{#ACCESSIBILITY}}
         accessibilityIdentifier: "{{../identifier}}",
-        accessibilityHintKey: {{#HINT}}"{{keyPath}}{{#../../containsQuantity}}.\(quantityType){{/../../containsQuantity}}"{{/HINT}}{{^HINT}}nil{{/HINT}},
-        accessibilityLabelKey: {{#LABEL}}"{{keyPath}}{{#../../containsQuantity}}.\(quantityType){{/../../containsQuantity}}"{{/LABEL}}{{^LABEL}}nil{{/LABEL}},
-        accessibilityValueKey: {{#VALUE}}"{{keyPath}}{{#../../containsQuantity}}.\(quantityType){{/../../containsQuantity}}"{{/VALUE}}{{^VALUE}}nil{{/VALUE}},
-        {{/ACCESSIBILITY}}
-        translationKey: {{#COPY}}"{{keyPath}}{{#../containsQuantity}}.\(quantityType){{/../containsQuantity}}"{{/COPY}}{{^COPY}}nil{{/COPY}}
+        accessibilityHintKey: {{#if HINT}}"{{HINT.keyPath}}{{#if ../containsQuantity}}.\(quantityType.rawValue){{/if}}"{{else}}nil{{/if}},
+        accessibilityLabelKey: {{#if LABEL}}"{{LABEL.keyPath}}{{#if ../containsQuantity}}.\(quantityType.rawValue){{/if}}"{{else}}nil{{/if}},
+        accessibilityValueKey: {{#if VALUE}}"{{VALUE.keyPath}}{{#if ../containsQuantity}}.\(quantityType.rawValue){{/if}}"{{else}}nil{{/if}},
+{{/ACCESSIBILITY}}
+        translationKey: {{#if COPY}}"{{COPY.keyPath}}{{#if containsQuantity}}.\(quantityType.rawValue){{/if}}"{{else}}nil{{/if}},
+        translationArgs: {{#if containsFormatting}}args{{else}}[]{{/if}}
     )
-    {{#containsQuantity}}
+{{#if requiresFunction}}
     }
-    {{/containsQuantity}}
-    {{/hasChildren}}
+{{/if}}
+{{/if}}

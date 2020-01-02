@@ -147,14 +147,23 @@ const createCodeGenView = (translations, platform) => {
         const accKey = groupKeywords.ACCESSIBILITY;
 
         const containsQuantity =
-          (item[copyKey] && item[copyKey].type == PLURAL) ||
-          containsPlural(item[accKey], accessiblityKeywords.HINT) ||
-          containsPlural(item[accKey], accessiblityKeywords.LABEL) ||
-          containsPlural(item[accKey], accessiblityKeywords.VALUE);
+          groupContainsQuantity(item, copyKey) ||
+          groupContainsQuantity(item[accKey], accessiblityKeywords.HINT) ||
+          groupContainsQuantity(item[accKey], accessiblityKeywords.LABEL) ||
+          groupContainsQuantity(item[accKey], accessiblityKeywords.VALUE);
+
+        const containsFormatting =
+          groupContainsFormatting(item, copyKey) ||
+          groupContainsFormatting(item[accKey], accessiblityKeywords.HINT) ||
+          groupContainsFormatting(item[accKey], accessiblityKeywords.LABEL) ||
+          groupContainsFormatting(item[accKey], accessiblityKeywords.VALUE);
 
         const view = {
           name,
           containsQuantity,
+          containsFormatting,
+          containsQuantityAndFormatting: containsFormatting && containsQuantity,
+          requiresFunction: containsFormatting || containsQuantity,
           identifier: item.keyPath.join(delimiter),
           ...{ [copyKey]: (item[copyKey] && createCopyView(item, delimiter)) || {} },
           ...{ [accKey]: (item[accKey] && createAccessibilityViews(item, delimiter)) || {} }
@@ -175,7 +184,11 @@ const createCodeGenView = (translations, platform) => {
   return view;
 };
 
-const containsPlural = (item, keyword) => {
+const groupContainsFormatting = (item, keyword) => {
+  return item && item[keyword] && item[keyword].containsFormatting;
+};
+
+const groupContainsQuantity = (item, keyword) => {
   return item && item[keyword] && item[keyword].type === PLURAL;
 };
 
@@ -235,17 +248,16 @@ const createTranslationView = (translation, keyPath, delimiter, substitutions) =
       return {
         key,
         type: translation.type,
-        value: translation.translation && substitute(translation.translation, substitutions)
+        value: substitute(translation.translation, substitutions)
       };
     case PLURAL:
       return {
         key,
         type: translation.type,
         value: Object.keys(translation.translation).map(quantity => {
-          const translationForQuantity = translation.translation[quantity];
           return {
             quantity,
-            value: translationForQuantity && substitute(translationForQuantity, substitutions)
+            value: substitute(translation.translation[quantity], substitutions)
           };
         })
       };

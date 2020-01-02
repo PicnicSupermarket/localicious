@@ -6,7 +6,7 @@ const loadYaml = filePath => {
   try {
     return Result.success(yaml.safeLoad(fs.readFileSync(filePath, "utf8")));
   } catch (error) {
-    return Result.error("Something went wrong.", error);
+    return Result.error(`Could not load YAML file at path: ${filePath}.`, error);
   }
 };
 

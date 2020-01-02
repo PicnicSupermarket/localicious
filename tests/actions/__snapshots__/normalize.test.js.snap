@@ -4,6 +4,7 @@ exports[`normalizing works as expected with Android only 1`] = `
 Array [
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Total price: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -17,6 +18,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Totaal: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -30,6 +32,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Total price before taxes: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -43,6 +46,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Subtotaal: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -56,6 +60,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "We support nesting as deep as you like",
       "type": "SINGULAR",
     },
@@ -73,6 +78,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Je kan zo veel lagen maken als je zelf wil",
       "type": "SINGULAR",
     },
@@ -90,6 +96,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Help: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -103,6 +110,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Help %1{{s}}",
       "type": "SINGULAR",
     },
@@ -116,6 +124,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": Object {
         "ONE": "%1{{d}} Pending order",
         "OTHER": "%1{{d}} Pending Orders",
@@ -133,6 +142,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": Object {
         "ONE": "%1{{d}} Lopende bestelling",
         "OTHER": "%1{{d}} Lopende bestellingen",
@@ -150,6 +160,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This > is a special <<Character>>",
       "type": "SINGULAR",
     },
@@ -163,6 +174,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit > is een speciaal <<Karakter>>",
       "type": "SINGULAR",
     },
@@ -176,6 +188,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
 You better watch out!",
       "type": "SINGULAR",
@@ -190,6 +203,7 @@ You better watch out!",
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
 Let maar eens op!",
       "type": "SINGULAR",
@@ -205,15 +219,18 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": "This is the hint",
         "type": "SINGULAR",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": "This is the label",
         "type": "SINGULAR",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This is a component with accessiblity support",
       "type": "SINGULAR",
     },
@@ -227,15 +244,18 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": "Dit is de hint",
         "type": "SINGULAR",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": "Dit is de label",
         "type": "SINGULAR",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit is een component met accessiblity support",
       "type": "SINGULAR",
     },
@@ -249,6 +269,7 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular hint",
           "OTHER": "The plural hint",
@@ -256,6 +277,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular label",
           "OTHER": "The plural label",
@@ -263,6 +285,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "VALUE": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular value",
           "OTHER": "The plural value",
@@ -272,6 +295,7 @@ Let maar eens op!",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": Object {
         "ONE": "The singular copy",
         "OTHER": "The plural copy",
@@ -288,6 +312,7 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige hint",
           "OTHER": "De meervoudige hint",
@@ -295,6 +320,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige label",
           "OTHER": "De meervoudige label",
@@ -302,6 +328,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "VALUE": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige waarde",
           "OTHER": "The meervoudige waarde",
@@ -311,6 +338,7 @@ Let maar eens op!",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": Object {
         "ONE": "De enkelvoudige copy",
         "OTHER": "De meervoudige copy",
@@ -331,6 +359,7 @@ exports[`normalizing works as expected with all platforms 1`] = `
 Array [
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Stay up to date",
       "type": "SINGULAR",
     },
@@ -344,6 +373,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Blijf op de hoogte",
       "type": "SINGULAR",
     },
@@ -357,6 +387,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Stay up to date",
       "type": "SINGULAR",
     },
@@ -370,6 +401,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Blijf op de hoogte",
       "type": "SINGULAR",
     },
@@ -383,6 +415,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Total price: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -396,6 +429,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Totaal: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -409,6 +443,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Total price before taxes: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -422,6 +457,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Subtotaal: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -435,6 +471,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "We support nesting as deep as you like",
       "type": "SINGULAR",
     },
@@ -452,6 +489,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Je kan zo veel lagen maken als je zelf wil",
       "type": "SINGULAR",
     },
@@ -469,6 +507,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Help: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -482,6 +521,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Help %1{{s}}",
       "type": "SINGULAR",
     },
@@ -495,6 +535,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": Object {
         "ONE": "%1{{d}} Pending order",
         "OTHER": "%1{{d}} Pending Orders",
@@ -512,6 +553,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": Object {
         "ONE": "%1{{d}} Lopende bestelling",
         "OTHER": "%1{{d}} Lopende bestellingen",
@@ -529,6 +571,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This > is a special <<Character>>",
       "type": "SINGULAR",
     },
@@ -542,6 +585,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit > is een speciaal <<Karakter>>",
       "type": "SINGULAR",
     },
@@ -555,6 +599,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
 You better watch out!",
       "type": "SINGULAR",
@@ -569,6 +614,7 @@ You better watch out!",
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
 Let maar eens op!",
       "type": "SINGULAR",
@@ -584,15 +630,18 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": "This is the hint",
         "type": "SINGULAR",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": "This is the label",
         "type": "SINGULAR",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This is a component with accessiblity support",
       "type": "SINGULAR",
     },
@@ -606,15 +655,18 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": "Dit is de hint",
         "type": "SINGULAR",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": "Dit is de label",
         "type": "SINGULAR",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit is een component met accessiblity support",
       "type": "SINGULAR",
     },
@@ -628,6 +680,7 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular hint",
           "OTHER": "The plural hint",
@@ -635,6 +688,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular label",
           "OTHER": "The plural label",
@@ -642,6 +696,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "VALUE": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular value",
           "OTHER": "The plural value",
@@ -651,6 +706,7 @@ Let maar eens op!",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": Object {
         "ONE": "The singular copy",
         "OTHER": "The plural copy",
@@ -667,6 +723,7 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige hint",
           "OTHER": "De meervoudige hint",
@@ -674,6 +731,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige label",
           "OTHER": "De meervoudige label",
@@ -681,6 +739,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "VALUE": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige waarde",
           "OTHER": "The meervoudige waarde",
@@ -690,6 +749,7 @@ Let maar eens op!",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": Object {
         "ONE": "De enkelvoudige copy",
         "OTHER": "De meervoudige copy",
@@ -710,6 +770,7 @@ exports[`normalizing works as expected with iOS only 1`] = `
 Array [
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Stay up to date",
       "type": "SINGULAR",
     },
@@ -723,6 +784,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Blijf op de hoogte",
       "type": "SINGULAR",
     },
@@ -736,6 +798,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Stay up to date",
       "type": "SINGULAR",
     },
@@ -749,6 +812,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Blijf op de hoogte",
       "type": "SINGULAR",
     },
@@ -762,6 +826,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "We support nesting as deep as you like",
       "type": "SINGULAR",
     },
@@ -779,6 +844,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Je kan zo veel lagen maken als je zelf wil",
       "type": "SINGULAR",
     },
@@ -796,6 +862,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Help: %1{{s}}",
       "type": "SINGULAR",
     },
@@ -809,6 +876,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": "Help %1{{s}}",
       "type": "SINGULAR",
     },
@@ -822,6 +890,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": Object {
         "ONE": "%1{{d}} Pending order",
         "OTHER": "%1{{d}} Pending Orders",
@@ -839,6 +908,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": true,
       "translation": Object {
         "ONE": "%1{{d}} Lopende bestelling",
         "OTHER": "%1{{d}} Lopende bestellingen",
@@ -856,6 +926,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This > is a special <<Character>>",
       "type": "SINGULAR",
     },
@@ -869,6 +940,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit > is een speciaal <<Karakter>>",
       "type": "SINGULAR",
     },
@@ -882,6 +954,7 @@ Array [
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
 You better watch out!",
       "type": "SINGULAR",
@@ -896,6 +969,7 @@ You better watch out!",
   },
   Object {
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
 Let maar eens op!",
       "type": "SINGULAR",
@@ -911,15 +985,18 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": "This is the hint",
         "type": "SINGULAR",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": "This is the label",
         "type": "SINGULAR",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "This is a component with accessiblity support",
       "type": "SINGULAR",
     },
@@ -933,15 +1010,18 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": "Dit is de hint",
         "type": "SINGULAR",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": "Dit is de label",
         "type": "SINGULAR",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": "Dit is een component met accessiblity support",
       "type": "SINGULAR",
     },
@@ -955,6 +1035,7 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular hint",
           "OTHER": "The plural hint",
@@ -962,6 +1043,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular label",
           "OTHER": "The plural label",
@@ -969,6 +1051,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "VALUE": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "The singular value",
           "OTHER": "The plural value",
@@ -978,6 +1061,7 @@ Let maar eens op!",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": Object {
         "ONE": "The singular copy",
         "OTHER": "The plural copy",
@@ -994,6 +1078,7 @@ Let maar eens op!",
   Object {
     "ACCESSIBILITY": Object {
       "HINT": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige hint",
           "OTHER": "De meervoudige hint",
@@ -1001,6 +1086,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "LABEL": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige label",
           "OTHER": "De meervoudige label",
@@ -1008,6 +1094,7 @@ Let maar eens op!",
         "type": "PLURAL",
       },
       "VALUE": Object {
+        "containsFormatting": false,
         "translation": Object {
           "ONE": "De enkelvoudige waarde",
           "OTHER": "The meervoudige waarde",
@@ -1017,6 +1104,7 @@ Let maar eens op!",
       },
     },
     "COPY": Object {
+      "containsFormatting": false,
       "translation": Object {
         "ONE": "De enkelvoudige copy",
         "OTHER": "De meervoudige copy",
