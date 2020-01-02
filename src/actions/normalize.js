@@ -20,13 +20,7 @@ const normalizeYaml = (data, platforms, languages) => {
   return flatten(
     platforms
       .map(platform => aggregate(data[platform], platform, languages))
-      .concat(
-        aggregate(
-          data[platformKeywords.SHARED],
-          platformKeywords.SHARED,
-          languages
-        )
-      )
+      .concat(aggregate(data[platformKeywords.SHARED], platformKeywords.SHARED, languages))
   );
 };
 
@@ -50,8 +44,7 @@ const aggregate = (data, platform, languages, keyPath) => {
           groupKeywords.ACCESSIBILITY in value &&
           processAccessiblity(language, value[groupKeywords.ACCESSIBILITY]);
         const copy =
-          groupKeywords.COPY in value &&
-          processTranslation(language, value[groupKeywords.COPY]);
+          groupKeywords.COPY in value && processTranslation(language, value[groupKeywords.COPY]);
         return {
           platform: platform,
           language: language,
@@ -85,19 +78,28 @@ const processTranslation = (language, value) => {
   }
   return {
     type: SINGULAR,
-    translation: value[language]
+    translation: value[language],
+    containsFormatting: isFormattingString(value[language])
   };
 };
 
 const processPlural = (plurals, language) => {
-  const pluralMap = Object.keys(plurals).reduce(
-    (result, key) => ({
+  let containsFormatting = false;
+  const pluralMap = Object.keys(plurals).reduce((result, key) => {
+    const translation = plurals[key][language];
+    containsFormatting = containsFormatting || isFormattingString(translation);
+    return {
       ...result,
-      [key]: plurals[key][language]
-    }),
-    {}
-  );
-  return { type: PLURAL, translation: pluralMap };
+      [key]: translation
+    };
+  }, {});
+  return {
+    type: PLURAL,
+    translation: pluralMap,
+    containsFormatting
+  };
 };
+
+const isFormattingString = string => string.includes("{{s}}") || string.includes("{{d}}");
 
 module.exports = { normalizeYaml, PLURAL, SINGULAR };

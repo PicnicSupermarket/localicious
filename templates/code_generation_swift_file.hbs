@@ -1,0 +1,81 @@
+import UIKit
+
+protocol LocalizationProvider {
+    var translationKey: String? { get }
+    var accessibilityHintKey: String? { get }
+    var accessibilityLabelKey: String? { get }
+    var accessibilityValueKey: String? { get }
+}
+
+struct LocaliciousData: LocalizationProvider {
+    let accessibilityIdentifier: String
+    let accessibilityHintKey: String?
+    let accessibilityLabelKey: String?
+    let accessibilityValueKey: String?
+    let translationKey: String?
+}
+
+enum LocaliciousQuantity: String {
+    case zero = "ZERO"
+    case one = "ONE"
+    case other = "OTHER"
+
+    init(quanitity: Int) {
+        switch true {
+        case quanitity == 0:
+            self = .zero
+        case quanitity == 1:
+            self = .one
+        default:
+            self = .other
+        }
+    }
+}
+
+extension LocalizationProvider {
+    var translation: String? {
+        return translationKey.map(translation) ?? nil
+    }
+
+    var accessibilityHint: String? {
+        return accessibilityHintKey.map(translation) ?? nil
+    }
+
+    var accessibilityLabel: String? {
+        return accessibilityLabelKey.map(translation) ?? nil
+    }
+
+    var accessibilityValue: String? {
+        return accessibilityValueKey.map(translation) ?? nil
+    }
+
+    private func translation(forKey key: String) -> String? {
+        return NSLocalizedString(key, comment: "")
+    }
+}
+
+extension UIButton {
+    func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
+        setTitle(data.translation, for: controlState)
+        self.accessibilityIdentifier = data.accessibilityIdentifier
+        self.accessibilityValue = data.accessibilityValue
+        self.accessibilityHint = data.accessibilityHint
+        self.accessibilityLabel = data.accessibilityLabel
+    }
+}
+
+extension UILabel {
+    func setLocalicious(_ data: LocaliciousData) {
+        self.text = data.translation
+        self.accessibilityIdentifier = data.accessibilityIdentifier
+        self.accessibilityValue = data.accessibilityValue
+        self.accessibilityHint = data.accessibilityHint
+        self.accessibilityLabel = data.accessibilityLabel
+    }
+}
+
+struct L {
+{{#children}}
+{{> child}}
+{{/children}}
+}

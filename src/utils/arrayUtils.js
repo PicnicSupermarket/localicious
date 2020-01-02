@@ -1,8 +1,5 @@
 const flatten = arr => {
-  return arr.reduce(
-    (acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val),
-    []
-  );
+  return arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val), []);
 };
 
 const groupByKey = (arr, predicate) => {

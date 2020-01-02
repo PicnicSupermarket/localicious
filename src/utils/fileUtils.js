@@ -17,7 +17,7 @@ const loadFile = filePath => {
   try {
     return Result.success(fs.readFileSync(filePath, "utf8"));
   } catch (error) {
-    return Result.error("Something went wrong.", error);
+    return Result.error(`Could not read file at path: ${filePath} .`, error);
   }
 };
 
@@ -39,9 +39,7 @@ const writeFiles = files => {
       return acc;
     }, []);
   if (errors.length != 0) {
-    return Result.error(
-      `Could not write the following files:\n${errors.join("\n")}`
-    );
+    return Result.error(`Could not write the following files:\n${errors.join("\n")}`);
   }
   return Result.success(files.map(file => file.path));
 };

@@ -9,16 +9,8 @@ const commaSeparatedList = value => {
 };
 
 program
-  .option(
-    "-r --required-languages <languages>",
-    "required languages",
-    commaSeparatedList
-  )
-  .option(
-    "-o --optional-languages <languages>",
-    "optional languages",
-    commaSeparatedList
-  )
+  .option("-r --required-languages <languages>", "required languages", commaSeparatedList)
+  .option("-o --optional-languages <languages>", "optional languages", commaSeparatedList)
   .parse(process.argv);
 
 if (program.args.length < 1) {

@@ -17,10 +17,7 @@ const load = async source => {
   } else if (source.path !== undefined) {
     return Result.success(source.path);
   }
-  return Result.error(
-    "Unknown or no source configured in LocaliciousConfig.",
-    source
-  );
+  return Result.error("Unknown or no source configured in LocaliciousConfig.", source);
 };
 
 const pullRepository = async source => {

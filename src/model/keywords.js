@@ -21,13 +21,10 @@ const platformKeywords = {
   SHARED: "SHARED"
 };
 
-const isLeafGroup = group =>
-  groupKeywords.ACCESSIBILITY in group || groupKeywords.COPY in group;
+const isLeafGroup = group => groupKeywords.ACCESSIBILITY in group || groupKeywords.COPY in group;
 
 const isPluralGroup = group =>
-  pluralKeywords.ZERO in group ||
-  pluralKeywords.ONE in group ||
-  pluralKeywords.OTHER in group;
+  pluralKeywords.ZERO in group || pluralKeywords.ONE in group || pluralKeywords.OTHER in group;
 
 module.exports = {
   groupKeywords,

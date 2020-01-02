@@ -14,13 +14,13 @@
     "better-ajv-errors": "^0.6.7",
     "commander": "^3.0.1",
     "git-clone": "^0.1.0",
-    "js-yaml": "^3.13.1",
-    "mustache": "^3.0.1"
+    "handlebars": "^4.4.5",
+    "js-yaml": "^3.13.1"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^22.19.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
@@ -30,5 +30,8 @@
     "lint": "yarn eslint --fix bin/**/* src/**/*.js tests/**/*.js",
     "lint-on-ci": "yarn eslint bin/**/* src/**/*.js tests/**/*.js",
     "test": "jest"
+  },
+  "prettier": {
+    "printWidth": 100
   }
 }
