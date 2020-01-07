@@ -38,10 +38,10 @@ localicious requires node 10.12.0 or later.
 The central concept of localicious is the so-called Localicipe. It is a YAML file that contains all localized copy and accessibility strings grouped by platform, feature and screen:
 
 ```
-IOS|ANDROID|SHARED
-  Feature
-    Screen
-      Element
+IOS|ANDROID|SHARED:
+  Feature:
+    Screen:
+      Element:
         COPY:
           en: "Translation for English speakers"
           nl: "Vertaling voor Nederlandstaligen"
@@ -49,7 +49,7 @@ IOS|ANDROID|SHARED
           HINT|LABEL|VALUE:
             en: "Accessibility for English speakers"
             nl: "Toegankelijkheid voor Nederlandstaligen"
-      AnotherElement
+      AnotherElement:
         COPY:
           ZERO|ONE|OTHER:
             en: "Plural translation for English speakers"
