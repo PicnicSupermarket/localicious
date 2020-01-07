@@ -70,10 +70,12 @@ const codeGenerationTemplate = platform => {
     case platformKeywords.ANDROID:
       return Result.success({ fileTemplate: "", childTemplate: "" });
     case platformKeywords.IOS:
-      return loadFile("templates/code_generation_swift_file.hbs").flatMap(fileTemplate =>
-        loadFile("templates/code_generation_swift_child.hbs").flatMap(childTemplate =>
-          Result.success({ fileTemplate, childTemplate })
-        )
+      return loadFile(
+        path.resolve(__dirname, "../../templates/code_generation_swift_file.hbs")
+      ).flatMap(fileTemplate =>
+        loadFile(
+          path.resolve(__dirname, "../../templates/code_generation_swift_child.hbs")
+        ).flatMap(childTemplate => Result.success({ fileTemplate, childTemplate }))
       );
   }
 };
