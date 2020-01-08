@@ -21,8 +21,11 @@ const render = (data, outputPath, platforms, languages) => {
     return [...acc, ...renderResults];
   }, []);
 
+  const uniqueTranslationDict = translations.reduce((result, acc) => ({ ...result, [acc.keyPath]: acc }), {})
+  const uniqueTranslations = Object.values(uniqueTranslationDict)
+  
   const codeGenerationRenders = platforms
-    .map(platform => [createCodeGenView(translations, platform), platform])
+    .map(platform => [createCodeGenView(uniqueTranslations, platform), platform])
     .map(([view, platform]) => renderCodeGenView(view, platform, outputPath));
 
   return [...localizationRenders, ...codeGenerationRenders]
