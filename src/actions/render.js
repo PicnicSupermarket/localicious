@@ -50,14 +50,18 @@ const renderLocalizationView = (view, platform, language, basePath) => {
 };
 
 const renderCodeGenView = (view, platform, basePath) => {
-  const outputPath = codeGenerationOutputPath(basePath, platform);
-  return codeGenerationTemplate(platform)
-    .map(({ fileTemplate, childTemplate }) => {
-      Handlebars.registerPartial("child", childTemplate);
-      return Handlebars.compile(fileTemplate);
-    })
-    .map(template => template(view))
-    .map(render => ({ path: outputPath, data: render }));
+  const template = codeGenerationTemplate(platform);
+
+  if (template !== undefined) {
+    const outputPath = codeGenerationOutputPath(basePath, platform);
+    return template
+      .map(({ fileTemplate, childTemplate }) => {
+        Handlebars.registerPartial("child", childTemplate);
+        return Handlebars.compile(fileTemplate);
+      })
+      .map(template => template(view))
+      .map(render => ({ path: outputPath, data: render }));
+  }
 };
 
 const localizationTemplate = platform => {
@@ -72,7 +76,7 @@ const localizationTemplate = platform => {
 const codeGenerationTemplate = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
-      return Result.success({ fileTemplate: "", childTemplate: "" });
+      return undefined;
     case platformKeywords.IOS:
       return loadFile(
         path.resolve(__dirname, "../../templates/code_generation_swift_file.hbs")
