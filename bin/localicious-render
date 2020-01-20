@@ -13,7 +13,7 @@ program
   .parse(process.argv);
 
 if (program.args.length < 2) {
-  console.log(`Usage: localicious render <localicipe> <output path> -l <languages> -p <platforms>`);
+  console.log(`Usage: localicious render <localicipe> <output_path> -l <languages> -p <platforms>`);
   process.exit(1);
 }
 
