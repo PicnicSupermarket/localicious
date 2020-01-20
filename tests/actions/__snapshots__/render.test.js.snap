@@ -275,10 +275,6 @@ struct L {
 }",
       "path": ".//ios/Localizable.swift",
     },
-    Object {
-      "data": Object {},
-      "path": ".//android/Localizable.kt",
-    },
   ],
 }
 `;
@@ -324,10 +320,6 @@ You better watch out!</string>
 </resources>
 ",
       "path": ".//android/en/strings.xml",
-    },
-    Object {
-      "data": Object {},
-      "path": ".//android/Localizable.kt",
     },
   ],
 }
@@ -683,10 +675,6 @@ Let maar eens op!\\";
       "path": ".//ios/nl/Localizable.strings",
     },
     Object {
-      "data": Object {},
-      "path": ".//android/Localizable.kt",
-    },
-    Object {
       "data": "import UIKit
 
 protocol LocalizationProvider {
@@ -1021,10 +1009,6 @@ Let maar eens op!\\";
 \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The meervoudige waarde\\";
 ",
       "path": ".//ios/nl/Localizable.strings",
-    },
-    Object {
-      "data": Object {},
-      "path": ".//android/Localizable.kt",
     },
     Object {
       "data": "import UIKit
