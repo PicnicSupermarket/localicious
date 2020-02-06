@@ -138,10 +138,20 @@ const keyDelimiterForPlatform = platform => {
   }
 };
 
-const substitute = (value, valueSubstitutions) => {
+const newlineForPlatform = platform => {
+  switch (platform) {
+    case platformKeywords.ANDROID:
+      return "\\n";
+    case platformKeywords.IOS:
+      return "\\n";
+  }
+};
+
+const substitute = (value, valueSubstitutions, newline) => {
   Object.keys(valueSubstitutions).forEach(search => {
     value = value.replace(`{{${search}}}`, valueSubstitutions[search]);
   });
+  value = value.split(`\n`).join(newline);
   return value;
 };
 
@@ -227,6 +237,7 @@ const createAccessibilityViews = (translation, delimiter) => {
 const createLocalizationView = (translations, platform) => {
   const substitutions = substitutionsForPlatform(platform);
   const delimiter = keyDelimiterForPlatform(platform);
+  const newline = newlineForPlatform(platform);
   const copyViews = translations
     .filter(t => groupKeywords.COPY in t)
     .map(t =>
@@ -234,7 +245,8 @@ const createLocalizationView = (translations, platform) => {
         t[groupKeywords.COPY],
         [...t.keyPath, groupKeywords.COPY],
         delimiter,
-        substitutions
+        substitutions,
+        newline
       )
     );
 
@@ -244,21 +256,21 @@ const createLocalizationView = (translations, platform) => {
       const keyword = groupKeywords.ACCESSIBILITY;
       const group = t[keyword];
       return Object.keys(group).map(key =>
-        createTranslationView(group[key], [...t.keyPath, keyword, key], delimiter, substitutions)
+        createTranslationView(group[key], [...t.keyPath, keyword, key], delimiter, substitutions, newline)
       );
     });
   const allViews = [...copyViews, ...flatten(accessibilityViews)];
   return groupByKey(allViews, val => val.type);
 };
 
-const createTranslationView = (translation, keyPath, delimiter, substitutions) => {
+const createTranslationView = (translation, keyPath, delimiter, substitutions, newline) => {
   const key = keyPath.join(delimiter);
   switch (translation.type) {
     case SINGULAR:
       return {
         key,
         type: translation.type,
-        value: substitute(translation.translation, substitutions)
+        value: substitute(translation.translation, substitutions, newline)
       };
     case PLURAL:
       return {
