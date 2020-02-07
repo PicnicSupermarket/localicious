@@ -1,10 +1,11 @@
 import UIKit
 
 protocol LocalizationProvider {
-    var translationKey: String? { get }
+    var translationKey: String { get }
     var accessibilityHintKey: String? { get }
     var accessibilityLabelKey: String? { get }
     var accessibilityValueKey: String? { get }
+    var translationArgs: [CVarArg]? { get }
 }
 
 struct LocaliciousData: LocalizationProvider {
@@ -12,7 +13,8 @@ struct LocaliciousData: LocalizationProvider {
     let accessibilityHintKey: String?
     let accessibilityLabelKey: String?
     let accessibilityValueKey: String?
-    let translationKey: String?
+    let translationKey: String
+    let translationArgs: [CVarArg]?
 }
 
 enum LocaliciousQuantity: String {
@@ -20,11 +22,11 @@ enum LocaliciousQuantity: String {
     case one = "ONE"
     case other = "OTHER"
 
-    init(quanitity: Int) {
+    init(quantity: Int) {
         switch true {
-        case quanitity == 0:
+        case quantity == 0:
             self = .zero
-        case quanitity == 1:
+        case quantity == 1:
             self = .one
         default:
             self = .other
@@ -33,8 +35,8 @@ enum LocaliciousQuantity: String {
 }
 
 extension LocalizationProvider {
-    var translation: String? {
-        return translationKey.map(translation) ?? nil
+    var translation: String {
+        return translation(forKey: translationKey) ?? translationKey
     }
 
     var accessibilityHint: String? {
@@ -50,7 +52,11 @@ extension LocalizationProvider {
     }
 
     private func translation(forKey key: String) -> String? {
-        return NSLocalizedString(key, comment: "")
+        let translation = NSLocalizedString(key, comment: "")
+        if let translationArgs = translationArgs {
+            return String(format: translation, arguments: translationArgs)
+        }
+        return translation
     }
 }
 
