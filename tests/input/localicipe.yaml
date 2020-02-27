@@ -54,8 +54,8 @@ SHARED:
             nl: '%1{{d}} Lopende bestellingen'
       SpecialCharacters:
         COPY:
-          en: "This > is a special <<Character>>"
-          nl: "Dit > is een speciaal <<Karakter>>"
+          en: "This > is a special <<Character>> & there are more"
+          nl: "Dit > is een speciaal <<Karakter>> & zo zijn er meer"
       MultilineStrings:
         COPY:
           en: |-

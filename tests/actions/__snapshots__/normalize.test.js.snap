@@ -161,7 +161,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "This > is a special <<Character>>",
+      "translation": "This > is a special <<Character>> & there are more",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -175,7 +175,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "Dit > is een speciaal <<Karakter>>",
+      "translation": "Dit > is een speciaal <<Karakter>> & zo zijn er meer",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -572,7 +572,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "This > is a special <<Character>>",
+      "translation": "This > is a special <<Character>> & there are more",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -586,7 +586,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "Dit > is een speciaal <<Karakter>>",
+      "translation": "Dit > is een speciaal <<Karakter>> & zo zijn er meer",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -927,7 +927,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "This > is a special <<Character>>",
+      "translation": "This > is a special <<Character>> & there are more",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -941,7 +941,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "Dit > is een speciaal <<Karakter>>",
+      "translation": "Dit > is een speciaal <<Karakter>> & zo zijn er meer",
       "type": "SINGULAR",
     },
     "keyPath": Array [
