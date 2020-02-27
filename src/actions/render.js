@@ -118,13 +118,14 @@ const substitutionsForPlatform = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
       return {
-        s: "$s",
-        d: "$d"
+        "{{s}}": "$s",
+        "{{d}}": "$d",
+        "\n": "\\n"
       };
     case platformKeywords.IOS:
       return {
-        s: "$@",
-        d: "$d"
+        "{{s}}": "$@",
+        "{{d}}": "$d"
       };
   }
 };
@@ -138,20 +139,10 @@ const keyDelimiterForPlatform = platform => {
   }
 };
 
-const newlineForPlatform = platform => {
-  switch (platform) {
-    case platformKeywords.ANDROID:
-      return "\\n";
-    case platformKeywords.IOS:
-      return "\\n";
-  }
-};
-
-const substitute = (value, valueSubstitutions, newline) => {
+const substitute = (value, valueSubstitutions) => {
   Object.keys(valueSubstitutions).forEach(search => {
-    value = value.replace(`{{${search}}}`, valueSubstitutions[search]);
+    value = value.replace(`${search}`, valueSubstitutions[search]);
   });
-  value = value.split(`\n`).join(newline);
   return value;
 };
 
@@ -237,7 +228,6 @@ const createAccessibilityViews = (translation, delimiter) => {
 const createLocalizationView = (translations, platform) => {
   const substitutions = substitutionsForPlatform(platform);
   const delimiter = keyDelimiterForPlatform(platform);
-  const newline = newlineForPlatform(platform);
   const copyViews = translations
     .filter(t => groupKeywords.COPY in t)
     .map(t =>
@@ -245,8 +235,7 @@ const createLocalizationView = (translations, platform) => {
         t[groupKeywords.COPY],
         [...t.keyPath, groupKeywords.COPY],
         delimiter,
-        substitutions,
-        newline
+        substitutions
       )
     );
 
@@ -256,21 +245,21 @@ const createLocalizationView = (translations, platform) => {
       const keyword = groupKeywords.ACCESSIBILITY;
       const group = t[keyword];
       return Object.keys(group).map(key =>
-        createTranslationView(group[key], [...t.keyPath, keyword, key], delimiter, substitutions, newline)
+        createTranslationView(group[key], [...t.keyPath, keyword, key], delimiter, substitutions)
       );
     });
   const allViews = [...copyViews, ...flatten(accessibilityViews)];
   return groupByKey(allViews, val => val.type);
 };
 
-const createTranslationView = (translation, keyPath, delimiter, substitutions, newline) => {
+const createTranslationView = (translation, keyPath, delimiter, substitutions) => {
   const key = keyPath.join(delimiter);
   switch (translation.type) {
     case SINGULAR:
       return {
         key,
         type: translation.type,
-        value: substitute(translation.translation, substitutions, newline)
+        value: substitute(translation.translation, substitutions)
       };
     case PLURAL:
       return {

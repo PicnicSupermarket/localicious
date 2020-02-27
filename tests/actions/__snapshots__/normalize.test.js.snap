@@ -190,7 +190,9 @@ Array [
     "COPY": Object {
       "containsFormatting": false,
       "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
-You better watch out!",
+You better watch out!
+
+It may also contain empty lines to break up text into paragraphs.",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -205,7 +207,9 @@ You better watch out!",
     "COPY": Object {
       "containsFormatting": false,
       "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
-Let maar eens op!",
+Let maar eens op!
+
+De tekst kan zelfs witregels bevatten!",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -601,7 +605,9 @@ Array [
     "COPY": Object {
       "containsFormatting": false,
       "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
-You better watch out!",
+You better watch out!
+
+It may also contain empty lines to break up text into paragraphs.",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -616,7 +622,9 @@ You better watch out!",
     "COPY": Object {
       "containsFormatting": false,
       "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
-Let maar eens op!",
+Let maar eens op!
+
+De tekst kan zelfs witregels bevatten!",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -956,7 +964,9 @@ Array [
     "COPY": Object {
       "containsFormatting": false,
       "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
-You better watch out!",
+You better watch out!
+
+It may also contain empty lines to break up text into paragraphs.",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -971,7 +981,9 @@ You better watch out!",
     "COPY": Object {
       "containsFormatting": false,
       "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
-Let maar eens op!",
+Let maar eens op!
+
+De tekst kan zelfs witregels bevatten!",
       "type": "SINGULAR",
     },
     "keyPath": Array [
