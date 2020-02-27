@@ -141,7 +141,7 @@ const keyDelimiterForPlatform = platform => {
 
 const substitute = (value, valueSubstitutions) => {
   Object.keys(valueSubstitutions).forEach(search => {
-    value = value.replace(`${search}`, valueSubstitutions[search]);
+    value = value.split(`${search}`).join(valueSubstitutions[search]);
   });
   return value;
 };
