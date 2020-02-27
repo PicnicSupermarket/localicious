@@ -118,13 +118,14 @@ const substitutionsForPlatform = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
       return {
-        s: "$s",
-        d: "$d"
+        "{{s}}": "$s",
+        "{{d}}": "$d",
+        "\n": "\\n"
       };
     case platformKeywords.IOS:
       return {
-        s: "$@",
-        d: "$d"
+        "{{s}}": "$@",
+        "{{d}}": "$d"
       };
   }
 };
@@ -140,7 +141,7 @@ const keyDelimiterForPlatform = platform => {
 
 const substitute = (value, valueSubstitutions) => {
   Object.keys(valueSubstitutions).forEach(search => {
-    value = value.replace(`{{${search}}}`, valueSubstitutions[search]);
+    value = value.replace(`${search}`, valueSubstitutions[search]);
   });
   return value;
 };
