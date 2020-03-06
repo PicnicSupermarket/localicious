@@ -66,8 +66,15 @@ IOS|ANDROID|SHARED:
 If you are working with a team, you probably want to store your Localicipe in a Git repository and manage changes like you handle changes to your source code. Localicious supports that workflow. Simply create a repository that hosts your Localicipe. Then, in the root of the source repository of your Android or iOS project, you add the following `LocaliciousConfig.yaml`:
 
 ```
-:source:
-  :git: 'https://github.com/localicious/localicious-test.git'
+source:
+  git:
+    url: 'https://github.com/localicious/localicious-test.git'
+languages:
+  - en
+  - nl
+platforms:
+  - IOS
+  - ANDROID
 ```
 
 To retrieve the latest version of the file in your repository, simply run `localicious install`. localicious also supports specifying a specific Git branch (by adding `:branch`).
