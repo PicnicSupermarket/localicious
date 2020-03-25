@@ -61,7 +61,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "We support nesting as deep as you like",
+      "translation": "We support nesting as deep as you'd like",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -476,7 +476,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "We support nesting as deep as you like",
+      "translation": "We support nesting as deep as you'd like",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -835,7 +835,7 @@ Array [
   Object {
     "COPY": Object {
       "containsFormatting": false,
-      "translation": "We support nesting as deep as you like",
+      "translation": "We support nesting as deep as you'd like",
       "type": "SINGULAR",
     },
     "keyPath": Array [

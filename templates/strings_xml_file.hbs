@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   {{# SINGULAR}}
-  <string name="{{ key }}">{{ value }}</string>
+  <string name="{{ key }}">"{{{ value }}}"</string>
   {{/ SINGULAR}}
   {{# PLURAL}}
   <plurals name="{{ key }}">
   {{# value}}
-    <item quantity="{{lowerCase quantity}}">{{ value }}</item>
+    <item quantity="{{lowerCase quantity}}">"{{{ value }}}"</item>
   {{/ value}}
   </plurals>
   {{/ PLURAL}}

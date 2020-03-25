@@ -33,7 +33,7 @@ SHARED:
             Of:
               Nesting:
                 COPY:
-                  en: "We support nesting as deep as you like"
+                  en: "We support nesting as deep as you'd like"
                   nl: "Je kan zo veel lagen maken als je zelf wil"
   Delivery:
     Widget:
