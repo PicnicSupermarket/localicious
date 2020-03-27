@@ -117,10 +117,17 @@ const codeGenerationFileName = platform => {
 const substitutionsForPlatform = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
+      // prettier-ignore
       return {
         "{{s}}": "$s",
         "{{d}}": "$d",
-        "\n": "\\n"
+        "\n": "\\n",
+        "@": "\@", // eslint-disable-line no-useless-escape
+        "?": "\?", // eslint-disable-line no-useless-escape
+        "<": "&lt;",
+        ">": "&gt;",
+        "&": "&amp;",
+        "\"": "&quot"
       };
     case platformKeywords.IOS:
       return {
