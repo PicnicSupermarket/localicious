@@ -124,10 +124,11 @@ const substitutionsForPlatform = platform => {
         "\n": "\\n",
         "@": "\@", // eslint-disable-line no-useless-escape
         "?": "\?", // eslint-disable-line no-useless-escape
+        // Important: & should be substituted before we introduce new ampersands as part of our substitutions
+        "&": "&amp;",
         "<": "&lt;",
         ">": "&gt;",
-        "&": "&amp;",
-        "\"": "&quot"
+        "\"": "&quot;"
       };
     case platformKeywords.IOS:
       return {

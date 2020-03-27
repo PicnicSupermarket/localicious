@@ -38,8 +38,8 @@ It may also contain empty lines to break up text into paragraphs.\\";
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &amp;lt; &amp; ' &quot\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &amp;lt;a href=&quotabout:blank&quot&amp;gt;links&amp;lt;/a&amp;gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"This is the label\\"</string>
@@ -297,8 +297,8 @@ Result {
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &amp;lt; &amp; ' &quot\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &amp;lt;a href=&quotabout:blank&quot&amp;gt;links&amp;lt;/a&amp;gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"This is the label\\"</string>
@@ -567,8 +567,8 @@ Result {
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &amp;lt; &amp; ' &quot\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &amp;lt;a href=&quotabout:blank&quot&amp;gt;links&amp;lt;/a&amp;gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"This is the label\\"</string>
@@ -633,8 +633,8 @@ It may also contain empty lines to break up text into paragraphs.\\";
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Subtotaal: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"Je kan zo veel lagen maken als je zelf wil\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &amp;lt; &amp; ' &quot\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &amp;lt;a href=&quotabout:blank&quot&amp;gt;links&amp;lt;/a&amp;gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"Dit is een component met accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"Dit is de hint\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"Dit is de label\\"</string>
@@ -918,8 +918,8 @@ Result {
 <resources>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &amp;lt; &amp; ' &quot\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &amp;lt;a href=&quotabout:blank&quot&amp;gt;links&amp;lt;/a&amp;gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"This is the label\\"</string>
@@ -980,8 +980,8 @@ It may also contain empty lines to break up text into paragraphs.\\";
 <resources>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"Je kan zo veel lagen maken als je zelf wil\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &amp;lt; &amp; ' &quot\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &amp;lt;a href=&quotabout:blank&quot&amp;gt;links&amp;lt;/a&amp;gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"Dit is een component met accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"Dit is de hint\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"Dit is de label\\"</string>
