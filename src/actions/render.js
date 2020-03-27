@@ -117,10 +117,18 @@ const codeGenerationFileName = platform => {
 const substitutionsForPlatform = platform => {
   switch (platform) {
     case platformKeywords.ANDROID:
+      // prettier-ignore
       return {
         "{{s}}": "$s",
         "{{d}}": "$d",
-        "\n": "\\n"
+        "\n": "\\n",
+        "@": "\@", // eslint-disable-line no-useless-escape
+        "?": "\?", // eslint-disable-line no-useless-escape
+        // Important: & should be substituted before we introduce new ampersands as part of our substitutions
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;"
       };
     case platformKeywords.IOS:
       return {
