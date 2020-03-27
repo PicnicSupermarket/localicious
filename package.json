@@ -1,6 +1,6 @@
 {
   "name": "@picnicsupermarket/localicious",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "A toolchain for working with localization files in a platform-agnostic way.",
   "bin": {
     "localicious": "bin/localicious"
