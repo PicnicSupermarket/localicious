@@ -7,11 +7,11 @@
 {{else}}
 {{#if containsQuantityAndFormatting}}
     static func {{name}}(quantity: Int, args: CVarArg...) -> LocaliciousData {
-        let quantityType = LocaliciousQuantity(quanitity: quantity)
+        let quantityType = LocaliciousQuantity(quantity: quantity)
         return LocaliciousData(
 {{else if containsQuantity}}
     static func {{name}}(quantity: Int) -> LocaliciousData {
-        let quantityType = LocaliciousQuantity(quanitity: quantity)
+        let quantityType = LocaliciousQuantity(quantity: quantity)
         return LocaliciousData(
 {{else if containsFormatting}}
     static func {{name}}(args: CVarArg...) -> LocaliciousData {

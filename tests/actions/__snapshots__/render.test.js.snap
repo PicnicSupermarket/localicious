@@ -230,7 +230,7 @@ struct L {
             )
             }
             static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
-                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                 accessibilityHintKey: nil,
@@ -268,7 +268,7 @@ struct L {
             translationArgs: []
         )
         static func PluralComponent(quantity: Int) -> LocaliciousData {
-            let quantityType = LocaliciousQuantity(quanitity: quantity)
+            let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
             accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
@@ -500,7 +500,7 @@ struct L {
             )
             }
             static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
-                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                 accessibilityHintKey: nil,
@@ -538,7 +538,7 @@ struct L {
             translationArgs: []
         )
         static func PluralComponent(quantity: Int) -> LocaliciousData {
-            let quantityType = LocaliciousQuantity(quanitity: quantity)
+            let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
             accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
@@ -853,7 +853,7 @@ struct L {
             )
             }
             static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
-                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                 accessibilityHintKey: nil,
@@ -891,7 +891,7 @@ struct L {
             translationArgs: []
         )
         static func PluralComponent(quantity: Int) -> LocaliciousData {
-            let quantityType = LocaliciousQuantity(quanitity: quantity)
+            let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
             accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
@@ -1154,7 +1154,7 @@ struct L {
             )
             }
             static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
-                let quantityType = LocaliciousQuantity(quanitity: quantity)
+                let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
                 accessibilityHintKey: nil,
@@ -1192,7 +1192,7 @@ struct L {
             translationArgs: []
         )
         static func PluralComponent(quantity: Int) -> LocaliciousData {
-            let quantityType = LocaliciousQuantity(quanitity: quantity)
+            let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
             accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
