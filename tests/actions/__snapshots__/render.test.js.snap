@@ -8,7 +8,7 @@ Result {
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\"\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
 You better watch out!
 
@@ -38,7 +38,7 @@ It may also contain empty lines to break up text into paragraphs.\\";
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
@@ -240,14 +240,16 @@ struct L {
                 translationArgs: args
             )
             }
-            static let SpecialCharacters = LocaliciousData(
+            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\",
-                translationArgs: []
+                translationArgs: args
             )
+            }
             static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
@@ -297,7 +299,7 @@ Result {
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
@@ -340,7 +342,7 @@ Result {
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\"\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
 You better watch out!
 
@@ -510,14 +512,16 @@ struct L {
                 translationArgs: args
             )
             }
-            static let SpecialCharacters = LocaliciousData(
+            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\",
-                translationArgs: []
+                translationArgs: args
             )
+            }
             static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
@@ -567,7 +571,7 @@ Result {
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
@@ -603,7 +607,7 @@ Result {
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\"\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
 You better watch out!
 
@@ -633,7 +637,7 @@ It may also contain empty lines to break up text into paragraphs.\\";
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Subtotaal: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"Je kan zo veel lagen maken als je zelf wil\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;. En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9&#37; en &#37;1 en &#37;.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"Dit is een component met accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"Dit is de hint\\"</string>
@@ -669,7 +673,7 @@ It may also contain empty lines to break up text into paragraphs.\\";
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Blijf op de hoogte\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\"\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
 Let maar eens op!
 
@@ -863,14 +867,16 @@ struct L {
                 translationArgs: args
             )
             }
-            static let SpecialCharacters = LocaliciousData(
+            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\",
-                translationArgs: []
+                translationArgs: args
             )
+            }
             static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
@@ -918,7 +924,7 @@ Result {
 <resources>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
@@ -952,7 +958,7 @@ Result {
     Object {
       "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\"\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
 You better watch out!
 
@@ -980,7 +986,7 @@ It may also contain empty lines to break up text into paragraphs.\\";
 <resources>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"Je kan zo veel lagen maken als je zelf wil\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;. En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9&#37; en &#37;1 en &#37;.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"Dit is een component met accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"Dit is de hint\\"</string>
@@ -1014,7 +1020,7 @@ It may also contain empty lines to break up text into paragraphs.\\";
     Object {
       "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\"\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
 Let maar eens op!
 
@@ -1164,14 +1170,16 @@ struct L {
                 translationArgs: args
             )
             }
-            static let SpecialCharacters = LocaliciousData(
+            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
                 translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\",
-                translationArgs: []
+                translationArgs: args
             )
+            }
             static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
