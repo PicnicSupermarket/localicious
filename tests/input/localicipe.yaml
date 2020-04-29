@@ -54,8 +54,8 @@ SHARED:
             nl: '%1{{d}} Lopende bestellingen'
       SpecialCharacters:
         COPY:
-          en: "The following characters need special handling on some platforms: @ ? < & ' \""
-          nl: "De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \""
+          en: "The following characters need special handling on some platforms: @ ? < & ' \". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}."
+          nl: "De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}."
       MultilineStrings:
         COPY:
           en: |-
