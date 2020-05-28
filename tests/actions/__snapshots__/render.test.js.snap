@@ -72,7 +72,7 @@ It may also contain empty lines to break up text into paragraphs.\\";
     Object {
       "data": "import UIKit
 
-protocol LocalizationProvider {
+public protocol LocalizationProvider {
     var translationKey: String? { get }
     var accessibilityHintKey: String? { get }
     var accessibilityLabelKey: String? { get }
@@ -80,16 +80,16 @@ protocol LocalizationProvider {
     var translationArgs: [CVarArg]? { get }
 }
 
-struct LocaliciousData: LocalizationProvider {
-    let accessibilityIdentifier: String
-    let accessibilityHintKey: String?
-    let accessibilityLabelKey: String?
-    let accessibilityValueKey: String?
-    let translationKey: String?
-    let translationArgs: [CVarArg]?
+public struct LocaliciousData: LocalizationProvider {
+    public let accessibilityIdentifier: String
+    public let accessibilityHintKey: String?
+    public let accessibilityLabelKey: String?
+    public let accessibilityValueKey: String?
+    public let translationKey: String?
+    public let translationArgs: [CVarArg]?
 }
 
-enum LocaliciousQuantity: String {
+public enum LocaliciousQuantity: String {
     case zero = \\"ZERO\\"
     case one = \\"ONE\\"
     case other = \\"OTHER\\"
@@ -106,7 +106,7 @@ enum LocaliciousQuantity: String {
     }
 }
 
-extension LocalizationProvider {
+public extension LocalizationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
     }
@@ -132,7 +132,7 @@ extension LocalizationProvider {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
         setTitle(data.translation, for: controlState)
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -142,7 +142,7 @@ extension UIButton {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     func setLocalicious(_ data: LocaliciousData) {
         self.text = data.translation
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -152,10 +152,10 @@ extension UILabel {
     }
 }
 
-struct L {
-    struct Settings {
-        struct PushPermissionsRequest {
-            static let Title = LocaliciousData(
+public struct L {
+    public struct Settings {
+        public struct PushPermissionsRequest {
+            public static let Title = LocaliciousData(
                 accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Title\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -163,7 +163,7 @@ struct L {
                 translationKey: \\"Settings.PushPermissionsRequest.Title.COPY\\",
                 translationArgs: []
             )
-            static let Subtitle = LocaliciousData(
+            public static let Subtitle = LocaliciousData(
                 accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Subtitle\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -173,9 +173,9 @@ struct L {
             )
         }
     }
-    struct Checkout {
-        struct OrderOverview {
-            static func Total(args: CVarArg...) -> LocaliciousData {
+    public struct Checkout {
+        public struct OrderOverview {
+            public static func Total(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Checkout.OrderOverview.Total\\",
                 accessibilityHintKey: nil,
@@ -185,7 +185,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func Subtotal(args: CVarArg...) -> LocaliciousData {
+            public static func Subtotal(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Checkout.OrderOverview.Subtotal\\",
                 accessibilityHintKey: nil,
@@ -197,13 +197,13 @@ struct L {
             }
         }
     }
-    struct Something {
-        struct With {
-            struct An {
-                struct Arbitrary {
-                    struct Amount {
-                        struct Of {
-                            static let Nesting = LocaliciousData(
+    public struct Something {
+        public struct With {
+            public struct An {
+                public struct Arbitrary {
+                    public struct Amount {
+                        public struct Of {
+                            public static let Nesting = LocaliciousData(
                                 accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
                                 accessibilityHintKey: nil,
                                 accessibilityLabelKey: nil,
@@ -217,9 +217,9 @@ struct L {
             }
         }
     }
-    struct Delivery {
-        struct Widget {
-            static func Title(args: CVarArg...) -> LocaliciousData {
+    public struct Delivery {
+        public struct Widget {
+            public static func Title(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.Title\\",
                 accessibilityHintKey: nil,
@@ -229,7 +229,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
+            public static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
                 let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
@@ -240,7 +240,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+            public static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
@@ -250,7 +250,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static let MultilineStrings = LocaliciousData(
+            public static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -260,8 +260,8 @@ struct L {
             )
         }
     }
-    struct Accessible {
-        static let RegularComponent = LocaliciousData(
+    public struct Accessible {
+        public static let RegularComponent = LocaliciousData(
             accessibilityIdentifier: \\"Accessible.RegularComponent\\",
             accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
             accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
@@ -269,7 +269,7 @@ struct L {
             translationKey: \\"Accessible.RegularComponent.COPY\\",
             translationArgs: []
         )
-        static func PluralComponent(quantity: Int) -> LocaliciousData {
+        public static func PluralComponent(quantity: Int) -> LocaliciousData {
             let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
@@ -368,7 +368,7 @@ It may also contain empty lines to break up text into paragraphs.\\";
     Object {
       "data": "import UIKit
 
-protocol LocalizationProvider {
+public protocol LocalizationProvider {
     var translationKey: String? { get }
     var accessibilityHintKey: String? { get }
     var accessibilityLabelKey: String? { get }
@@ -376,16 +376,16 @@ protocol LocalizationProvider {
     var translationArgs: [CVarArg]? { get }
 }
 
-struct LocaliciousData: LocalizationProvider {
-    let accessibilityIdentifier: String
-    let accessibilityHintKey: String?
-    let accessibilityLabelKey: String?
-    let accessibilityValueKey: String?
-    let translationKey: String?
-    let translationArgs: [CVarArg]?
+public struct LocaliciousData: LocalizationProvider {
+    public let accessibilityIdentifier: String
+    public let accessibilityHintKey: String?
+    public let accessibilityLabelKey: String?
+    public let accessibilityValueKey: String?
+    public let translationKey: String?
+    public let translationArgs: [CVarArg]?
 }
 
-enum LocaliciousQuantity: String {
+public enum LocaliciousQuantity: String {
     case zero = \\"ZERO\\"
     case one = \\"ONE\\"
     case other = \\"OTHER\\"
@@ -402,7 +402,7 @@ enum LocaliciousQuantity: String {
     }
 }
 
-extension LocalizationProvider {
+public extension LocalizationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
     }
@@ -428,7 +428,7 @@ extension LocalizationProvider {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
         setTitle(data.translation, for: controlState)
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -438,7 +438,7 @@ extension UIButton {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     func setLocalicious(_ data: LocaliciousData) {
         self.text = data.translation
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -448,10 +448,10 @@ extension UILabel {
     }
 }
 
-struct L {
-    struct Settings {
-        struct PushPermissionsRequest {
-            static let Title = LocaliciousData(
+public struct L {
+    public struct Settings {
+        public struct PushPermissionsRequest {
+            public static let Title = LocaliciousData(
                 accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Title\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -459,7 +459,7 @@ struct L {
                 translationKey: \\"Settings.PushPermissionsRequest.Title.COPY\\",
                 translationArgs: []
             )
-            static let Subtitle = LocaliciousData(
+            public static let Subtitle = LocaliciousData(
                 accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Subtitle\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -469,13 +469,13 @@ struct L {
             )
         }
     }
-    struct Something {
-        struct With {
-            struct An {
-                struct Arbitrary {
-                    struct Amount {
-                        struct Of {
-                            static let Nesting = LocaliciousData(
+    public struct Something {
+        public struct With {
+            public struct An {
+                public struct Arbitrary {
+                    public struct Amount {
+                        public struct Of {
+                            public static let Nesting = LocaliciousData(
                                 accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
                                 accessibilityHintKey: nil,
                                 accessibilityLabelKey: nil,
@@ -489,9 +489,9 @@ struct L {
             }
         }
     }
-    struct Delivery {
-        struct Widget {
-            static func Title(args: CVarArg...) -> LocaliciousData {
+    public struct Delivery {
+        public struct Widget {
+            public static func Title(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.Title\\",
                 accessibilityHintKey: nil,
@@ -501,7 +501,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
+            public static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
                 let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
@@ -512,7 +512,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+            public static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
@@ -522,7 +522,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static let MultilineStrings = LocaliciousData(
+            public static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -532,8 +532,8 @@ struct L {
             )
         }
     }
-    struct Accessible {
-        static let RegularComponent = LocaliciousData(
+    public struct Accessible {
+        public static let RegularComponent = LocaliciousData(
             accessibilityIdentifier: \\"Accessible.RegularComponent\\",
             accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
             accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
@@ -541,7 +541,7 @@ struct L {
             translationKey: \\"Accessible.RegularComponent.COPY\\",
             translationArgs: []
         )
-        static func PluralComponent(quantity: Int) -> LocaliciousData {
+        public static func PluralComponent(quantity: Int) -> LocaliciousData {
             let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
@@ -699,7 +699,7 @@ De tekst kan zelfs witregels bevatten!\\";
     Object {
       "data": "import UIKit
 
-protocol LocalizationProvider {
+public protocol LocalizationProvider {
     var translationKey: String? { get }
     var accessibilityHintKey: String? { get }
     var accessibilityLabelKey: String? { get }
@@ -707,16 +707,16 @@ protocol LocalizationProvider {
     var translationArgs: [CVarArg]? { get }
 }
 
-struct LocaliciousData: LocalizationProvider {
-    let accessibilityIdentifier: String
-    let accessibilityHintKey: String?
-    let accessibilityLabelKey: String?
-    let accessibilityValueKey: String?
-    let translationKey: String?
-    let translationArgs: [CVarArg]?
+public struct LocaliciousData: LocalizationProvider {
+    public let accessibilityIdentifier: String
+    public let accessibilityHintKey: String?
+    public let accessibilityLabelKey: String?
+    public let accessibilityValueKey: String?
+    public let translationKey: String?
+    public let translationArgs: [CVarArg]?
 }
 
-enum LocaliciousQuantity: String {
+public enum LocaliciousQuantity: String {
     case zero = \\"ZERO\\"
     case one = \\"ONE\\"
     case other = \\"OTHER\\"
@@ -733,7 +733,7 @@ enum LocaliciousQuantity: String {
     }
 }
 
-extension LocalizationProvider {
+public extension LocalizationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
     }
@@ -759,7 +759,7 @@ extension LocalizationProvider {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
         setTitle(data.translation, for: controlState)
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -769,7 +769,7 @@ extension UIButton {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     func setLocalicious(_ data: LocaliciousData) {
         self.text = data.translation
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -779,10 +779,10 @@ extension UILabel {
     }
 }
 
-struct L {
-    struct Checkout {
-        struct OrderOverview {
-            static func Total(args: CVarArg...) -> LocaliciousData {
+public struct L {
+    public struct Checkout {
+        public struct OrderOverview {
+            public static func Total(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Checkout.OrderOverview.Total\\",
                 accessibilityHintKey: nil,
@@ -792,7 +792,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func Subtotal(args: CVarArg...) -> LocaliciousData {
+            public static func Subtotal(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Checkout.OrderOverview.Subtotal\\",
                 accessibilityHintKey: nil,
@@ -804,9 +804,9 @@ struct L {
             }
         }
     }
-    struct Settings {
-        struct PushPermissionsRequest {
-            static let Title = LocaliciousData(
+    public struct Settings {
+        public struct PushPermissionsRequest {
+            public static let Title = LocaliciousData(
                 accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Title\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -814,7 +814,7 @@ struct L {
                 translationKey: \\"Settings.PushPermissionsRequest.Title.COPY\\",
                 translationArgs: []
             )
-            static let Subtitle = LocaliciousData(
+            public static let Subtitle = LocaliciousData(
                 accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Subtitle\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -824,13 +824,13 @@ struct L {
             )
         }
     }
-    struct Something {
-        struct With {
-            struct An {
-                struct Arbitrary {
-                    struct Amount {
-                        struct Of {
-                            static let Nesting = LocaliciousData(
+    public struct Something {
+        public struct With {
+            public struct An {
+                public struct Arbitrary {
+                    public struct Amount {
+                        public struct Of {
+                            public static let Nesting = LocaliciousData(
                                 accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
                                 accessibilityHintKey: nil,
                                 accessibilityLabelKey: nil,
@@ -844,9 +844,9 @@ struct L {
             }
         }
     }
-    struct Delivery {
-        struct Widget {
-            static func Title(args: CVarArg...) -> LocaliciousData {
+    public struct Delivery {
+        public struct Widget {
+            public static func Title(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.Title\\",
                 accessibilityHintKey: nil,
@@ -856,7 +856,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
+            public static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
                 let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
@@ -867,7 +867,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+            public static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
@@ -877,7 +877,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static let MultilineStrings = LocaliciousData(
+            public static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -887,8 +887,8 @@ struct L {
             )
         }
     }
-    struct Accessible {
-        static let RegularComponent = LocaliciousData(
+    public struct Accessible {
+        public static let RegularComponent = LocaliciousData(
             accessibilityIdentifier: \\"Accessible.RegularComponent\\",
             accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
             accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
@@ -896,7 +896,7 @@ struct L {
             translationKey: \\"Accessible.RegularComponent.COPY\\",
             translationArgs: []
         )
-        static func PluralComponent(quantity: Int) -> LocaliciousData {
+        public static func PluralComponent(quantity: Int) -> LocaliciousData {
             let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
@@ -1046,7 +1046,7 @@ De tekst kan zelfs witregels bevatten!\\";
     Object {
       "data": "import UIKit
 
-protocol LocalizationProvider {
+public protocol LocalizationProvider {
     var translationKey: String? { get }
     var accessibilityHintKey: String? { get }
     var accessibilityLabelKey: String? { get }
@@ -1054,16 +1054,16 @@ protocol LocalizationProvider {
     var translationArgs: [CVarArg]? { get }
 }
 
-struct LocaliciousData: LocalizationProvider {
-    let accessibilityIdentifier: String
-    let accessibilityHintKey: String?
-    let accessibilityLabelKey: String?
-    let accessibilityValueKey: String?
-    let translationKey: String?
-    let translationArgs: [CVarArg]?
+public struct LocaliciousData: LocalizationProvider {
+    public let accessibilityIdentifier: String
+    public let accessibilityHintKey: String?
+    public let accessibilityLabelKey: String?
+    public let accessibilityValueKey: String?
+    public let translationKey: String?
+    public let translationArgs: [CVarArg]?
 }
 
-enum LocaliciousQuantity: String {
+public enum LocaliciousQuantity: String {
     case zero = \\"ZERO\\"
     case one = \\"ONE\\"
     case other = \\"OTHER\\"
@@ -1080,7 +1080,7 @@ enum LocaliciousQuantity: String {
     }
 }
 
-extension LocalizationProvider {
+public extension LocalizationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
     }
@@ -1106,7 +1106,7 @@ extension LocalizationProvider {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
         setTitle(data.translation, for: controlState)
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -1116,7 +1116,7 @@ extension UIButton {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     func setLocalicious(_ data: LocaliciousData) {
         self.text = data.translation
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -1126,14 +1126,14 @@ extension UILabel {
     }
 }
 
-struct L {
-    struct Something {
-        struct With {
-            struct An {
-                struct Arbitrary {
-                    struct Amount {
-                        struct Of {
-                            static let Nesting = LocaliciousData(
+public struct L {
+    public struct Something {
+        public struct With {
+            public struct An {
+                public struct Arbitrary {
+                    public struct Amount {
+                        public struct Of {
+                            public static let Nesting = LocaliciousData(
                                 accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
                                 accessibilityHintKey: nil,
                                 accessibilityLabelKey: nil,
@@ -1147,9 +1147,9 @@ struct L {
             }
         }
     }
-    struct Delivery {
-        struct Widget {
-            static func Title(args: CVarArg...) -> LocaliciousData {
+    public struct Delivery {
+        public struct Widget {
+            public static func Title(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.Title\\",
                 accessibilityHintKey: nil,
@@ -1159,7 +1159,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
+            public static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
                 let quantityType = LocaliciousQuantity(quantity: quantity)
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
@@ -1170,7 +1170,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+            public static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
                 return LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
                 accessibilityHintKey: nil,
@@ -1180,7 +1180,7 @@ struct L {
                 translationArgs: args
             )
             }
-            static let MultilineStrings = LocaliciousData(
+            public static let MultilineStrings = LocaliciousData(
                 accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
@@ -1190,8 +1190,8 @@ struct L {
             )
         }
     }
-    struct Accessible {
-        static let RegularComponent = LocaliciousData(
+    public struct Accessible {
+        public static let RegularComponent = LocaliciousData(
             accessibilityIdentifier: \\"Accessible.RegularComponent\\",
             accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
             accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
@@ -1199,7 +1199,7 @@ struct L {
             translationKey: \\"Accessible.RegularComponent.COPY\\",
             translationArgs: []
         )
-        static func PluralComponent(quantity: Int) -> LocaliciousData {
+        public static func PluralComponent(quantity: Int) -> LocaliciousData {
             let quantityType = LocaliciousQuantity(quantity: quantity)
             return LocaliciousData(
             accessibilityIdentifier: \\"Accessible.PluralComponent\\",
