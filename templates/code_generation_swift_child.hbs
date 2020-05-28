@@ -1,23 +1,23 @@
 {{#if hasChildren}}
-    struct {{name}} {
+    public struct {{name}} {
 {{#each children}}
     {{> child}}
 {{/each}}
     }
 {{else}}
 {{#if containsQuantityAndFormatting}}
-    static func {{name}}(quantity: Int, args: CVarArg...) -> LocaliciousData {
+    public static func {{name}}(quantity: Int, args: CVarArg...) -> LocaliciousData {
         let quantityType = LocaliciousQuantity(quantity: quantity)
         return LocaliciousData(
 {{else if containsQuantity}}
-    static func {{name}}(quantity: Int) -> LocaliciousData {
+    public static func {{name}}(quantity: Int) -> LocaliciousData {
         let quantityType = LocaliciousQuantity(quantity: quantity)
         return LocaliciousData(
 {{else if containsFormatting}}
-    static func {{name}}(args: CVarArg...) -> LocaliciousData {
+    public static func {{name}}(args: CVarArg...) -> LocaliciousData {
         return LocaliciousData(
 {{else}}
-    static let {{name}} = LocaliciousData(
+    public static let {{name}} = LocaliciousData(
 {{/if}}
 {{#ACCESSIBILITY}}
         accessibilityIdentifier: "{{../identifier}}",

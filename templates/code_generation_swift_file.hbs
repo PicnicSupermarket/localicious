@@ -1,6 +1,6 @@
 import UIKit
 
-protocol LocalizationProvider {
+public protocol LocalizationProvider {
     var translationKey: String? { get }
     var accessibilityHintKey: String? { get }
     var accessibilityLabelKey: String? { get }
@@ -8,16 +8,16 @@ protocol LocalizationProvider {
     var translationArgs: [CVarArg]? { get }
 }
 
-struct LocaliciousData: LocalizationProvider {
-    let accessibilityIdentifier: String
-    let accessibilityHintKey: String?
-    let accessibilityLabelKey: String?
-    let accessibilityValueKey: String?
-    let translationKey: String?
-    let translationArgs: [CVarArg]?
+public struct LocaliciousData: LocalizationProvider {
+    public let accessibilityIdentifier: String
+    public let accessibilityHintKey: String?
+    public let accessibilityLabelKey: String?
+    public let accessibilityValueKey: String?
+    public let translationKey: String?
+    public let translationArgs: [CVarArg]?
 }
 
-enum LocaliciousQuantity: String {
+public enum LocaliciousQuantity: String {
     case zero = "ZERO"
     case one = "ONE"
     case other = "OTHER"
@@ -34,7 +34,7 @@ enum LocaliciousQuantity: String {
     }
 }
 
-extension LocalizationProvider {
+public extension LocalizationProvider {
     var translation: String? {
         return translationKey.map(translation) ?? nil
     }
@@ -60,7 +60,7 @@ extension LocalizationProvider {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
         setTitle(data.translation, for: controlState)
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -70,7 +70,7 @@ extension UIButton {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     func setLocalicious(_ data: LocaliciousData) {
         self.text = data.translation
         self.accessibilityIdentifier = data.accessibilityIdentifier
@@ -80,7 +80,7 @@ extension UILabel {
     }
 }
 
-struct L {
+public struct L {
 {{#children}}
 {{> child}}
 {{/children}}
