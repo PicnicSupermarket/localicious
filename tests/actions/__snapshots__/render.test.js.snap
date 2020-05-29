@@ -8,8 +8,8 @@ Result {
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
 You better watch out!
 
 It may also contain empty lines to break up text into paragraphs.\\";
@@ -342,8 +342,8 @@ Result {
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
 You better watch out!
 
 It may also contain empty lines to break up text into paragraphs.\\";
@@ -607,8 +607,8 @@ Result {
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
 You better watch out!
 
 It may also contain empty lines to break up text into paragraphs.\\";
@@ -673,8 +673,8 @@ It may also contain empty lines to break up text into paragraphs.\\";
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Blijf op de hoogte\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.
 Let maar eens op!
 
 De tekst kan zelfs witregels bevatten!\\";
@@ -958,8 +958,8 @@ Result {
     Object {
       "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
 You better watch out!
 
 It may also contain empty lines to break up text into paragraphs.\\";
@@ -1020,8 +1020,8 @@ It may also contain empty lines to break up text into paragraphs.\\";
     Object {
       "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.
 Let maar eens op!
 
 De tekst kan zelfs witregels bevatten!\\";

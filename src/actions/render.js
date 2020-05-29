@@ -139,7 +139,8 @@ const substitutionsForPlatform = platform => {
         // Important: % should be substituted before we substitute {{s}} and {{d}}
         { search: percentEncodingPattern, replace: "%%" },
         { search: "{{s}}", replace: "$@" },
-        { search: "{{d}}", replace: "$d" }
+        { search: "{{d}}", replace: "$d" },
+        { search: '"', replace: '\\"' }
       ];
   }
 };
