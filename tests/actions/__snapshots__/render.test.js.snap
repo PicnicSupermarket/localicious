@@ -108,27 +108,44 @@ public enum LocaliciousQuantity: String {
 
 public extension LocalizationProvider {
     var translation: String? {
-        return translationKey.map(translation) ?? nil
+        return translationKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityHint: String? {
-        return accessibilityHintKey.map(translation) ?? nil
+        return accessibilityHintKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityLabel: String? {
-        return accessibilityLabelKey.map(translation) ?? nil
+        return accessibilityLabelKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityValue: String? {
-        return accessibilityValueKey.map(translation) ?? nil
+        return accessibilityValueKey.map { translation(forKey: $0) } ?? nil
     }
 
-    private func translation(forKey key: String) -> String? {
-        let translation = NSLocalizedString(key, comment: \\"\\")
-        if let translationArgs = translationArgs {
-            return String(format: translation, arguments: translationArgs)
+    func translation(forKey key: String, withBundle bundle: Bundle = Bundle.main) -> String? {
+        let value = bundle.localizedString(forKey: key, value: nil, table: nil)
+
+        guard value != key else {
+            return nil
         }
-        return translation
+
+        let translationArgs = self.translationArgs ?? []
+        guard translationArgs.count > 0 else { return value }
+        let format = value
+        let placeholdersCount = placeholders(in: format)
+        guard translationArgs.count == placeholdersCount else {
+            return nil
+        }
+
+        return String(format: format, arguments: translationArgs)
+    }
+
+    private func placeholders(in string: String) -> Int {
+        let supportedSeparators = [\\"$@\\", \\"$d\\"]
+        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
+            return result + string.components(separatedBy: s).count - 1
+        }
     }
 }
 
@@ -404,27 +421,44 @@ public enum LocaliciousQuantity: String {
 
 public extension LocalizationProvider {
     var translation: String? {
-        return translationKey.map(translation) ?? nil
+        return translationKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityHint: String? {
-        return accessibilityHintKey.map(translation) ?? nil
+        return accessibilityHintKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityLabel: String? {
-        return accessibilityLabelKey.map(translation) ?? nil
+        return accessibilityLabelKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityValue: String? {
-        return accessibilityValueKey.map(translation) ?? nil
+        return accessibilityValueKey.map { translation(forKey: $0) } ?? nil
     }
 
-    private func translation(forKey key: String) -> String? {
-        let translation = NSLocalizedString(key, comment: \\"\\")
-        if let translationArgs = translationArgs {
-            return String(format: translation, arguments: translationArgs)
+    func translation(forKey key: String, withBundle bundle: Bundle = Bundle.main) -> String? {
+        let value = bundle.localizedString(forKey: key, value: nil, table: nil)
+
+        guard value != key else {
+            return nil
         }
-        return translation
+
+        let translationArgs = self.translationArgs ?? []
+        guard translationArgs.count > 0 else { return value }
+        let format = value
+        let placeholdersCount = placeholders(in: format)
+        guard translationArgs.count == placeholdersCount else {
+            return nil
+        }
+
+        return String(format: format, arguments: translationArgs)
+    }
+
+    private func placeholders(in string: String) -> Int {
+        let supportedSeparators = [\\"$@\\", \\"$d\\"]
+        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
+            return result + string.components(separatedBy: s).count - 1
+        }
     }
 }
 
@@ -735,27 +769,44 @@ public enum LocaliciousQuantity: String {
 
 public extension LocalizationProvider {
     var translation: String? {
-        return translationKey.map(translation) ?? nil
+        return translationKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityHint: String? {
-        return accessibilityHintKey.map(translation) ?? nil
+        return accessibilityHintKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityLabel: String? {
-        return accessibilityLabelKey.map(translation) ?? nil
+        return accessibilityLabelKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityValue: String? {
-        return accessibilityValueKey.map(translation) ?? nil
+        return accessibilityValueKey.map { translation(forKey: $0) } ?? nil
     }
 
-    private func translation(forKey key: String) -> String? {
-        let translation = NSLocalizedString(key, comment: \\"\\")
-        if let translationArgs = translationArgs {
-            return String(format: translation, arguments: translationArgs)
+    func translation(forKey key: String, withBundle bundle: Bundle = Bundle.main) -> String? {
+        let value = bundle.localizedString(forKey: key, value: nil, table: nil)
+
+        guard value != key else {
+            return nil
         }
-        return translation
+
+        let translationArgs = self.translationArgs ?? []
+        guard translationArgs.count > 0 else { return value }
+        let format = value
+        let placeholdersCount = placeholders(in: format)
+        guard translationArgs.count == placeholdersCount else {
+            return nil
+        }
+
+        return String(format: format, arguments: translationArgs)
+    }
+
+    private func placeholders(in string: String) -> Int {
+        let supportedSeparators = [\\"$@\\", \\"$d\\"]
+        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
+            return result + string.components(separatedBy: s).count - 1
+        }
     }
 }
 
@@ -1082,27 +1133,44 @@ public enum LocaliciousQuantity: String {
 
 public extension LocalizationProvider {
     var translation: String? {
-        return translationKey.map(translation) ?? nil
+        return translationKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityHint: String? {
-        return accessibilityHintKey.map(translation) ?? nil
+        return accessibilityHintKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityLabel: String? {
-        return accessibilityLabelKey.map(translation) ?? nil
+        return accessibilityLabelKey.map { translation(forKey: $0) } ?? nil
     }
 
     var accessibilityValue: String? {
-        return accessibilityValueKey.map(translation) ?? nil
+        return accessibilityValueKey.map { translation(forKey: $0) } ?? nil
     }
 
-    private func translation(forKey key: String) -> String? {
-        let translation = NSLocalizedString(key, comment: \\"\\")
-        if let translationArgs = translationArgs {
-            return String(format: translation, arguments: translationArgs)
+    func translation(forKey key: String, withBundle bundle: Bundle = Bundle.main) -> String? {
+        let value = bundle.localizedString(forKey: key, value: nil, table: nil)
+
+        guard value != key else {
+            return nil
         }
-        return translation
+
+        let translationArgs = self.translationArgs ?? []
+        guard translationArgs.count > 0 else { return value }
+        let format = value
+        let placeholdersCount = placeholders(in: format)
+        guard translationArgs.count == placeholdersCount else {
+            return nil
+        }
+
+        return String(format: format, arguments: translationArgs)
+    }
+
+    private func placeholders(in string: String) -> Int {
+        let supportedSeparators = [\\"$@\\", \\"$d\\"]
+        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
+            return result + string.components(separatedBy: s).count - 1
+        }
     }
 }
 
