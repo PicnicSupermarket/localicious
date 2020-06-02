@@ -132,20 +132,8 @@ public extension LocalizationProvider {
 
         let translationArgs = self.translationArgs ?? []
         guard translationArgs.count > 0 else { return value }
-        let format = value
-        let placeholdersCount = placeholders(in: format)
-        guard translationArgs.count == placeholdersCount else {
-            return nil
-        }
 
-        return String(format: format, arguments: translationArgs)
-    }
-
-    private func placeholders(in string: String) -> Int {
-        let supportedSeparators = [\\"$@\\", \\"$d\\"]
-        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
-            return result + string.components(separatedBy: s).count - 1
-        }
+        return String(format: value, arguments: translationArgs)
     }
 }
 
@@ -445,20 +433,8 @@ public extension LocalizationProvider {
 
         let translationArgs = self.translationArgs ?? []
         guard translationArgs.count > 0 else { return value }
-        let format = value
-        let placeholdersCount = placeholders(in: format)
-        guard translationArgs.count == placeholdersCount else {
-            return nil
-        }
 
-        return String(format: format, arguments: translationArgs)
-    }
-
-    private func placeholders(in string: String) -> Int {
-        let supportedSeparators = [\\"$@\\", \\"$d\\"]
-        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
-            return result + string.components(separatedBy: s).count - 1
-        }
+        return String(format: value, arguments: translationArgs)
     }
 }
 
@@ -793,20 +769,8 @@ public extension LocalizationProvider {
 
         let translationArgs = self.translationArgs ?? []
         guard translationArgs.count > 0 else { return value }
-        let format = value
-        let placeholdersCount = placeholders(in: format)
-        guard translationArgs.count == placeholdersCount else {
-            return nil
-        }
 
-        return String(format: format, arguments: translationArgs)
-    }
-
-    private func placeholders(in string: String) -> Int {
-        let supportedSeparators = [\\"$@\\", \\"$d\\"]
-        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
-            return result + string.components(separatedBy: s).count - 1
-        }
+        return String(format: value, arguments: translationArgs)
     }
 }
 
@@ -1157,20 +1121,8 @@ public extension LocalizationProvider {
 
         let translationArgs = self.translationArgs ?? []
         guard translationArgs.count > 0 else { return value }
-        let format = value
-        let placeholdersCount = placeholders(in: format)
-        guard translationArgs.count == placeholdersCount else {
-            return nil
-        }
 
-        return String(format: format, arguments: translationArgs)
-    }
-
-    private func placeholders(in string: String) -> Int {
-        let supportedSeparators = [\\"$@\\", \\"$d\\"]
-        return supportedSeparators.reduce(0) { (result: Int, s: String) -> Int in
-            return result + string.components(separatedBy: s).count - 1
-        }
+        return String(format: value, arguments: translationArgs)
     }
 }
 
