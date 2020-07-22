@@ -1,6 +1,295 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`normalizing works as expected with Android only 1`] = `
+exports[`normalizing works as expected with a single collection 1`] = `
+Array [
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "We support nesting as deep as you'd like",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "en",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "Je kan zo veel lagen maken als je zelf wil",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Something",
+      "With",
+      "An",
+      "Arbitrary",
+      "Amount",
+      "Of",
+      "Nesting",
+    ],
+    "language": "nl",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": true,
+      "translation": "Help: %1{{s}}",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "en",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": true,
+      "translation": "Help %1{{s}}",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "Title",
+    ],
+    "language": "nl",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": true,
+      "translation": Object {
+        "ONE": "%1{{d}} Pending order",
+        "OTHER": "%1{{d}} Pending Orders",
+        "ZERO": "%1{{d}} Pending order",
+      },
+      "type": "PLURAL",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "en",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": true,
+      "translation": Object {
+        "ONE": "%1{{d}} Lopende bestelling",
+        "OTHER": "%1{{d}} Lopende bestellingen",
+        "ZERO": "%1{{d}} Lopende bestelling",
+      },
+      "type": "PLURAL",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SubTitle",
+    ],
+    "language": "nl",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": true,
+      "translation": "The following characters need special handling for some output types: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}.",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "en",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": true,
+      "translation": "De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}.",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "SpecialCharacters",
+    ],
+    "language": "nl",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
+You better watch out!
+
+It may also contain empty lines to break up text into paragraphs.",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "en",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
+Let maar eens op!
+
+De tekst kan zelfs witregels bevatten!",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Delivery",
+      "Widget",
+      "MultilineStrings",
+    ],
+    "language": "nl",
+  },
+  Object {
+    "ACCESSIBILITY": Object {
+      "HINT": Object {
+        "containsFormatting": false,
+        "translation": "This is the hint",
+        "type": "SINGULAR",
+      },
+      "LABEL": Object {
+        "containsFormatting": false,
+        "translation": "This is the label",
+        "type": "SINGULAR",
+      },
+    },
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "This is a component with accessiblity support",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Accessible",
+      "RegularComponent",
+    ],
+    "language": "en",
+  },
+  Object {
+    "ACCESSIBILITY": Object {
+      "HINT": Object {
+        "containsFormatting": false,
+        "translation": "Dit is de hint",
+        "type": "SINGULAR",
+      },
+      "LABEL": Object {
+        "containsFormatting": false,
+        "translation": "Dit is de label",
+        "type": "SINGULAR",
+      },
+    },
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "Dit is een component met accessiblity support",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Accessible",
+      "RegularComponent",
+    ],
+    "language": "nl",
+  },
+  Object {
+    "ACCESSIBILITY": Object {
+      "HINT": Object {
+        "containsFormatting": false,
+        "translation": Object {
+          "ONE": "The singular hint",
+          "OTHER": "The plural hint",
+        },
+        "type": "PLURAL",
+      },
+      "LABEL": Object {
+        "containsFormatting": false,
+        "translation": Object {
+          "ONE": "The singular label",
+          "OTHER": "The plural label",
+        },
+        "type": "PLURAL",
+      },
+      "VALUE": Object {
+        "containsFormatting": false,
+        "translation": Object {
+          "ONE": "The singular value",
+          "OTHER": "The plural value",
+          "ZERO": "No value for this component",
+        },
+        "type": "PLURAL",
+      },
+    },
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": Object {
+        "ONE": "The singular copy",
+        "OTHER": "The plural copy",
+      },
+      "type": "PLURAL",
+    },
+    "keyPath": Array [
+      "Accessible",
+      "PluralComponent",
+    ],
+    "language": "en",
+  },
+  Object {
+    "ACCESSIBILITY": Object {
+      "HINT": Object {
+        "containsFormatting": false,
+        "translation": Object {
+          "ONE": "De enkelvoudige hint",
+          "OTHER": "De meervoudige hint",
+        },
+        "type": "PLURAL",
+      },
+      "LABEL": Object {
+        "containsFormatting": false,
+        "translation": Object {
+          "ONE": "De enkelvoudige label",
+          "OTHER": "De meervoudige label",
+        },
+        "type": "PLURAL",
+      },
+      "VALUE": Object {
+        "containsFormatting": false,
+        "translation": Object {
+          "ONE": "De enkelvoudige waarde",
+          "OTHER": "The meervoudige waarde",
+          "ZERO": "Geen waarde voor dit component",
+        },
+        "type": "PLURAL",
+      },
+    },
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": Object {
+        "ONE": "De enkelvoudige copy",
+        "OTHER": "De meervoudige copy",
+      },
+      "type": "PLURAL",
+    },
+    "keyPath": Array [
+      "Accessible",
+      "PluralComponent",
+    ],
+    "language": "nl",
+  },
+]
+`;
+
+exports[`normalizing works as expected with multiple collections 1`] = `
 Array [
   Object {
     "COPY": Object {
@@ -14,7 +303,6 @@ Array [
       "Total",
     ],
     "language": "en",
-    "platform": "ANDROID",
   },
   Object {
     "COPY": Object {
@@ -28,7 +316,6 @@ Array [
       "Total",
     ],
     "language": "nl",
-    "platform": "ANDROID",
   },
   Object {
     "COPY": Object {
@@ -42,7 +329,6 @@ Array [
       "Subtotal",
     ],
     "language": "en",
-    "platform": "ANDROID",
   },
   Object {
     "COPY": Object {
@@ -56,7 +342,58 @@ Array [
       "Subtotal",
     ],
     "language": "nl",
-    "platform": "ANDROID",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "Stay up to date",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Title",
+    ],
+    "language": "en",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "Blijf op de hoogte",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Title",
+    ],
+    "language": "nl",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "Stay up to date",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Subtitle",
+    ],
+    "language": "en",
+  },
+  Object {
+    "COPY": Object {
+      "containsFormatting": false,
+      "translation": "Blijf op de hoogte",
+      "type": "SINGULAR",
+    },
+    "keyPath": Array [
+      "Settings",
+      "PushPermissionsRequest",
+      "Subtitle",
+    ],
+    "language": "nl",
   },
   Object {
     "COPY": Object {
@@ -74,7 +411,6 @@ Array [
       "Nesting",
     ],
     "language": "en",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
@@ -92,7 +428,6 @@ Array [
       "Nesting",
     ],
     "language": "nl",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
@@ -106,7 +441,6 @@ Array [
       "Title",
     ],
     "language": "en",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
@@ -120,7 +454,6 @@ Array [
       "Title",
     ],
     "language": "nl",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
@@ -138,7 +471,6 @@ Array [
       "SubTitle",
     ],
     "language": "en",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
@@ -156,12 +488,11 @@ Array [
       "SubTitle",
     ],
     "language": "nl",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
       "containsFormatting": true,
-      "translation": "The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}.",
+      "translation": "The following characters need special handling for some output types: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}.",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -170,12 +501,11 @@ Array [
       "SpecialCharacters",
     ],
     "language": "en",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
       "containsFormatting": true,
-      "translation": "De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}.",
+      "translation": "De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}.",
       "type": "SINGULAR",
     },
     "keyPath": Array [
@@ -184,7 +514,6 @@ Array [
       "SpecialCharacters",
     ],
     "language": "nl",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
@@ -201,7 +530,6 @@ It may also contain empty lines to break up text into paragraphs.",
       "MultilineStrings",
     ],
     "language": "en",
-    "platform": "SHARED",
   },
   Object {
     "COPY": Object {
@@ -218,7 +546,6 @@ De tekst kan zelfs witregels bevatten!",
       "MultilineStrings",
     ],
     "language": "nl",
-    "platform": "SHARED",
   },
   Object {
     "ACCESSIBILITY": Object {
@@ -243,7 +570,6 @@ De tekst kan zelfs witregels bevatten!",
       "RegularComponent",
     ],
     "language": "en",
-    "platform": "SHARED",
   },
   Object {
     "ACCESSIBILITY": Object {
@@ -268,7 +594,6 @@ De tekst kan zelfs witregels bevatten!",
       "RegularComponent",
     ],
     "language": "nl",
-    "platform": "SHARED",
   },
   Object {
     "ACCESSIBILITY": Object {
@@ -311,7 +636,6 @@ De tekst kan zelfs witregels bevatten!",
       "PluralComponent",
     ],
     "language": "en",
-    "platform": "SHARED",
   },
   Object {
     "ACCESSIBILITY": Object {
@@ -354,781 +678,6 @@ De tekst kan zelfs witregels bevatten!",
       "PluralComponent",
     ],
     "language": "nl",
-    "platform": "SHARED",
-  },
-]
-`;
-
-exports[`normalizing works as expected with all platforms 1`] = `
-Array [
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Stay up to date",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Title",
-    ],
-    "language": "en",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Blijf op de hoogte",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Title",
-    ],
-    "language": "nl",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Stay up to date",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Subtitle",
-    ],
-    "language": "en",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Blijf op de hoogte",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Subtitle",
-    ],
-    "language": "nl",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Total price: %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Checkout",
-      "OrderOverview",
-      "Total",
-    ],
-    "language": "en",
-    "platform": "ANDROID",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Totaal: %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Checkout",
-      "OrderOverview",
-      "Total",
-    ],
-    "language": "nl",
-    "platform": "ANDROID",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Total price before taxes: %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Checkout",
-      "OrderOverview",
-      "Subtotal",
-    ],
-    "language": "en",
-    "platform": "ANDROID",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Subtotaal: %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Checkout",
-      "OrderOverview",
-      "Subtotal",
-    ],
-    "language": "nl",
-    "platform": "ANDROID",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "We support nesting as deep as you'd like",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Something",
-      "With",
-      "An",
-      "Arbitrary",
-      "Amount",
-      "Of",
-      "Nesting",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Je kan zo veel lagen maken als je zelf wil",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Something",
-      "With",
-      "An",
-      "Arbitrary",
-      "Amount",
-      "Of",
-      "Nesting",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Help: %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "Title",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Help %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "Title",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": Object {
-        "ONE": "%1{{d}} Pending order",
-        "OTHER": "%1{{d}} Pending Orders",
-        "ZERO": "%1{{d}} Pending order",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SubTitle",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": Object {
-        "ONE": "%1{{d}} Lopende bestelling",
-        "OTHER": "%1{{d}} Lopende bestellingen",
-        "ZERO": "%1{{d}} Lopende bestelling",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SubTitle",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}.",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SpecialCharacters",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}.",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SpecialCharacters",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
-You better watch out!
-
-It may also contain empty lines to break up text into paragraphs.",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "MultilineStrings",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
-Let maar eens op!
-
-De tekst kan zelfs witregels bevatten!",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "MultilineStrings",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": "This is the hint",
-        "type": "SINGULAR",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": "This is the label",
-        "type": "SINGULAR",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "This is a component with accessiblity support",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "RegularComponent",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": "Dit is de hint",
-        "type": "SINGULAR",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": "Dit is de label",
-        "type": "SINGULAR",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Dit is een component met accessiblity support",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "RegularComponent",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "The singular hint",
-          "OTHER": "The plural hint",
-        },
-        "type": "PLURAL",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "The singular label",
-          "OTHER": "The plural label",
-        },
-        "type": "PLURAL",
-      },
-      "VALUE": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "The singular value",
-          "OTHER": "The plural value",
-          "ZERO": "No value for this component",
-        },
-        "type": "PLURAL",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": Object {
-        "ONE": "The singular copy",
-        "OTHER": "The plural copy",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "PluralComponent",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "De enkelvoudige hint",
-          "OTHER": "De meervoudige hint",
-        },
-        "type": "PLURAL",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "De enkelvoudige label",
-          "OTHER": "De meervoudige label",
-        },
-        "type": "PLURAL",
-      },
-      "VALUE": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "De enkelvoudige waarde",
-          "OTHER": "The meervoudige waarde",
-          "ZERO": "Geen waarde voor dit component",
-        },
-        "type": "PLURAL",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": Object {
-        "ONE": "De enkelvoudige copy",
-        "OTHER": "De meervoudige copy",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "PluralComponent",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-]
-`;
-
-exports[`normalizing works as expected with iOS only 1`] = `
-Array [
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Stay up to date",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Title",
-    ],
-    "language": "en",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Blijf op de hoogte",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Title",
-    ],
-    "language": "nl",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Stay up to date",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Subtitle",
-    ],
-    "language": "en",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Blijf op de hoogte",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Settings",
-      "PushPermissionsRequest",
-      "Subtitle",
-    ],
-    "language": "nl",
-    "platform": "IOS",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "We support nesting as deep as you'd like",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Something",
-      "With",
-      "An",
-      "Arbitrary",
-      "Amount",
-      "Of",
-      "Nesting",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Je kan zo veel lagen maken als je zelf wil",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Something",
-      "With",
-      "An",
-      "Arbitrary",
-      "Amount",
-      "Of",
-      "Nesting",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Help: %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "Title",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "Help %1{{s}}",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "Title",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": Object {
-        "ONE": "%1{{d}} Pending order",
-        "OTHER": "%1{{d}} Pending Orders",
-        "ZERO": "%1{{d}} Pending order",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SubTitle",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": Object {
-        "ONE": "%1{{d}} Lopende bestelling",
-        "OTHER": "%1{{d}} Lopende bestellingen",
-        "ZERO": "%1{{d}} Lopende bestelling",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SubTitle",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "The following characters need special handling on some platforms: @ ? < & ' \\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}.",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SpecialCharacters",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": true,
-      "translation": "De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}.",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "SpecialCharacters",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "This is a multiline string that may contain <a href=\\"about:blank\\">links</a>
-You better watch out!
-
-It may also contain empty lines to break up text into paragraphs.",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "MultilineStrings",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Dit is een string van meerdere regels die <a href=\\"about:blank\\">links</a> kan bevatten.
-Let maar eens op!
-
-De tekst kan zelfs witregels bevatten!",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Delivery",
-      "Widget",
-      "MultilineStrings",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": "This is the hint",
-        "type": "SINGULAR",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": "This is the label",
-        "type": "SINGULAR",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "This is a component with accessiblity support",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "RegularComponent",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": "Dit is de hint",
-        "type": "SINGULAR",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": "Dit is de label",
-        "type": "SINGULAR",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": "Dit is een component met accessiblity support",
-      "type": "SINGULAR",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "RegularComponent",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "The singular hint",
-          "OTHER": "The plural hint",
-        },
-        "type": "PLURAL",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "The singular label",
-          "OTHER": "The plural label",
-        },
-        "type": "PLURAL",
-      },
-      "VALUE": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "The singular value",
-          "OTHER": "The plural value",
-          "ZERO": "No value for this component",
-        },
-        "type": "PLURAL",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": Object {
-        "ONE": "The singular copy",
-        "OTHER": "The plural copy",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "PluralComponent",
-    ],
-    "language": "en",
-    "platform": "SHARED",
-  },
-  Object {
-    "ACCESSIBILITY": Object {
-      "HINT": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "De enkelvoudige hint",
-          "OTHER": "De meervoudige hint",
-        },
-        "type": "PLURAL",
-      },
-      "LABEL": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "De enkelvoudige label",
-          "OTHER": "De meervoudige label",
-        },
-        "type": "PLURAL",
-      },
-      "VALUE": Object {
-        "containsFormatting": false,
-        "translation": Object {
-          "ONE": "De enkelvoudige waarde",
-          "OTHER": "The meervoudige waarde",
-          "ZERO": "Geen waarde voor dit component",
-        },
-        "type": "PLURAL",
-      },
-    },
-    "COPY": Object {
-      "containsFormatting": false,
-      "translation": Object {
-        "ONE": "De enkelvoudige copy",
-        "OTHER": "De meervoudige copy",
-      },
-      "type": "PLURAL",
-    },
-    "keyPath": Array [
-      "Accessible",
-      "PluralComponent",
-    ],
-    "language": "nl",
-    "platform": "SHARED",
   },
 ]
 `;

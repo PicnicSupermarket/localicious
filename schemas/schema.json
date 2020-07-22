@@ -64,14 +64,8 @@
     }
   },
   "type": "object",
-  "properties": {
-    "IOS": {
-      "$ref": "#/definitions/Node"
-    },
-    "ANDROID": {
-      "$ref": "#/definitions/Node"
-    },
-    "SHARED": {
+  "patternProperties": {
+    "^.*$": {
       "$ref": "#/definitions/Node"
     }
   },

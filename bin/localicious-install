@@ -23,14 +23,15 @@ loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
           path,
           options: {
             languages: localiciousConfig.languages,
-            platforms: localiciousConfig.platforms
+            outputTypes: localiciousConfig.outputTypes,
+            collections: localiciousConfig.collections,
           }
         };
       })
       .flatMap(configuration => {
         const { path, options } = configuration;
 
-        return validateAndRender(path, outputPath, options.languages, options.platforms);
+        return validateAndRender(path, outputPath, options.languages, options.outputTypes, options.collections);
       })
       .onSuccess(() => {
         console.log(`✅ Your Localicipe was rendered successfully.`);

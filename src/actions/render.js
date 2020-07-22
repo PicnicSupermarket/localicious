@@ -3,21 +3,19 @@ const Handlebars = require("handlebars");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
-const { accessiblityKeywords, groupKeywords, platformKeywords } = require("../model/keywords");
+const { accessiblityKeywords, groupKeywords, outputType } = require("../model/keywords");
 const { groupByKey } = require("../utils/arrayUtils");
 const { flatten } = require("../utils/arrayUtils");
 
 const percentEncodingPattern = /%(?!\d+{{.}})/;
 
-const render = (data, outputPath, platforms, languages) => {
-  const translations = normalizeYaml(data, platforms, languages);
+const render = (data, outputPath, languages, platforms, collections) => {
+  const translations = normalizeYaml(data, languages, collections);
   const translationsPerLanguage = groupByKey(translations, t => t.language);
-
   const localizationRenders = Object.keys(translationsPerLanguage).reduce((acc, language) => {
     const translationsForLanguage = translationsPerLanguage[language];
     const renderResults = platforms.map(platform => {
-      const translations = translationsForLanguage.filter(t => includeInPlatform(t, platform));
-      const view = createLocalizationView(translations, platform);
+      const view = createLocalizationView(translationsForLanguage, platform);
       return renderLocalizationView(view, platform, language, outputPath);
     });
     return [...acc, ...renderResults];
@@ -28,7 +26,7 @@ const render = (data, outputPath, platforms, languages) => {
   );
 
   const codeGenerationRenders = platforms
-    .map(platform => [createCodeGenView(uniqueTranslations, platform), platform])
+    .map(platform => [createCodeGenView(uniqueTranslations, platform, languages), platform])
     .map(([view, platform]) => renderCodeGenView(view, platform, outputPath));
 
   return [...localizationRenders, ...codeGenerationRenders]
@@ -38,9 +36,6 @@ const render = (data, outputPath, platforms, languages) => {
       Result.success([])
     );
 };
-
-const includeInPlatform = (translation, platform) =>
-  [platform, platformKeywords.SHARED].includes(translation.platform);
 
 const renderLocalizationView = (view, platform, language, basePath) => {
   const outputPath = localizationOutputPath(basePath, platform, language);
@@ -58,7 +53,9 @@ const renderCodeGenView = (view, platform, basePath) => {
     const outputPath = codeGenerationOutputPath(basePath, platform);
     return template
       .map(({ fileTemplate, childTemplate }) => {
-        Handlebars.registerPartial("child", childTemplate);
+        if (childTemplate) {
+          Handlebars.registerPartial("child", childTemplate);
+        } 
         return Handlebars.compile(fileTemplate);
       })
       .map(template => template(view))
@@ -68,18 +65,20 @@ const renderCodeGenView = (view, platform, basePath) => {
 
 const localizationTemplate = platform => {
   switch (platform) {
-    case platformKeywords.ANDROID:
+    case outputType.ANDROID:
       return loadFile(path.resolve(__dirname, "../../templates/strings_xml_file.hbs"));
-    case platformKeywords.IOS:
+    case outputType.IOS:
       return loadFile(path.resolve(__dirname, "../../templates/localizable_strings_file.hbs"));
+    case outputType.JS:
+      return loadFile(path.resolve(__dirname, "../../templates/json_strings_file.hbs"));
   }
 };
 
 const codeGenerationTemplate = platform => {
   switch (platform) {
-    case platformKeywords.ANDROID:
+    case outputType.ANDROID:
       return undefined;
-    case platformKeywords.IOS:
+    case outputType.IOS:
       return loadFile(
         path.resolve(__dirname, "../../templates/code_generation_swift_file.hbs")
       ).flatMap(fileTemplate =>
@@ -87,6 +86,10 @@ const codeGenerationTemplate = platform => {
           path.resolve(__dirname, "../../templates/code_generation_swift_child.hbs")
         ).flatMap(childTemplate => Result.success({ fileTemplate, childTemplate }))
       );
+    case outputType.JS:
+      return loadFile(
+        path.resolve(__dirname, "../../templates/code_generation_js_file.hbs")
+      ).flatMap(fileTemplate => Result.success({ fileTemplate, undefined }));
   }
 };
 
@@ -100,25 +103,29 @@ const codeGenerationOutputPath = (basePath, platform) => {
 
 const localizationFileName = platform => {
   switch (platform) {
-    case platformKeywords.ANDROID:
+    case outputType.ANDROID:
       return "strings.xml";
-    case platformKeywords.IOS:
+    case outputType.IOS:
       return "Localizable.strings";
+    case outputType.JS:
+      return "strings.json";
   }
 };
 
 const codeGenerationFileName = platform => {
   switch (platform) {
-    case platformKeywords.ANDROID:
+    case outputType.ANDROID:
       return "Localizable.kt";
-    case platformKeywords.IOS:
+    case outputType.IOS:
       return "Localizable.swift";
+    case outputType.JS:
+      return "Localizable.ts";
   }
 };
 
 const substitutionsForPlatform = platform => {
   switch (platform) {
-    case platformKeywords.ANDROID:
+    case outputType.ANDROID:
       // prettier-ignore
       return [
         // Important: & should be substituted before we introduce new ampersands as part of our substitutions
@@ -134,7 +141,7 @@ const substitutionsForPlatform = platform => {
         { search: ">", replace: "&gt;" },
         { search: "\"", replace: "&quot;" },
       ];
-    case platformKeywords.IOS:
+    case outputType.IOS:
       return [
         // Important: % should be substituted before we substitute {{s}} and {{d}}
         { search: percentEncodingPattern, replace: "%%" },
@@ -142,14 +149,24 @@ const substitutionsForPlatform = platform => {
         { search: "{{d}}", replace: "$d" },
         { search: '"', replace: '\\"' }
       ];
+    case outputType.JS:
+      return [
+        { search: "{{s}}", replace: "$s" },
+        { search: "{{d}}", replace: "$d" },
+        { search: "\n", replace: "\\n" },
+        { search: '\\', replace: '\\\\' },
+        { search: '"', replace: '\\"' },
+      ];
   }
 };
 
 const keyDelimiterForPlatform = platform => {
   switch (platform) {
-    case platformKeywords.ANDROID:
+    case outputType.ANDROID:
       return "_";
-    case platformKeywords.IOS:
+    case outputType.IOS:
+      return ".";
+    case outputType.JS:
       return ".";
   }
 };
@@ -161,12 +178,12 @@ const substitute = (value, valueSubstitutions) => {
   return value;
 };
 
-const createCodeGenView = (translations, platform) => {
+const createCodeGenView = (translations, platform, languages) => {
   const delimiter = keyDelimiterForPlatform(platform);
 
-  let view = {};
+  let translationsView = {};
   translations.forEach(item => {
-    let result = view;
+    let result = translationsView;
     item.keyPath.forEach((name, index) => {
       if (index === item.keyPath.length - 1) {
         const copyKey = groupKeywords.COPY;
@@ -207,7 +224,10 @@ const createCodeGenView = (translations, platform) => {
       }
     });
   });
-  return view;
+  return { 
+    languages: languages,
+    translations: translationsView
+  };
 };
 
 const groupContainsFormatting = (item, keyword) => {

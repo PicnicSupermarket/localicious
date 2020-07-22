@@ -1,59 +1,88 @@
 #!/usr/bin/env node
 const path = require("path");
 const program = require("commander");
+const keywords = require("../src/model/keywords")
 const validateAndRender = require("../src/actions/validateAndRender");
 
 const commaSeparatedList = value => {
   return value.split(",");
 };
 
+const hasValidLanguages = (languages) => {
+  if (languages === undefined || languages.length == 0) {
+    console.error(`❌ This command requires one or more output languages.`);
+    return false;
+  }  
+  return true;
+}
+
+const hasValidCollections = (collections) => {
+  if (collections === undefined || collections.length == 0) {
+    console.error(`❌ This command requires one or more string collections.`);
+    return false;
+  }  
+  return true;
+}
+
+const hasValidOutputTypes = (outputTypes) => {
+  const supportedOutputTypes = Object.keys(keywords.outputType).map(s => s.toLowerCase());
+
+  if (outputTypes === undefined || outputTypes.length == 0) {
+    console.error(
+      `❌ This command requires one or more output types. Supported output types: '${supportedOutputTypes.join(
+        " | "
+      )}'.`
+    );
+    return false;
+  }
+
+  const invalidOutputTypes = outputTypes
+    .filter(option => !supportedOutputTypes.includes(option));
+
+  if (invalidOutputTypes.length != 0) {
+    console.error(
+      `❌ Received invalid output types: '${invalidOutputTypes.join(
+        " | "
+      )}'. Supported output types: '${supportedOutputTypes.join(" | ")}'.`
+    );
+    return false;
+  }
+  return true;
+}
+
 program
   .option("-l --languages <languages>", "output languages", commaSeparatedList)
-  .option("-p --platforms <platforms>", "target platforms", commaSeparatedList)
+  .option("-ot --outputTypes <outputTypes>", "output types", commaSeparatedList)
+  .option("-c --collections <collections>", "translation collections", commaSeparatedList)
   .parse(process.argv);
 
-if (program.args.length < 2) {
-  console.log(`Usage: localicious render <localicipe> <output_path> -l <languages> -p <platforms>`);
+if (program.args.length < 2 
+  || !hasValidLanguages(program.languages)
+  || !hasValidOutputTypes(program.outputTypes)
+  || !hasValidCollections(program.collections)) {
+  console.log(`Usage: localicious render <localicipe> <output_path> -l <languages> -ot <output_types> -c <collections>`);
   process.exit(1);
 }
 
 const localicipePath = path.resolve(process.cwd(), program.args[0]);
 const outputPath = path.resolve(process.cwd(), program.args[1]);
+const outputTypes = program.outputTypes.map(outputType => outputType.toUpperCase());
+const collections = program.collections.map(collection => collection.toUpperCase());
 
-if (program.languages === undefined || program.languages.length == 0) {
-  console.error(`This command requires one or more output languages.`);
-  process.exit(1);
-}
-
-const supportedPlatforms = ["ios", "android"];
-if (program.platforms === undefined || program.platforms.length == 0) {
-  console.error(
-    `This command requires one or more target platforms. Supported target platforms: '${supportedPlatforms.join(
-      " | "
-    )}'.`
-  );
-  process.exit(1);
-}
-
-const invalidPlatforms = program.platforms.filter(option => {
-  return !supportedPlatforms.includes(option);
-});
-
-if (invalidPlatforms.length != 0) {
-  console.error(
-    `Received invalid target platforms: '${invalidPlatforms.join(
-      " | "
-    )}'. Supported target platforms: '${supportedPlatforms.join(" | ")}'.`
-  );
-  process.exit(1);
-}
-
-const platforms = program.platforms.map(platform => platform.toUpperCase());
-
-validateAndRender(localicipePath, outputPath, program.languages, platforms)
+validateAndRender(
+  localicipePath, 
+  outputPath, 
+  program.languages, 
+  outputTypes,
+  collections)
   .onSuccess(() => {
     console.log(
-      `✅ Your Localicipe has been rendered successfully for platforms: ${program.platforms} and languages: ${program.languages}.`
+      `
+      ✅ Your Localicipe has been rendered successfully for:
+      -  outputTypes: ${program.outputTypes}
+      -  languages: ${program.languages}
+      -  collections: ${program.collections}
+      `
     );
     process.exit(0);
   })

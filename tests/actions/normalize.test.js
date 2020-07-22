@@ -1,24 +1,17 @@
 const { loadYaml } = require("../../src/utils/yamlUtils");
 const { normalizeYaml } = require("../../src/actions/normalize");
-const { platformKeywords } = require("../../src/model/keywords");
+const { outputType } = require("../../src/model/keywords");
 
-test("normalizing works as expected with all platforms", () => {
+test("normalizing works as expected with a single collection", () => {
   const res = loadYaml("tests/input/localicipe.yaml").map(data =>
-    normalizeYaml(data, [platformKeywords.IOS, platformKeywords.ANDROID], ["en", "nl"])
+    normalizeYaml(data, ["en", "nl"], ["COLLECTION-SHARED"])
   );
   expect(res.value).toMatchSnapshot();
 });
 
-test("normalizing works as expected with iOS only", () => {
+test("normalizing works as expected with multiple collections", () => {
   const res = loadYaml("tests/input/localicipe.yaml").map(data =>
-    normalizeYaml(data, [platformKeywords.IOS], ["en", "nl"])
-  );
-  expect(res.value).toMatchSnapshot();
-});
-
-test("normalizing works as expected with Android only", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").map(data =>
-    normalizeYaml(data, [platformKeywords.ANDROID], ["en", "nl"])
+    normalizeYaml(data, ["en", "nl"], ["COLLECTION-A", "COLLECTION-B", "COLLECTION-SHARED"])
   );
   expect(res.value).toMatchSnapshot();
 });

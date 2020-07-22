@@ -2,7 +2,6 @@ const { flatten } = require("../utils/arrayUtils");
 const {
   groupKeywords,
   accessiblityKeywords,
-  platformKeywords,
   isPluralGroup,
   isLeafGroup
 } = require("../model/keywords");
@@ -14,13 +13,14 @@ const PLURAL = "PLURAL";
  * Normalize YAML to localicious internal representation.
  *
  * @param {*} data The YAML data to normalize.
- * @param {*} platforms The platforms to extract.
+ * @param {*} languages The languages to be included.
+ * @param {*} collections The collections to extract.
+
  */
-const normalizeYaml = (data, platforms, languages) => {
+const normalizeYaml = (data, languages, collections) => {
   return flatten(
-    platforms
-      .map(platform => aggregate(data[platform], platform, languages))
-      .concat(aggregate(data[platformKeywords.SHARED], platformKeywords.SHARED, languages))
+    collections
+      .map(collection => aggregate(data[collection], languages))
   );
 };
 
@@ -29,7 +29,7 @@ const normalizeYaml = (data, platforms, languages) => {
  * Each translation encodes the language, the type of translation,
  * the keypath and the localized copy for the keypath.
  */
-const aggregate = (data, platform, languages, keyPath) => {
+const aggregate = (data, languages, keyPath) => {
   if (data === undefined) {
     return [];
   }
@@ -46,7 +46,6 @@ const aggregate = (data, platform, languages, keyPath) => {
         const copy =
           groupKeywords.COPY in value && processTranslation(language, value[groupKeywords.COPY]);
         return {
-          platform: platform,
           language: language,
           keyPath: newKeyPath,
           ...(accessibilty && { [groupKeywords.ACCESSIBILITY]: accessibilty }),
@@ -56,7 +55,7 @@ const aggregate = (data, platform, languages, keyPath) => {
       return [...acc, ...entries];
     }
     const newKeyPath = [...(keyPath || []), key];
-    return [...acc, aggregate(value, platform, languages, newKeyPath)];
+    return [...acc, aggregate(value, languages, newKeyPath)];
   }, []);
   return flatten(result);
 };
