@@ -29,20 +29,26 @@ const validateData = (schema, data) => {
 
 const generateSchema = (requiredLanguages, optionalLanguages, collections) => {
   let schema = schemaTemplate;
-  
+
   const upperCaseCollections = collections.map(s => s.toUpperCase());
 
   // To check if all requested collections are present in the YAML file.
   schema["required"] = upperCaseCollections;
   schema["properties"] = upperCaseCollections.reduce(
     (acc, collection) => ({
-      ...acc, [collection]: { "$ref": "#/definitions/Node" }
-    }), {});
+      ...acc,
+      [collection]: { $ref: "#/definitions/Node" }
+    }),
+    {}
+  );
   if (optionalLanguages === undefined) {
     schema["definitions"]["Translation"]["properties"] = requiredLanguages.reduce(
       (acc, language) => ({
-        ...acc, [language]:  { type: "string" }
-      }), {});
+        ...acc,
+        [language]: { type: "string" }
+      }),
+      {}
+    );
     schema["definitions"]["Translation"]["required"] = requiredLanguages;
     schema["definitions"]["Translation"]["additionalProperties"] = {
       type: "string"
@@ -50,9 +56,13 @@ const generateSchema = (requiredLanguages, optionalLanguages, collections) => {
   } else {
     schema["definitions"]["Translation"]["properties"] = requiredLanguages
       .concat(optionalLanguages)
-      .reduce((acc, language) => ({
-        ...acc, [language]: { type: "string" }
-      }), {});
+      .reduce(
+        (acc, language) => ({
+          ...acc,
+          [language]: { type: "string" }
+        }),
+        {}
+      );
     schema["definitions"]["Translation"]["required"] = requiredLanguages;
     schema["definitions"]["Translation"]["additionalProperties"] = false;
   }

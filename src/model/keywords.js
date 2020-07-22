@@ -18,7 +18,7 @@ const accessiblityKeywords = {
 const outputType = {
   ANDROID: "ANDROID",
   IOS: "IOS",
-  JS: "JS",
+  JS: "JS"
 };
 
 const isLeafGroup = group => groupKeywords.ACCESSIBILITY in group || groupKeywords.COPY in group;

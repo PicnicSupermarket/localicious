@@ -1,30 +1,30 @@
 #!/usr/bin/env node
 const path = require("path");
 const program = require("commander");
-const keywords = require("../src/model/keywords")
+const keywords = require("../src/model/keywords");
 const validateAndRender = require("../src/actions/validateAndRender");
 
 const commaSeparatedList = value => {
   return value.split(",");
 };
 
-const hasValidLanguages = (languages) => {
+const hasValidLanguages = languages => {
   if (languages === undefined || languages.length == 0) {
     console.error(`❌ This command requires one or more output languages.`);
     return false;
-  }  
+  }
   return true;
-}
+};
 
-const hasValidCollections = (collections) => {
+const hasValidCollections = collections => {
   if (collections === undefined || collections.length == 0) {
     console.error(`❌ This command requires one or more string collections.`);
     return false;
-  }  
+  }
   return true;
-}
+};
 
-const hasValidOutputTypes = (outputTypes) => {
+const hasValidOutputTypes = outputTypes => {
   const supportedOutputTypes = Object.keys(keywords.outputType).map(s => s.toLowerCase());
 
   if (outputTypes === undefined || outputTypes.length == 0) {
@@ -36,8 +36,7 @@ const hasValidOutputTypes = (outputTypes) => {
     return false;
   }
 
-  const invalidOutputTypes = outputTypes
-    .filter(option => !supportedOutputTypes.includes(option));
+  const invalidOutputTypes = outputTypes.filter(option => !supportedOutputTypes.includes(option));
 
   if (invalidOutputTypes.length != 0) {
     console.error(
@@ -48,7 +47,7 @@ const hasValidOutputTypes = (outputTypes) => {
     return false;
   }
   return true;
-}
+};
 
 program
   .option("-l --languages <languages>", "output languages", commaSeparatedList)
@@ -56,11 +55,15 @@ program
   .option("-c --collections <collections>", "translation collections", commaSeparatedList)
   .parse(process.argv);
 
-if (program.args.length < 2 
-  || !hasValidLanguages(program.languages)
-  || !hasValidOutputTypes(program.outputTypes)
-  || !hasValidCollections(program.collections)) {
-  console.log(`Usage: localicious render <localicipe> <output_path> -l <languages> -ot <output_types> -c <collections>`);
+if (
+  program.args.length < 2 ||
+  !hasValidLanguages(program.languages) ||
+  !hasValidOutputTypes(program.outputTypes) ||
+  !hasValidCollections(program.collections)
+) {
+  console.log(
+    `Usage: localicious render <localicipe> <output_path> -l <languages> -ot <output_types> -c <collections>`
+  );
   process.exit(1);
 }
 
@@ -69,12 +72,7 @@ const outputPath = path.resolve(process.cwd(), program.args[1]);
 const outputTypes = program.outputTypes.map(outputType => outputType.toUpperCase());
 const collections = program.collections.map(collection => collection.toUpperCase());
 
-validateAndRender(
-  localicipePath, 
-  outputPath, 
-  program.languages, 
-  outputTypes,
-  collections)
+validateAndRender(localicipePath, outputPath, program.languages, outputTypes, collections)
   .onSuccess(() => {
     console.log(
       `

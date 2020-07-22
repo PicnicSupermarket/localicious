@@ -18,10 +18,7 @@ const PLURAL = "PLURAL";
 
  */
 const normalizeYaml = (data, languages, collections) => {
-  return flatten(
-    collections
-      .map(collection => aggregate(data[collection], languages))
-  );
+  return flatten(collections.map(collection => aggregate(data[collection], languages)));
 };
 
 /**

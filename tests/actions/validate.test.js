@@ -2,7 +2,9 @@ const { loadYaml } = require("../../src/utils/yamlUtils");
 const validate = require("../../src/actions/validate");
 
 test("validating succeeds when all required languages are available for all entries", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").flatMap(data => validate(data, ["en"], undefined, ["COLLECTION-SHARED"]));
+  const res = loadYaml("tests/input/localicipe.yaml").flatMap(data =>
+    validate(data, ["en"], undefined, ["COLLECTION-SHARED"])
+  );
   expect(res.isSuccess).toBe(true);
 });
 

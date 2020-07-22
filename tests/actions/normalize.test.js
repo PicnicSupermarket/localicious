@@ -1,6 +1,5 @@
 const { loadYaml } = require("../../src/utils/yamlUtils");
 const { normalizeYaml } = require("../../src/actions/normalize");
-const { outputType } = require("../../src/model/keywords");
 
 test("normalizing works as expected with a single collection", () => {
   const res = loadYaml("tests/input/localicipe.yaml").map(data =>

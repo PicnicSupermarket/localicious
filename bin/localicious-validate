@@ -25,7 +25,12 @@ const localicipePath = path.resolve(process.cwd(), program.args[0]);
 
 loadYaml(localicipePath)
   .flatMap(data => {
-    return validate(data, program.requiredLanguages, program.optionalLanguages, program.collections);
+    return validate(
+      data,
+      program.requiredLanguages,
+      program.optionalLanguages,
+      program.collections
+    );
   })
   .onSuccess(() => {
     console.log("✅ Your Localicipe is perfect, keep up the good work!");

@@ -4,7 +4,13 @@ const render = require("../../src/actions/render");
 
 test("rendering 'en' works as expected for all output types", () => {
   const res = loadYaml("tests/input/localicipe.yaml").map(data =>
-    render(data, "./", ["en"], [outputType.IOS, outputType.JS, outputType.ANDROID], ["COLLECTION-SHARED"])
+    render(
+      data,
+      "./",
+      ["en"],
+      [outputType.IOS, outputType.JS, outputType.ANDROID],
+      ["COLLECTION-SHARED"]
+    )
   );
   expect(res.value).toMatchSnapshot();
 });
@@ -32,7 +38,13 @@ test("rendering 'en' works as expected for JS only", () => {
 
 test("rendering multiple languages works as expected", () => {
   const res = loadYaml("tests/input/localicipe.yaml").map(data =>
-    render(data, "./", ["en", "nl"], [outputType.ANDROID, outputType.JS, outputType.IOS], ["COLLECTION-SHARED"])
+    render(
+      data,
+      "./",
+      ["en", "nl"],
+      [outputType.ANDROID, outputType.JS, outputType.IOS],
+      ["COLLECTION-SHARED"]
+    )
   );
   expect(res.value).toMatchSnapshot();
 });
