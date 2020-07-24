@@ -172,7 +172,7 @@ A similar file with the Dutch translations will be created as well if we request
 
 `localicious render ./copy.yaml ./output_path --outputTypes android --collections ANDROID,SHARED --languages en,nl`
 
-By changing the destinatiooutput type, like so:
+By changing the destination output type, like so:
 
 `localicious render ./copy.yaml ./output_path --outputTypes ios --collections IOS,SHARED --languages en`
 
