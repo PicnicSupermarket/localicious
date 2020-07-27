@@ -198,7 +198,7 @@ Using the `validate` command, a Localicipe can be validated.
 **Options**
 
 `--collections/-c` (required)
-- The collections, defined in the Localicipe, that should be included into the output.
+- The collections, defined in the Localicipe, that should be validated.
 
 `--required-languages/-l` (required)
 - The languages that are required in the provided Localicipe.
