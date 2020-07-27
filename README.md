@@ -38,7 +38,7 @@ localicious requires node 10.12.0 or later.
 The central concept of localicious is the so-called Localicipe. It is a YAML file that contains all localized copy and accessibility strings grouped by feature and screen. The strings in the Localicipe can be divided into different collections. Multiple collections can be combined when [Converting the Localicipe](#converting-the-localicipe) into platform specific outputs.
 
 Using collections it's easy to keep track of strings that are used on a single platform and strings that are shared across multiple platforms. 
-For an existing iOS and Android app, it could be usefull to create three different collections: 
+For an existing iOS and Android app, it could be useful to create three different collections: 
 - `IOS`(containing all iOS specific strings) 
 - `ANDROID`(containing all Android specific strings)
 - `SHARED`(containing all strings that are shared between iOS and Android).
