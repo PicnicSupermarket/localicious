@@ -1,14 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering 'en' works as expected for all platforms 1`] = `
+exports[`rendering 'en' works as expected for JS only 1`] = `
 Result {
   "value": Array [
     Object {
-      "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Stay up to date\\";
-\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
-\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
+      "data": "{
+
+  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
+  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
+  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
+  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
+  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
+  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
+  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\\\\\nYou better watch out!\\\\\\\\n\\\\\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
+  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
+}
+",
+      "path": ".//js/en/strings.json",
+    },
+    Object {
+      "data": "const strings: { [language: string]: {[key: string]: string }} = {
+  \\"en\\": require(\\"./en/strings.json\\"),
+};
+
+const format = (string: string, ...args: string[]) => {
+  var result = string;
+  for (var i = 0; i < args.length; i++) {
+    const pos = i + 1;
+    if (typeof args[i] === 'string') {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    }
+    if (typeof args[i] === 'number') {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    }
+  }
+  return result;
+};
+
+const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+  // Check if translation exists.
+  if (!(language in strings) && !(key in strings[language])) {
+    return undefined;
+  }
+  return format(strings[language][key], ...args);
+};
+",
+      "path": ".//js/Localizable.ts",
+    },
+  ],
+}
+`;
+
+exports[`rendering 'en' works as expected for all output types 1`] = `
+Result {
+  "value": Array [
+    Object {
+      "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
 You better watch out!
 
@@ -32,13 +92,37 @@ It may also contain empty lines to break up text into paragraphs.\\";
       "path": ".//ios/en/Localizable.strings",
     },
     Object {
+      "data": "{
+
+  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
+  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
+  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
+  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
+  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
+  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
+  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\\\\\nYou better watch out!\\\\\\\\n\\\\\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
+  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
+}
+",
+      "path": ".//js/en/strings.json",
+    },
+    Object {
       "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <resources>
-  <string name=\\"Checkout_OrderOverview_Total_COPY\\">\\"Total price: %1$s\\"</string>
-  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling for some output types: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
@@ -158,50 +242,6 @@ public extension UILabel {
 }
 
 public struct L {
-    public struct Settings {
-        public struct PushPermissionsRequest {
-            public static let Title = LocaliciousData(
-                accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Title\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Settings.PushPermissionsRequest.Title.COPY\\",
-                translationArgs: []
-            )
-            public static let Subtitle = LocaliciousData(
-                accessibilityIdentifier: \\"Settings.PushPermissionsRequest.Subtitle\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Settings.PushPermissionsRequest.Subtitle.COPY\\",
-                translationArgs: []
-            )
-        }
-    }
-    public struct Checkout {
-        public struct OrderOverview {
-            public static func Total(args: CVarArg...) -> LocaliciousData {
-                return LocaliciousData(
-                accessibilityIdentifier: \\"Checkout.OrderOverview.Total\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Checkout.OrderOverview.Total.COPY\\",
-                translationArgs: args
-            )
-            }
-            public static func Subtotal(args: CVarArg...) -> LocaliciousData {
-                return LocaliciousData(
-                accessibilityIdentifier: \\"Checkout.OrderOverview.Subtotal\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Checkout.OrderOverview.Subtotal.COPY\\",
-                translationArgs: args
-            )
-            }
-        }
-    }
     public struct Something {
         public struct With {
             public struct An {
@@ -290,6 +330,35 @@ public struct L {
 ",
       "path": ".//ios/Localizable.swift",
     },
+    Object {
+      "data": "const strings: { [language: string]: {[key: string]: string }} = {
+  \\"en\\": require(\\"./en/strings.json\\"),
+};
+
+const format = (string: string, ...args: string[]) => {
+  var result = string;
+  for (var i = 0; i < args.length; i++) {
+    const pos = i + 1;
+    if (typeof args[i] === 'string') {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    }
+    if (typeof args[i] === 'number') {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    }
+  }
+  return result;
+};
+
+const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+  // Check if translation exists.
+  if (!(language in strings) && !(key in strings[language])) {
+    return undefined;
+  }
+  return format(strings[language][key], ...args);
+};
+",
+      "path": ".//js/Localizable.ts",
+    },
   ],
 }
 `;
@@ -304,7 +373,7 @@ Result {
   <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling for some output types: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
@@ -347,7 +416,7 @@ Result {
 \\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
 \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
 You better watch out!
 
@@ -577,11 +646,9 @@ Result {
     Object {
       "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <resources>
-  <string name=\\"Checkout_OrderOverview_Total_COPY\\">\\"Total price: %1$s\\"</string>
-  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling for some output types: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
@@ -613,11 +680,35 @@ Result {
       "path": ".//android/en/strings.xml",
     },
     Object {
-      "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Stay up to date\\";
-\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
-\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
+      "data": "{
+
+  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
+  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
+  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
+  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
+  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
+  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
+  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\\\\\nYou better watch out!\\\\\\\\n\\\\\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
+  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
+}
+",
+      "path": ".//js/en/strings.json",
+    },
+    Object {
+      "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
 You better watch out!
 
@@ -643,11 +734,9 @@ It may also contain empty lines to break up text into paragraphs.\\";
     Object {
       "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <resources>
-  <string name=\\"Checkout_OrderOverview_Total_COPY\\">\\"Totaal: %1$s\\"</string>
-  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Subtotaal: %1$s\\"</string>
   <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"Je kan zo veel lagen maken als je zelf wil\\"</string>
   <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;. En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9&#37; en &#37;1 en &#37;.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven voor sommige output types: @ ? &lt; &amp; ' &quot;. En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9&#37; en &#37;1 en &#37;.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"</string>
   <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
   <string name=\\"Accessible_RegularComponent_COPY\\">\\"Dit is een component met accessiblity support\\"</string>
   <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"Dit is de hint\\"</string>
@@ -679,11 +768,35 @@ It may also contain empty lines to break up text into paragraphs.\\";
       "path": ".//android/nl/strings.xml",
     },
     Object {
-      "data": "\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Blijf op de hoogte\\";
-\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Blijf op de hoogte\\";
-\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
+      "data": "{
+
+  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Lopende bestelling\\",
+  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Lopende bestelling\\",
+  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Lopende bestellingen\\",
+  \\"Accessible.PluralComponent.COPY.ONE\\": \\"De enkelvoudige copy\\",
+  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"De meervoudige copy\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"De enkelvoudige hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"De meervoudige hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"De enkelvoudige label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"De meervoudige label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"Geen waarde voor dit component\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"De enkelvoudige waarde\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The meervoudige waarde\\",
+  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"Je kan zo veel lagen maken als je zelf wil\\",
+  \\"Delivery.Widget.Title.COPY\\": \\"Help %1$s\\",
+  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1$s of %42$d.\\",
+  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.\\\\\\\\nLet maar eens op!\\\\\\\\n\\\\\\\\nDe tekst kan zelfs witregels bevatten!\\",
+  \\"Accessible.RegularComponent.COPY\\": \\"Dit is een component met accessiblity support\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"Dit is de hint\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"Dit is de label\\"
+}
+",
+      "path": ".//js/nl/strings.json",
+    },
+    Object {
+      "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
 \\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
 \\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.
 Let maar eens op!
 
@@ -705,6 +818,450 @@ De tekst kan zelfs witregels bevatten!\\";
 \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The meervoudige waarde\\";
 ",
       "path": ".//ios/nl/Localizable.strings",
+    },
+    Object {
+      "data": "const strings: { [language: string]: {[key: string]: string }} = {
+  \\"en\\": require(\\"./en/strings.json\\"),
+  \\"nl\\": require(\\"./nl/strings.json\\"),
+};
+
+const format = (string: string, ...args: string[]) => {
+  var result = string;
+  for (var i = 0; i < args.length; i++) {
+    const pos = i + 1;
+    if (typeof args[i] === 'string') {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    }
+    if (typeof args[i] === 'number') {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    }
+  }
+  return result;
+};
+
+const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+  // Check if translation exists.
+  if (!(language in strings) && !(key in strings[language])) {
+    return undefined;
+  }
+  return format(strings[language][key], ...args);
+};
+",
+      "path": ".//js/Localizable.ts",
+    },
+    Object {
+      "data": "import UIKit
+
+public protocol LocalizationProvider {
+    var translationKey: String? { get }
+    var accessibilityHintKey: String? { get }
+    var accessibilityLabelKey: String? { get }
+    var accessibilityValueKey: String? { get }
+    var translationArgs: [CVarArg]? { get }
+}
+
+public struct LocaliciousData: LocalizationProvider {
+    public let accessibilityIdentifier: String
+    public let accessibilityHintKey: String?
+    public let accessibilityLabelKey: String?
+    public let accessibilityValueKey: String?
+    public let translationKey: String?
+    public let translationArgs: [CVarArg]?
+}
+
+public enum LocaliciousQuantity: String {
+    case zero = \\"ZERO\\"
+    case one = \\"ONE\\"
+    case other = \\"OTHER\\"
+
+    init(quantity: Int) {
+        switch true {
+        case quantity == 0:
+            self = .zero
+        case quantity == 1:
+            self = .one
+        default:
+            self = .other
+        }
+    }
+}
+
+public extension LocalizationProvider {
+    var translation: String? {
+        return translationKey.map { translation(forKey: $0) } ?? nil
+    }
+
+    var accessibilityHint: String? {
+        return accessibilityHintKey.map { translation(forKey: $0) } ?? nil
+    }
+
+    var accessibilityLabel: String? {
+        return accessibilityLabelKey.map { translation(forKey: $0) } ?? nil
+    }
+
+    var accessibilityValue: String? {
+        return accessibilityValueKey.map { translation(forKey: $0) } ?? nil
+    }
+
+    func translation(forKey key: String, withBundle bundle: Bundle = Bundle.main) -> String? {
+        let value = bundle.localizedString(forKey: key, value: nil, table: nil)
+
+        guard value != key else {
+            return nil
+        }
+
+        let translationArgs = self.translationArgs ?? []
+        guard translationArgs.count > 0 else { return value }
+
+        return String(format: value, arguments: translationArgs)
+    }
+}
+
+public extension UIButton {
+    func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
+        setTitle(data.translation, for: controlState)
+        self.accessibilityIdentifier = data.accessibilityIdentifier
+        self.accessibilityValue = data.accessibilityValue
+        self.accessibilityHint = data.accessibilityHint
+        self.accessibilityLabel = data.accessibilityLabel
+    }
+}
+
+public extension UILabel {
+    func setLocalicious(_ data: LocaliciousData) {
+        self.text = data.translation
+        self.accessibilityIdentifier = data.accessibilityIdentifier
+        self.accessibilityValue = data.accessibilityValue
+        self.accessibilityHint = data.accessibilityHint
+        self.accessibilityLabel = data.accessibilityLabel
+    }
+}
+
+public struct L {
+    public struct Something {
+        public struct With {
+            public struct An {
+                public struct Arbitrary {
+                    public struct Amount {
+                        public struct Of {
+                            public static let Nesting = LocaliciousData(
+                                accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
+                                accessibilityHintKey: nil,
+                                accessibilityLabelKey: nil,
+                                accessibilityValueKey: nil,
+                                translationKey: \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\",
+                                translationArgs: []
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public struct Delivery {
+        public struct Widget {
+            public static func Title(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
+                accessibilityIdentifier: \\"Delivery.Widget.Title\\",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: \\"Delivery.Widget.Title.COPY\\",
+                translationArgs: args
+            )
+            }
+            public static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
+                let quantityType = LocaliciousQuantity(quantity: quantity)
+                return LocaliciousData(
+                accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
+                translationArgs: args
+            )
+            }
+            public static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
+                return LocaliciousData(
+                accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\",
+                translationArgs: args
+            )
+            }
+            public static let MultilineStrings = LocaliciousData(
+                accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: \\"Delivery.Widget.MultilineStrings.COPY\\",
+                translationArgs: []
+            )
+        }
+    }
+    public struct Accessible {
+        public static let RegularComponent = LocaliciousData(
+            accessibilityIdentifier: \\"Accessible.RegularComponent\\",
+            accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
+            accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
+            accessibilityValueKey: nil,
+            translationKey: \\"Accessible.RegularComponent.COPY\\",
+            translationArgs: []
+        )
+        public static func PluralComponent(quantity: Int) -> LocaliciousData {
+            let quantityType = LocaliciousQuantity(quantity: quantity)
+            return LocaliciousData(
+            accessibilityIdentifier: \\"Accessible.PluralComponent\\",
+            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
+            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
+            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
+            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
+            translationArgs: []
+        )
+        }
+    }
+}
+",
+      "path": ".//ios/Localizable.swift",
+    },
+  ],
+}
+`;
+
+exports[`rendering works for a Localicipe with multiple collections 1`] = `
+Result {
+  "value": Array [
+    Object {
+      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+  <string name=\\"Checkout_OrderOverview_Total_COPY\\">\\"Total price: %1$s\\"</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Total price before taxes: %1$s\\"</string>
+  <string name=\\"Settings_PushPermissionsRequest_Title_COPY\\">\\"Stay up to date\\"</string>
+  <string name=\\"Settings_PushPermissionsRequest_Subtitle_COPY\\">\\"Stay up to date\\"</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
+  <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling for some output types: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
+  <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"This is the label\\"</string>
+  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
+    <item quantity=\\"zero\\">\\"%1$d Pending order\\"</item>
+    <item quantity=\\"one\\">\\"%1$d Pending order\\"</item>
+    <item quantity=\\"other\\">\\"%1$d Pending Orders\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_COPY\\">
+    <item quantity=\\"one\\">\\"The singular copy\\"</item>
+    <item quantity=\\"other\\">\\"The plural copy\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
+    <item quantity=\\"one\\">\\"The singular hint\\"</item>
+    <item quantity=\\"other\\">\\"The plural hint\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
+    <item quantity=\\"one\\">\\"The singular label\\"</item>
+    <item quantity=\\"other\\">\\"The plural label\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
+    <item quantity=\\"zero\\">\\"No value for this component\\"</item>
+    <item quantity=\\"one\\">\\"The singular value\\"</item>
+    <item quantity=\\"other\\">\\"The plural value\\"</item>
+  </plurals>
+</resources>
+",
+      "path": ".//android/en/strings.xml",
+    },
+    Object {
+      "data": "{
+
+  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
+  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
+  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
+  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
+  \\"Checkout.OrderOverview.Total.COPY\\": \\"Total price: %1$s\\",
+  \\"Checkout.OrderOverview.Subtotal.COPY\\": \\"Total price before taxes: %1$s\\",
+  \\"Settings.PushPermissionsRequest.Title.COPY\\": \\"Stay up to date\\",
+  \\"Settings.PushPermissionsRequest.Subtitle.COPY\\": \\"Stay up to date\\",
+  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
+  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
+  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
+  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\\\\\nYou better watch out!\\\\\\\\n\\\\\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
+  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
+}
+",
+      "path": ".//js/en/strings.json",
+    },
+    Object {
+      "data": "\\"Checkout.OrderOverview.Total.COPY\\" = \\"Total price: %1$@\\";
+\\"Checkout.OrderOverview.Subtotal.COPY\\" = \\"Total price before taxes: %1$@\\";
+\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Stay up to date\\";
+\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Stay up to date\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
+\\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
+You better watch out!
+
+It may also contain empty lines to break up text into paragraphs.\\";
+\\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"This is the label\\";
+\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Pending order\\";
+\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Pending Orders\\";
+\\"Accessible.PluralComponent.COPY.ONE\\" = \\"The singular copy\\";
+\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"The plural copy\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"The singular hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"The plural hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"The singular label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"The plural label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"No value for this component\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"The singular value\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The plural value\\";
+",
+      "path": ".//ios/en/Localizable.strings",
+    },
+    Object {
+      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+  <string name=\\"Checkout_OrderOverview_Total_COPY\\">\\"Totaal: %1$s\\"</string>
+  <string name=\\"Checkout_OrderOverview_Subtotal_COPY\\">\\"Subtotaal: %1$s\\"</string>
+  <string name=\\"Settings_PushPermissionsRequest_Title_COPY\\">\\"Blijf op de hoogte\\"</string>
+  <string name=\\"Settings_PushPermissionsRequest_Subtitle_COPY\\">\\"Blijf op de hoogte\\"</string>
+  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"Je kan zo veel lagen maken als je zelf wil\\"</string>
+  <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help %1$s\\"</string>
+  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven voor sommige output types: @ ? &lt; &amp; ' &quot;. En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9&#37; en &#37;1 en &#37;.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"</string>
+  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
+  <string name=\\"Accessible_RegularComponent_COPY\\">\\"Dit is een component met accessiblity support\\"</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"Dit is de hint\\"</string>
+  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"Dit is de label\\"</string>
+  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
+    <item quantity=\\"zero\\">\\"%1$d Lopende bestelling\\"</item>
+    <item quantity=\\"one\\">\\"%1$d Lopende bestelling\\"</item>
+    <item quantity=\\"other\\">\\"%1$d Lopende bestellingen\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_COPY\\">
+    <item quantity=\\"one\\">\\"De enkelvoudige copy\\"</item>
+    <item quantity=\\"other\\">\\"De meervoudige copy\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
+    <item quantity=\\"one\\">\\"De enkelvoudige hint\\"</item>
+    <item quantity=\\"other\\">\\"De meervoudige hint\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
+    <item quantity=\\"one\\">\\"De enkelvoudige label\\"</item>
+    <item quantity=\\"other\\">\\"De meervoudige label\\"</item>
+  </plurals>
+  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
+    <item quantity=\\"zero\\">\\"Geen waarde voor dit component\\"</item>
+    <item quantity=\\"one\\">\\"De enkelvoudige waarde\\"</item>
+    <item quantity=\\"other\\">\\"The meervoudige waarde\\"</item>
+  </plurals>
+</resources>
+",
+      "path": ".//android/nl/strings.xml",
+    },
+    Object {
+      "data": "{
+
+  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Lopende bestelling\\",
+  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Lopende bestelling\\",
+  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Lopende bestellingen\\",
+  \\"Accessible.PluralComponent.COPY.ONE\\": \\"De enkelvoudige copy\\",
+  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"De meervoudige copy\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"De enkelvoudige hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"De meervoudige hint\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"De enkelvoudige label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"De meervoudige label\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"Geen waarde voor dit component\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"De enkelvoudige waarde\\",
+  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The meervoudige waarde\\",
+  \\"Checkout.OrderOverview.Total.COPY\\": \\"Totaal: %1$s\\",
+  \\"Checkout.OrderOverview.Subtotal.COPY\\": \\"Subtotaal: %1$s\\",
+  \\"Settings.PushPermissionsRequest.Title.COPY\\": \\"Blijf op de hoogte\\",
+  \\"Settings.PushPermissionsRequest.Subtitle.COPY\\": \\"Blijf op de hoogte\\",
+  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"Je kan zo veel lagen maken als je zelf wil\\",
+  \\"Delivery.Widget.Title.COPY\\": \\"Help %1$s\\",
+  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1$s of %42$d.\\",
+  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.\\\\\\\\nLet maar eens op!\\\\\\\\n\\\\\\\\nDe tekst kan zelfs witregels bevatten!\\",
+  \\"Accessible.RegularComponent.COPY\\": \\"Dit is een component met accessiblity support\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"Dit is de hint\\",
+  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"Dit is de label\\"
+}
+",
+      "path": ".//js/nl/strings.json",
+    },
+    Object {
+      "data": "\\"Checkout.OrderOverview.Total.COPY\\" = \\"Totaal: %1$@\\";
+\\"Checkout.OrderOverview.Subtotal.COPY\\" = \\"Subtotaal: %1$@\\";
+\\"Settings.PushPermissionsRequest.Title.COPY\\" = \\"Blijf op de hoogte\\";
+\\"Settings.PushPermissionsRequest.Subtitle.COPY\\" = \\"Blijf op de hoogte\\";
+\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
+\\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
+\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
+\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.
+Let maar eens op!
+
+De tekst kan zelfs witregels bevatten!\\";
+\\"Accessible.RegularComponent.COPY\\" = \\"Dit is een component met accessiblity support\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"Dit is de hint\\";
+\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"Dit is de label\\";
+\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Lopende bestelling\\";
+\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Lopende bestelling\\";
+\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Lopende bestellingen\\";
+\\"Accessible.PluralComponent.COPY.ONE\\" = \\"De enkelvoudige copy\\";
+\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"De meervoudige copy\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"De enkelvoudige hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"De meervoudige hint\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"De enkelvoudige label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"De meervoudige label\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"Geen waarde voor dit component\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"De enkelvoudige waarde\\";
+\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The meervoudige waarde\\";
+",
+      "path": ".//ios/nl/Localizable.strings",
+    },
+    Object {
+      "data": "const strings: { [language: string]: {[key: string]: string }} = {
+  \\"en\\": require(\\"./en/strings.json\\"),
+  \\"nl\\": require(\\"./nl/strings.json\\"),
+};
+
+const format = (string: string, ...args: string[]) => {
+  var result = string;
+  for (var i = 0; i < args.length; i++) {
+    const pos = i + 1;
+    if (typeof args[i] === 'string') {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    }
+    if (typeof args[i] === 'number') {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    }
+  }
+  return result;
+};
+
+const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+  // Check if translation exists.
+  if (!(language in strings) && !(key in strings[language])) {
+    return undefined;
+  }
+  return format(strings[language][key], ...args);
+};
+",
+      "path": ".//js/Localizable.ts",
     },
     Object {
       "data": "import UIKit
@@ -839,314 +1396,6 @@ public struct L {
             )
         }
     }
-    public struct Something {
-        public struct With {
-            public struct An {
-                public struct Arbitrary {
-                    public struct Amount {
-                        public struct Of {
-                            public static let Nesting = LocaliciousData(
-                                accessibilityIdentifier: \\"Something.With.An.Arbitrary.Amount.Of.Nesting\\",
-                                accessibilityHintKey: nil,
-                                accessibilityLabelKey: nil,
-                                accessibilityValueKey: nil,
-                                translationKey: \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\",
-                                translationArgs: []
-                            )
-                        }
-                    }
-                }
-            }
-        }
-    }
-    public struct Delivery {
-        public struct Widget {
-            public static func Title(args: CVarArg...) -> LocaliciousData {
-                return LocaliciousData(
-                accessibilityIdentifier: \\"Delivery.Widget.Title\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.Title.COPY\\",
-                translationArgs: args
-            )
-            }
-            public static func SubTitle(quantity: Int, args: CVarArg...) -> LocaliciousData {
-                let quantityType = LocaliciousQuantity(quantity: quantity)
-                return LocaliciousData(
-                accessibilityIdentifier: \\"Delivery.Widget.SubTitle\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SubTitle.COPY.\\\\(quantityType.rawValue)\\",
-                translationArgs: args
-            )
-            }
-            public static func SpecialCharacters(args: CVarArg...) -> LocaliciousData {
-                return LocaliciousData(
-                accessibilityIdentifier: \\"Delivery.Widget.SpecialCharacters\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.SpecialCharacters.COPY\\",
-                translationArgs: args
-            )
-            }
-            public static let MultilineStrings = LocaliciousData(
-                accessibilityIdentifier: \\"Delivery.Widget.MultilineStrings\\",
-                accessibilityHintKey: nil,
-                accessibilityLabelKey: nil,
-                accessibilityValueKey: nil,
-                translationKey: \\"Delivery.Widget.MultilineStrings.COPY\\",
-                translationArgs: []
-            )
-        }
-    }
-    public struct Accessible {
-        public static let RegularComponent = LocaliciousData(
-            accessibilityIdentifier: \\"Accessible.RegularComponent\\",
-            accessibilityHintKey: \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\",
-            accessibilityLabelKey: \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\",
-            accessibilityValueKey: nil,
-            translationKey: \\"Accessible.RegularComponent.COPY\\",
-            translationArgs: []
-        )
-        public static func PluralComponent(quantity: Int) -> LocaliciousData {
-            let quantityType = LocaliciousQuantity(quantity: quantity)
-            return LocaliciousData(
-            accessibilityIdentifier: \\"Accessible.PluralComponent\\",
-            accessibilityHintKey: \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.\\\\(quantityType.rawValue)\\",
-            accessibilityLabelKey: \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.\\\\(quantityType.rawValue)\\",
-            accessibilityValueKey: \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.\\\\(quantityType.rawValue)\\",
-            translationKey: \\"Accessible.PluralComponent.COPY.\\\\(quantityType.rawValue)\\",
-            translationArgs: []
-        )
-        }
-    }
-}
-",
-      "path": ".//ios/Localizable.swift",
-    },
-  ],
-}
-`;
-
-exports[`rendering works for a Localicipe with only shared keys 1`] = `
-Result {
-  "value": Array [
-    Object {
-      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
-<resources>
-  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"We support nesting as deep as you'd like\\"</string>
-  <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help: %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"The following characters need special handling on some platforms: @ ? &lt; &amp; ' &quot;. And then there is the percent-sign: most cases should be replaced (e.g. 99.9&#37; and &#37;1 and &#37;.1) but not the percentage-sign in strings like %1$s or %42$d.\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"This is a multiline string that may contain &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt;\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"</string>
-  <string name=\\"Accessible_RegularComponent_COPY\\">\\"This is a component with accessiblity support\\"</string>
-  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"This is the hint\\"</string>
-  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"This is the label\\"</string>
-  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
-    <item quantity=\\"zero\\">\\"%1$d Pending order\\"</item>
-    <item quantity=\\"one\\">\\"%1$d Pending order\\"</item>
-    <item quantity=\\"other\\">\\"%1$d Pending Orders\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_COPY\\">
-    <item quantity=\\"one\\">\\"The singular copy\\"</item>
-    <item quantity=\\"other\\">\\"The plural copy\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
-    <item quantity=\\"one\\">\\"The singular hint\\"</item>
-    <item quantity=\\"other\\">\\"The plural hint\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
-    <item quantity=\\"one\\">\\"The singular label\\"</item>
-    <item quantity=\\"other\\">\\"The plural label\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
-    <item quantity=\\"zero\\">\\"No value for this component\\"</item>
-    <item quantity=\\"one\\">\\"The singular value\\"</item>
-    <item quantity=\\"other\\">\\"The plural value\\"</item>
-  </plurals>
-</resources>
-",
-      "path": ".//android/en/strings.xml",
-    },
-    Object {
-      "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"We support nesting as deep as you'd like\\";
-\\"Delivery.Widget.Title.COPY\\" = \\"Help: %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"The following characters need special handling on some platforms: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9%% and %%1 and %%.1) but not the percentage-sign in strings like %1$@ or %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>
-You better watch out!
-
-It may also contain empty lines to break up text into paragraphs.\\";
-\\"Accessible.RegularComponent.COPY\\" = \\"This is a component with accessiblity support\\";
-\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"This is the hint\\";
-\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"This is the label\\";
-\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Pending order\\";
-\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Pending Orders\\";
-\\"Accessible.PluralComponent.COPY.ONE\\" = \\"The singular copy\\";
-\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"The plural copy\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"The singular hint\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"The plural hint\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"The singular label\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"The plural label\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"No value for this component\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"The singular value\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The plural value\\";
-",
-      "path": ".//ios/en/Localizable.strings",
-    },
-    Object {
-      "data": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
-<resources>
-  <string name=\\"Something_With_An_Arbitrary_Amount_Of_Nesting_COPY\\">\\"Je kan zo veel lagen maken als je zelf wil\\"</string>
-  <string name=\\"Delivery_Widget_Title_COPY\\">\\"Help %1$s\\"</string>
-  <string name=\\"Delivery_Widget_SpecialCharacters_COPY\\">\\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? &lt; &amp; ' &quot;. En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9&#37; en &#37;1 en &#37;.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"</string>
-  <string name=\\"Delivery_Widget_MultilineStrings_COPY\\">\\"Dit is een string van meerdere regels die &lt;a href=&quot;about:blank&quot;&gt;links&lt;/a&gt; kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"</string>
-  <string name=\\"Accessible_RegularComponent_COPY\\">\\"Dit is een component met accessiblity support\\"</string>
-  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_HINT\\">\\"Dit is de hint\\"</string>
-  <string name=\\"Accessible_RegularComponent_ACCESSIBILITY_LABEL\\">\\"Dit is de label\\"</string>
-  <plurals name=\\"Delivery_Widget_SubTitle_COPY\\">
-    <item quantity=\\"zero\\">\\"%1$d Lopende bestelling\\"</item>
-    <item quantity=\\"one\\">\\"%1$d Lopende bestelling\\"</item>
-    <item quantity=\\"other\\">\\"%1$d Lopende bestellingen\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_COPY\\">
-    <item quantity=\\"one\\">\\"De enkelvoudige copy\\"</item>
-    <item quantity=\\"other\\">\\"De meervoudige copy\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_HINT\\">
-    <item quantity=\\"one\\">\\"De enkelvoudige hint\\"</item>
-    <item quantity=\\"other\\">\\"De meervoudige hint\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_LABEL\\">
-    <item quantity=\\"one\\">\\"De enkelvoudige label\\"</item>
-    <item quantity=\\"other\\">\\"De meervoudige label\\"</item>
-  </plurals>
-  <plurals name=\\"Accessible_PluralComponent_ACCESSIBILITY_VALUE\\">
-    <item quantity=\\"zero\\">\\"Geen waarde voor dit component\\"</item>
-    <item quantity=\\"one\\">\\"De enkelvoudige waarde\\"</item>
-    <item quantity=\\"other\\">\\"The meervoudige waarde\\"</item>
-  </plurals>
-</resources>
-",
-      "path": ".//android/nl/strings.xml",
-    },
-    Object {
-      "data": "\\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\" = \\"Je kan zo veel lagen maken als je zelf wil\\";
-\\"Delivery.Widget.Title.COPY\\" = \\"Help %1$@\\";
-\\"Delivery.Widget.SpecialCharacters.COPY\\" = \\"De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9%% en %%1 en %%.1) maar niet het procent-teken in strings als %1$@ of %42$d.\\";
-\\"Delivery.Widget.MultilineStrings.COPY\\" = \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.
-Let maar eens op!
-
-De tekst kan zelfs witregels bevatten!\\";
-\\"Accessible.RegularComponent.COPY\\" = \\"Dit is een component met accessiblity support\\";
-\\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\" = \\"Dit is de hint\\";
-\\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\" = \\"Dit is de label\\";
-\\"Delivery.Widget.SubTitle.COPY.ZERO\\" = \\"%1$d Lopende bestelling\\";
-\\"Delivery.Widget.SubTitle.COPY.ONE\\" = \\"%1$d Lopende bestelling\\";
-\\"Delivery.Widget.SubTitle.COPY.OTHER\\" = \\"%1$d Lopende bestellingen\\";
-\\"Accessible.PluralComponent.COPY.ONE\\" = \\"De enkelvoudige copy\\";
-\\"Accessible.PluralComponent.COPY.OTHER\\" = \\"De meervoudige copy\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\" = \\"De enkelvoudige hint\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\" = \\"De meervoudige hint\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\" = \\"De enkelvoudige label\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\" = \\"De meervoudige label\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\" = \\"Geen waarde voor dit component\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\" = \\"De enkelvoudige waarde\\";
-\\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\" = \\"The meervoudige waarde\\";
-",
-      "path": ".//ios/nl/Localizable.strings",
-    },
-    Object {
-      "data": "import UIKit
-
-public protocol LocalizationProvider {
-    var translationKey: String? { get }
-    var accessibilityHintKey: String? { get }
-    var accessibilityLabelKey: String? { get }
-    var accessibilityValueKey: String? { get }
-    var translationArgs: [CVarArg]? { get }
-}
-
-public struct LocaliciousData: LocalizationProvider {
-    public let accessibilityIdentifier: String
-    public let accessibilityHintKey: String?
-    public let accessibilityLabelKey: String?
-    public let accessibilityValueKey: String?
-    public let translationKey: String?
-    public let translationArgs: [CVarArg]?
-}
-
-public enum LocaliciousQuantity: String {
-    case zero = \\"ZERO\\"
-    case one = \\"ONE\\"
-    case other = \\"OTHER\\"
-
-    init(quantity: Int) {
-        switch true {
-        case quantity == 0:
-            self = .zero
-        case quantity == 1:
-            self = .one
-        default:
-            self = .other
-        }
-    }
-}
-
-public extension LocalizationProvider {
-    var translation: String? {
-        return translationKey.map { translation(forKey: $0) } ?? nil
-    }
-
-    var accessibilityHint: String? {
-        return accessibilityHintKey.map { translation(forKey: $0) } ?? nil
-    }
-
-    var accessibilityLabel: String? {
-        return accessibilityLabelKey.map { translation(forKey: $0) } ?? nil
-    }
-
-    var accessibilityValue: String? {
-        return accessibilityValueKey.map { translation(forKey: $0) } ?? nil
-    }
-
-    func translation(forKey key: String, withBundle bundle: Bundle = Bundle.main) -> String? {
-        let value = bundle.localizedString(forKey: key, value: nil, table: nil)
-
-        guard value != key else {
-            return nil
-        }
-
-        let translationArgs = self.translationArgs ?? []
-        guard translationArgs.count > 0 else { return value }
-
-        return String(format: value, arguments: translationArgs)
-    }
-}
-
-public extension UIButton {
-    func setLocalicious(_ data: LocaliciousData, for controlState: UIControl.State) {
-        setTitle(data.translation, for: controlState)
-        self.accessibilityIdentifier = data.accessibilityIdentifier
-        self.accessibilityValue = data.accessibilityValue
-        self.accessibilityHint = data.accessibilityHint
-        self.accessibilityLabel = data.accessibilityLabel
-    }
-}
-
-public extension UILabel {
-    func setLocalicious(_ data: LocaliciousData) {
-        self.text = data.translation
-        self.accessibilityIdentifier = data.accessibilityIdentifier
-        self.accessibilityValue = data.accessibilityValue
-        self.accessibilityHint = data.accessibilityHint
-        self.accessibilityLabel = data.accessibilityLabel
-    }
-}
-
-public struct L {
     public struct Something {
         public struct With {
             public struct An {

@@ -1,0 +1,11 @@
+{
+
+  {{#each PLURAL}}
+  {{# value}}
+  "{{ ../key }}.{{ quantity }}": "{{{ value }}}",
+  {{/ value}}
+  {{/each}}
+  {{#each SINGULAR}}
+  "{{ key }}": "{{{ value }}}"{{#unless @last}},{{/unless}}
+  {{/each}}
+}

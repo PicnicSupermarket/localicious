@@ -3,8 +3,9 @@ const betterAjvErrors = require("better-ajv-errors");
 const Result = require("../utils/result");
 const schemaTemplate = require("../../schemas/schema.json");
 
-const validate = (data, requiredLanguages, optionalLanguages) => {
-  return validateData(generateSchema(requiredLanguages, optionalLanguages), data);
+const validate = (data, requiredLanguages, optionalLanguages, collections) => {
+  const schema = generateSchema(requiredLanguages, optionalLanguages, collections);
+  return validateData(schema, data);
 };
 
 const validateData = (schema, data) => {
@@ -26,15 +27,26 @@ const validateData = (schema, data) => {
   }
 };
 
-const generateSchema = (requiredLanguages, optionalLanguages) => {
+const generateSchema = (requiredLanguages, optionalLanguages, collections) => {
   let schema = schemaTemplate;
 
+  const upperCaseCollections = collections.map(s => s.toUpperCase());
+
+  // To check if all requested collections are present in the YAML file.
+  schema["required"] = upperCaseCollections;
+  schema["properties"] = upperCaseCollections.reduce(
+    (acc, collection) => ({
+      ...acc,
+      [collection]: { $ref: "#/definitions/Node" }
+    }),
+    {}
+  );
   if (optionalLanguages === undefined) {
     schema["definitions"]["Translation"]["properties"] = requiredLanguages.reduce(
-      (acc, language) => {
-        acc[language] = { type: "string" };
-        return acc;
-      },
+      (acc, language) => ({
+        ...acc,
+        [language]: { type: "string" }
+      }),
       {}
     );
     schema["definitions"]["Translation"]["required"] = requiredLanguages;
@@ -44,10 +56,13 @@ const generateSchema = (requiredLanguages, optionalLanguages) => {
   } else {
     schema["definitions"]["Translation"]["properties"] = requiredLanguages
       .concat(optionalLanguages)
-      .reduce((acc, language) => {
-        acc[language] = { type: "string" };
-        return acc;
-      }, {});
+      .reduce(
+        (acc, language) => ({
+          ...acc,
+          [language]: { type: "string" }
+        }),
+        {}
+      );
     schema["definitions"]["Translation"]["required"] = requiredLanguages;
     schema["definitions"]["Translation"]["additionalProperties"] = false;
   }

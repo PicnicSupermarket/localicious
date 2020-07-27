@@ -1,0 +1,27 @@
+const strings: { [language: string]: {[key: string]: string }} = {
+  {{#languages}}
+  "{{.}}": require("./{{.}}/strings.json"),
+  {{/languages}}
+};
+
+const format = (string: string, ...args: string[]) => {
+  var result = string;
+  for (var i = 0; i < args.length; i++) {
+    const pos = i + 1;
+    if (typeof args[i] === 'string') {
+      result = result.replace("%" + pos + "$s", args[i])
+    }
+    if (typeof args[i] === 'number') {
+      result = result.replace("%" + pos + "$d", args[i])
+    }
+  }
+  return result;
+};
+
+const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+  // Check if translation exists.
+  if (!(language in strings) && !(key in strings[language])) {
+    return undefined;
+  }
+  return format(strings[language][key], ...args);
+};

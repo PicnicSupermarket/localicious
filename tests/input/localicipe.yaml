@@ -1,6 +1,6 @@
 ---
 # Strings that are used in Android only
-ANDROID:
+COLLECTION-A:
   Checkout:
     OrderOverview:
       Total:
@@ -12,7 +12,7 @@ ANDROID:
           en: 'Total price before taxes: %1{{s}}'
           nl: 'Subtotaal: %1{{s}}'
 # Strings that are used in iOS only
-IOS:
+COLLECTION-B:
   Settings:
     PushPermissionsRequest:
       Title:
@@ -24,7 +24,7 @@ IOS:
           en: 'Stay up to date'
           nl: 'Blijf op de hoogte'
 # Strings that are shared between Android and iOS
-SHARED:
+COLLECTION-SHARED:
   Something:
     With:
       An:
@@ -54,8 +54,8 @@ SHARED:
             nl: '%1{{d}} Lopende bestellingen'
       SpecialCharacters:
         COPY:
-          en: "The following characters need special handling on some platforms: @ ? < & ' \". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}."
-          nl: "De volgende karakters moeten herschreven worden op sommige platforms: @ ? < & ' \". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}."
+          en: "The following characters need special handling for some output types: @ ? < & ' \". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1{{s}} or %42{{d}}."
+          nl: "De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1{{s}} of %42{{d}}."
       MultilineStrings:
         COPY:
           en: |-
