@@ -51,7 +51,7 @@ const hasValidOutputTypes = outputTypes => {
 
 program
   .option("-l --languages <languages>", "output languages", commaSeparatedList)
-  .option("-ot --outputTypes <outputTypes>", "output types", commaSeparatedList)
+  .option("-ot --outputTypes <output_types>", "output types", commaSeparatedList)
   .option("-c --collections <collections>", "translation collections", commaSeparatedList)
   .parse(process.argv);
 
