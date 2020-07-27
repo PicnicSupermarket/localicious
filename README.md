@@ -232,3 +232,7 @@ localicious also supports the concept of optional languages. If we were to run t
 `localicious validate ./copy.yaml --collections IOS --required-languages en --optional-languages nl`
 
 the above file would pass validation even without the Dutch translation missing for some entries.
+
+## Migration
+
+Read all migration details in our [Migration Guide](MIGRATION.md).
