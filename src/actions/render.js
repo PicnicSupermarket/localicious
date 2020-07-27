@@ -55,7 +55,7 @@ const renderCodeGenView = (view, outputType, basePath) => {
       .map(({ fileTemplate, childTemplate }) => {
         if (childTemplate) {
           Handlebars.registerPartial("child", childTemplate);
-        } 
+        }
         return Handlebars.compile(fileTemplate);
       })
       .map(template => template(view))
@@ -154,8 +154,8 @@ const substitutionsForOutputType = type => {
         { search: "{{s}}", replace: "$s" },
         { search: "{{d}}", replace: "$d" },
         { search: "\n", replace: "\\n" },
-        { search: '\\', replace: '\\\\' },
-        { search: '"', replace: '\\"' },
+        { search: "\\", replace: "\\\\" },
+        { search: '"', replace: '\\"' }
       ];
   }
 };
@@ -224,7 +224,7 @@ const createCodeGenView = (translations, outputType, languages) => {
       }
     });
   });
-  return { 
+  return {
     languages: languages,
     translations: translationsView
   };
