@@ -1,24 +1,42 @@
-const strings: { [language: string]: {[key: string]: string }} = {
+{{#languages}}
+import {{.}} from "./{{.}}/strings.json";
+{{/languages}}
+
+type LanguageStrings ={{#languages}} | typeof {{.}}{{/languages}};
+
+type Language ={{#languages}} | "{{.}}"{{/languages}};
+
+type EnumDictionary<T extends string | symbol | number, U> = {
+  [K in T]: U;
+};
+
+export type TranslationKey = keyof LanguageStrings;
+
+const strings: EnumDictionary<Language, LanguageStrings> = {
   {{#languages}}
-  "{{.}}": require("./{{.}}/strings.json"),
+  {{.}}: {{.}},
   {{/languages}}
 };
 
 const format = (string: string, ...args: string[]) => {
-  var result = string;
-  for (var i = 0; i < args.length; i++) {
+  let result = string;
+  for (let i = 0; i < args.length; i++) {
     const pos = i + 1;
-    if (typeof args[i] === 'string') {
-      result = result.replace("%" + pos + "$s", args[i])
+    if (typeof args[i] === "string") {
+      result = result.replace("%" + pos + "$s", args[i]);
     }
-    if (typeof args[i] === 'number') {
-      result = result.replace("%" + pos + "$d", args[i])
+    if (typeof args[i] === "number") {
+      result = result.replace("%" + pos + "$d", args[i]);
     }
   }
   return result;
 };
 
-const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+export const translation = (
+  language: Language,
+  key: TranslationKey,
+  ...args: string[]
+): string | undefined => {
   // Check if translation exists.
   if (!(language in strings) && !(key in strings[language])) {
     return undefined;
