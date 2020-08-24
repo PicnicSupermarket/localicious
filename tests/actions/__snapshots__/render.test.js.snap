@@ -30,25 +30,41 @@ Result {
       "path": ".//js/en/strings.json",
     },
     Object {
-      "data": "const strings: { [language: string]: {[key: string]: string }} = {
-  \\"en\\": require(\\"./en/strings.json\\"),
+      "data": "import en from \\"./en/strings.json\\";
+
+type LanguageStrings = | typeof en;
+
+type Language = | \\"en\\";
+
+type EnumDictionary<T extends string | symbol | number, U> = {
+  [K in T]: U;
+};
+
+export type TranslationKey = keyof LanguageStrings;
+
+const strings: EnumDictionary<Language, LanguageStrings> = {
+  en: en,
 };
 
 const format = (string: string, ...args: string[]) => {
-  var result = string;
-  for (var i = 0; i < args.length; i++) {
+  let result = string;
+  for (let i = 0; i < args.length; i++) {
     const pos = i + 1;
-    if (typeof args[i] === 'string') {
-      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    if (typeof args[i] === \\"string\\") {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i]);
     }
-    if (typeof args[i] === 'number') {
-      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    if (typeof args[i] === \\"number\\") {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i]);
     }
   }
   return result;
 };
 
-const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+export const translation = (
+  language: Language,
+  key: TranslationKey,
+  ...args: string[]
+): string | undefined => {
   // Check if translation exists.
   if (!(language in strings) && !(key in strings[language])) {
     return undefined;
@@ -331,25 +347,41 @@ public struct L {
       "path": ".//ios/Localizable.swift",
     },
     Object {
-      "data": "const strings: { [language: string]: {[key: string]: string }} = {
-  \\"en\\": require(\\"./en/strings.json\\"),
+      "data": "import en from \\"./en/strings.json\\";
+
+type LanguageStrings = | typeof en;
+
+type Language = | \\"en\\";
+
+type EnumDictionary<T extends string | symbol | number, U> = {
+  [K in T]: U;
+};
+
+export type TranslationKey = keyof LanguageStrings;
+
+const strings: EnumDictionary<Language, LanguageStrings> = {
+  en: en,
 };
 
 const format = (string: string, ...args: string[]) => {
-  var result = string;
-  for (var i = 0; i < args.length; i++) {
+  let result = string;
+  for (let i = 0; i < args.length; i++) {
     const pos = i + 1;
-    if (typeof args[i] === 'string') {
-      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    if (typeof args[i] === \\"string\\") {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i]);
     }
-    if (typeof args[i] === 'number') {
-      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    if (typeof args[i] === \\"number\\") {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i]);
     }
   }
   return result;
 };
 
-const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+export const translation = (
+  language: Language,
+  key: TranslationKey,
+  ...args: string[]
+): string | undefined => {
   // Check if translation exists.
   if (!(language in strings) && !(key in strings[language])) {
     return undefined;
@@ -820,26 +852,43 @@ De tekst kan zelfs witregels bevatten!\\";
       "path": ".//ios/nl/Localizable.strings",
     },
     Object {
-      "data": "const strings: { [language: string]: {[key: string]: string }} = {
-  \\"en\\": require(\\"./en/strings.json\\"),
-  \\"nl\\": require(\\"./nl/strings.json\\"),
+      "data": "import en from \\"./en/strings.json\\";
+import nl from \\"./nl/strings.json\\";
+
+type LanguageStrings = | typeof en | typeof nl;
+
+type Language = | \\"en\\" | \\"nl\\";
+
+type EnumDictionary<T extends string | symbol | number, U> = {
+  [K in T]: U;
+};
+
+export type TranslationKey = keyof LanguageStrings;
+
+const strings: EnumDictionary<Language, LanguageStrings> = {
+  en: en,
+  nl: nl,
 };
 
 const format = (string: string, ...args: string[]) => {
-  var result = string;
-  for (var i = 0; i < args.length; i++) {
+  let result = string;
+  for (let i = 0; i < args.length; i++) {
     const pos = i + 1;
-    if (typeof args[i] === 'string') {
-      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    if (typeof args[i] === \\"string\\") {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i]);
     }
-    if (typeof args[i] === 'number') {
-      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    if (typeof args[i] === \\"number\\") {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i]);
     }
   }
   return result;
 };
 
-const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+export const translation = (
+  language: Language,
+  key: TranslationKey,
+  ...args: string[]
+): string | undefined => {
   // Check if translation exists.
   if (!(language in strings) && !(key in strings[language])) {
     return undefined;
@@ -1234,26 +1283,43 @@ De tekst kan zelfs witregels bevatten!\\";
       "path": ".//ios/nl/Localizable.strings",
     },
     Object {
-      "data": "const strings: { [language: string]: {[key: string]: string }} = {
-  \\"en\\": require(\\"./en/strings.json\\"),
-  \\"nl\\": require(\\"./nl/strings.json\\"),
+      "data": "import en from \\"./en/strings.json\\";
+import nl from \\"./nl/strings.json\\";
+
+type LanguageStrings = | typeof en | typeof nl;
+
+type Language = | \\"en\\" | \\"nl\\";
+
+type EnumDictionary<T extends string | symbol | number, U> = {
+  [K in T]: U;
+};
+
+export type TranslationKey = keyof LanguageStrings;
+
+const strings: EnumDictionary<Language, LanguageStrings> = {
+  en: en,
+  nl: nl,
 };
 
 const format = (string: string, ...args: string[]) => {
-  var result = string;
-  for (var i = 0; i < args.length; i++) {
+  let result = string;
+  for (let i = 0; i < args.length; i++) {
     const pos = i + 1;
-    if (typeof args[i] === 'string') {
-      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i])
+    if (typeof args[i] === \\"string\\") {
+      result = result.replace(\\"%\\" + pos + \\"$s\\", args[i]);
     }
-    if (typeof args[i] === 'number') {
-      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i])
+    if (typeof args[i] === \\"number\\") {
+      result = result.replace(\\"%\\" + pos + \\"$d\\", args[i]);
     }
   }
   return result;
 };
 
-const translation = (language: string, key: string, ...args: string[]): string | undefined => {
+export const translation = (
+  language: Language,
+  key: TranslationKey,
+  ...args: string[]
+): string | undefined => {
   // Check if translation exists.
   if (!(language in strings) && !(key in strings[language])) {
     return undefined;
