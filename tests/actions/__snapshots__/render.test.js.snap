@@ -30,7 +30,9 @@ Result {
       "path": ".//js/en/strings.json",
     },
     Object {
-      "data": "import en from \\"./en/strings.json\\";
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import en from \\"./en/strings.json\\";
 
 type LanguageStrings = | typeof en;
 
@@ -170,7 +172,9 @@ It may also contain empty lines to break up text into paragraphs.\\";
       "path": ".//android/en/strings.xml",
     },
     Object {
-      "data": "import UIKit
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import UIKit
 
 public protocol LocalizationProvider {
     var translationKey: String? { get }
@@ -347,7 +351,9 @@ public struct L {
       "path": ".//ios/Localizable.swift",
     },
     Object {
-      "data": "import en from \\"./en/strings.json\\";
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import en from \\"./en/strings.json\\";
 
 type LanguageStrings = | typeof en;
 
@@ -472,7 +478,9 @@ It may also contain empty lines to break up text into paragraphs.\\";
       "path": ".//ios/en/Localizable.strings",
     },
     Object {
-      "data": "import UIKit
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import UIKit
 
 public protocol LocalizationProvider {
     var translationKey: String? { get }
@@ -852,7 +860,9 @@ De tekst kan zelfs witregels bevatten!\\";
       "path": ".//ios/nl/Localizable.strings",
     },
     Object {
-      "data": "import en from \\"./en/strings.json\\";
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import en from \\"./en/strings.json\\";
 import nl from \\"./nl/strings.json\\";
 
 type LanguageStrings = | typeof en | typeof nl;
@@ -899,7 +909,9 @@ export const translation = (
       "path": ".//js/Localizable.ts",
     },
     Object {
-      "data": "import UIKit
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import UIKit
 
 public protocol LocalizationProvider {
     var translationKey: String? { get }
@@ -1283,7 +1295,9 @@ De tekst kan zelfs witregels bevatten!\\";
       "path": ".//ios/nl/Localizable.strings",
     },
     Object {
-      "data": "import en from \\"./en/strings.json\\";
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import en from \\"./en/strings.json\\";
 import nl from \\"./nl/strings.json\\";
 
 type LanguageStrings = | typeof en | typeof nl;
@@ -1330,7 +1344,9 @@ export const translation = (
       "path": ".//js/Localizable.ts",
     },
     Object {
-      "data": "import UIKit
+      "data": "// DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
+
+import UIKit
 
 public protocol LocalizationProvider {
     var translationKey: String? { get }
