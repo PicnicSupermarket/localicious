@@ -153,8 +153,11 @@ const substitutionsForOutputType = type => {
       return [
         { search: "{{s}}", replace: "$s" },
         { search: "{{d}}", replace: "$d" },
+        { search: "\b", replace: "\\b" },
+        { search: "\f", replace: "\\f" },
+        { search: "\r", replace: "\\r" },
         { search: "\n", replace: "\\n" },
-        { search: "\\", replace: "\\\\" },
+        { search: "\t", replace: "\\t" },
         { search: '"', replace: '\\"' }
       ];
   }
