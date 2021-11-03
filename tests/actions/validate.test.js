@@ -50,3 +50,10 @@ test("validating fails when there's a collection requested that doesn't exist in
   );
   expect(res.isError).toBe(true);
 });
+
+test("validating fails when there's a key that starts with a digit", () => {
+  const res = loadYaml("tests/input/localicipe_invalid_key.yaml").flatMap(data =>
+    validate(data, ["en"], undefined, ["COLLECTION"])
+  );
+  expect(res.isError).toBe(true);
+});

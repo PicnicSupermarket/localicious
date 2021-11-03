@@ -9,7 +9,7 @@
         "^COPY$": {
           "$ref": "#/definitions/TranslationWrapper"
         },
-        "^(?!COPY|ACCESSIBILITY).*$": {
+        "^(?!COPY|ACCESSIBILITY)\\D.*$": {
           "$ref": "#/definitions/Node"
         }
       },
