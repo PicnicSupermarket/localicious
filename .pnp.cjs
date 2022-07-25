@@ -44,7 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["git-clone", "npm:0.2.0"],\
             ["handlebars", "npm:4.7.7"],\
             ["jest", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:28.1.3"],\
-            ["js-yaml", "npm:3.13.1"],\
+            ["js-yaml", "npm:4.1.0"],\
             ["prettier", "npm:2.7.1"]\
           ],\
           "linkType": "SOFT"\
@@ -1247,7 +1247,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["git-clone", "npm:0.2.0"],\
             ["handlebars", "npm:4.7.7"],\
             ["jest", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:28.1.3"],\
-            ["js-yaml", "npm:3.13.1"],\
+            ["js-yaml", "npm:4.1.0"],\
             ["prettier", "npm:2.7.1"]\
           ],\
           "linkType": "SOFT"\
@@ -1694,6 +1694,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["argparse", "npm:1.0.10"],\
             ["sprintf-js", "npm:1.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/argparse-npm-2.0.1-faff7999e6-83644b5649.zip/node_modules/argparse/",\
+          "packageDependencies": [\
+            ["argparse", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4297,6 +4304,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:3.13.1"],\
             ["argparse", "npm:1.0.10"],\
             ["esprima", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/js-yaml-npm-4.1.0-3606f32312-c7830dfd45.zip/node_modules/js-yaml/",\
+          "packageDependencies": [\
+            ["js-yaml", "npm:4.1.0"],\
+            ["argparse", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
