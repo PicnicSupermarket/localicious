@@ -491,7 +491,7 @@ __metadata:
     eslint-plugin-import: ^2.19.1
     eslint-plugin-jest: ^22.19.0
     eslint-plugin-prettier: ^3.1.1
-    git-clone: ^0.1.0
+    git-clone: ^0.2.0
     handlebars: ^4.4.5
     jest: ^24.9.0
     js-yaml: ^3.13.1
@@ -2516,10 +2516,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-clone@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "git-clone@npm:0.1.0"
-  checksum: fff5ce0c4f55180d173ed6e9bed831d5f6956a228a8890b21a0f8a6737ab0d3fa1886c0bfefcf6cb407cdbf36f31f33eb75c335aba2f5642cc32f1d9b792f567
+"git-clone@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "git-clone@npm:0.2.0"
+  checksum: 51ad9e14a3973b12b7edea8ffa5cd143de56d0ccd61ab281d362764bd02e18d28890275b4f8d15dd4d77a594d2be2f9323b3d5b0beee46ccafc60544084d4595
   languageName: node
   linkType: hard
 

@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:2.19.1"],\
             ["eslint-plugin-jest", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:22.19.0"],\
             ["eslint-plugin-prettier", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:3.1.1"],\
-            ["git-clone", "npm:0.1.0"],\
+            ["git-clone", "npm:0.2.0"],\
             ["handlebars", "npm:4.7.7"],\
             ["jest", "npm:24.9.0"],\
             ["js-yaml", "npm:3.13.1"],\
@@ -584,7 +584,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:2.19.1"],\
             ["eslint-plugin-jest", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:22.19.0"],\
             ["eslint-plugin-prettier", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:3.1.1"],\
-            ["git-clone", "npm:0.1.0"],\
+            ["git-clone", "npm:0.2.0"],\
             ["handlebars", "npm:4.7.7"],\
             ["jest", "npm:24.9.0"],\
             ["js-yaml", "npm:3.13.1"],\
@@ -2993,10 +2993,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["git-clone", [\
-        ["npm:0.1.0", {\
-          "packageLocation": "./.yarn/cache/git-clone-npm-0.1.0-7167961fb5-fff5ce0c4f.zip/node_modules/git-clone/",\
+        ["npm:0.2.0", {\
+          "packageLocation": "./.yarn/cache/git-clone-npm-0.2.0-211477451c-51ad9e14a3.zip/node_modules/git-clone/",\
           "packageDependencies": [\
-            ["git-clone", "npm:0.1.0"]\
+            ["git-clone", "npm:0.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
