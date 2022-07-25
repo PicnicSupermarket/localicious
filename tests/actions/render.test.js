@@ -3,7 +3,7 @@ const { outputType } = require("../../src/model/keywords");
 const render = require("../../src/actions/render");
 
 test("rendering 'en' works as expected for all output types", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").map(data =>
+  const res = loadYaml("tests/input/localicipe.yaml").map((data) =>
     render(
       data,
       "./",
@@ -16,28 +16,28 @@ test("rendering 'en' works as expected for all output types", () => {
 });
 
 test("rendering 'en' works as expected for android only", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").map(data =>
+  const res = loadYaml("tests/input/localicipe.yaml").map((data) =>
     render(data, "./", ["en"], [outputType.ANDROID], ["COLLECTION-A", "COLLECTION-SHARED"])
   );
   expect(res.value).toMatchSnapshot();
 });
 
 test("rendering 'en' works as expected for iOS only", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").map(data =>
+  const res = loadYaml("tests/input/localicipe.yaml").map((data) =>
     render(data, "./", ["en"], [outputType.IOS], ["COLLECTION-B", "COLLECTION-SHARED"])
   );
   expect(res.value).toMatchSnapshot();
 });
 
 test("rendering 'en' works as expected for JS only", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").map(data =>
+  const res = loadYaml("tests/input/localicipe.yaml").map((data) =>
     render(data, "./", ["en"], [outputType.JS], ["COLLECTION-SHARED"])
   );
   expect(res.value).toMatchSnapshot();
 });
 
 test("rendering multiple languages works as expected", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").map(data =>
+  const res = loadYaml("tests/input/localicipe.yaml").map((data) =>
     render(
       data,
       "./",
@@ -50,7 +50,7 @@ test("rendering multiple languages works as expected", () => {
 });
 
 test("rendering works for a Localicipe with multiple collections", () => {
-  const res = loadYaml("tests/input/localicipe.yaml").map(data => {
+  const res = loadYaml("tests/input/localicipe.yaml").map((data) => {
     return render(
       data,
       "./",

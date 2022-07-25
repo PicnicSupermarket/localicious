@@ -5,7 +5,7 @@ const Result = require("../utils/result");
 /**
  * Pull the Localicipe from a designated source.
  */
-const load = async source => {
+const load = async (source) => {
   if (source.git !== undefined) {
     try {
       let cloneResult = await pullRepository(source.git);
@@ -20,15 +20,15 @@ const load = async source => {
   return Result.error("Unknown or no source configured in LocaliciousConfig.", source);
 };
 
-const pullRepository = async source => {
+const pullRepository = async (source) => {
   return new Promise((resolve, reject) => {
-    createTmpDir("localicious-").map(path => {
+    createTmpDir("localicious-").map((path) => {
       const branch = source.branch || "master";
       const cloneOptions = {
         checkout: branch,
-        shallow: branch === "master"
+        shallow: branch === "master",
       };
-      clone(source.url, path, cloneOptions, function(error) {
+      clone(source.url, path, cloneOptions, function (error) {
         if (error !== undefined) {
           reject(error);
         }

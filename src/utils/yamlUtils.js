@@ -2,7 +2,7 @@ const fs = require("fs");
 const yaml = require("js-yaml");
 const Result = require("../utils/result");
 
-const loadYaml = filePath => {
+const loadYaml = (filePath) => {
   try {
     return Result.success(yaml.safeLoad(fs.readFileSync(filePath, "utf8")));
   } catch (error) {
@@ -11,5 +11,5 @@ const loadYaml = filePath => {
 };
 
 module.exports = {
-  loadYaml: loadYaml
+  loadYaml: loadYaml,
 };

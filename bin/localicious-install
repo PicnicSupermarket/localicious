@@ -15,20 +15,20 @@ if (program.args.length < 2) {
 const localiciousConfig = path.resolve(process.cwd(), program.args[0]);
 const outputPath = path.resolve(process.cwd(), program.args[1]);
 
-loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
-  load(localiciousConfig.source).then(result => {
+loadYaml(localiciousConfig).onSuccess((localiciousConfig) => {
+  load(localiciousConfig.source).then((result) => {
     result
-      .map(path => {
+      .map((path) => {
         return {
           path,
           options: {
             languages: localiciousConfig.languages,
             outputTypes: localiciousConfig.outputTypes,
-            collections: localiciousConfig.collections
-          }
+            collections: localiciousConfig.collections,
+          },
         };
       })
-      .flatMap(configuration => {
+      .flatMap((configuration) => {
         const { path, options } = configuration;
 
         return validateAndRender(
@@ -43,7 +43,7 @@ loadYaml(localiciousConfig).onSuccess(localiciousConfig => {
         console.log(`✅ Your Localicipe was rendered successfully.`);
         process.exit(0);
       })
-      .onError(error => {
+      .onError((error) => {
         console.log(`❌ Something went wrong installing your Localicipe.`);
         console.error(error.description);
         process.exit(1);

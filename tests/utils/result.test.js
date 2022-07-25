@@ -17,7 +17,7 @@ test("result.error returns an erroneous result", () => {
 });
 
 test("result.map propagates success", () => {
-  let res = r.success(1).map(value => {
+  let res = r.success(1).map((value) => {
     return value + 2;
   });
   expect(res.value).toBe(3);
@@ -25,7 +25,7 @@ test("result.map propagates success", () => {
 });
 
 test("result.map propagates error", () => {
-  let res = r.error("something went wrong").map(value => {
+  let res = r.error("something went wrong").map((value) => {
     return value + 2;
   });
   expect(res.isSuccess).toBe(false);
@@ -33,7 +33,7 @@ test("result.map propagates error", () => {
 });
 
 test("result.flatMap propagates success", () => {
-  let res = r.success(1).flatMap(value => {
+  let res = r.success(1).flatMap((value) => {
     return r.success(value + 2);
   });
   expect(res.value).toBe(3);
@@ -41,24 +41,24 @@ test("result.flatMap propagates success", () => {
 });
 
 test("result.flatMap propagates error", () => {
-  let res = r.error("something went wrong").flatMap(value => {
+  let res = r.error("something went wrong").flatMap((value) => {
     return r.success(value + 2);
   });
   expect(res.isSuccess).toBe(false);
   expect(res.error.description).toBe("something went wrong");
 });
 
-test("onSuccess gets called on a successful result", done => {
+test("onSuccess gets called on a successful result", (done) => {
   let res = r.success(42);
-  res.onError().onSuccess(value => {
+  res.onError().onSuccess((value) => {
     expect(value).toBe(42);
     done();
   });
 });
 
-test("onError gets called on an unsuccessful result", done => {
+test("onError gets called on an unsuccessful result", (done) => {
   let res = r.error("Something went wrong");
-  res.onSuccess().onError(error => {
+  res.onSuccess().onError((error) => {
     expect(error.description).toBe("Something went wrong");
     done();
   });

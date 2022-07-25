@@ -3,7 +3,7 @@ const {
   groupKeywords,
   accessiblityKeywords,
   isPluralGroup,
-  isLeafGroup
+  isLeafGroup,
 } = require("../model/keywords");
 
 const SINGULAR = "SINGULAR";
@@ -18,7 +18,7 @@ const PLURAL = "PLURAL";
 
  */
 const normalizeYaml = (data, languages, collections) => {
-  return flatten(collections.map(collection => aggregate(data[collection], languages)));
+  return flatten(collections.map((collection) => aggregate(data[collection], languages)));
 };
 
 /**
@@ -36,7 +36,7 @@ const aggregate = (data, languages, keyPath) => {
 
     if (isLeafGroup(value)) {
       const newKeyPath = [...keyPath, key];
-      const entries = languages.map(language => {
+      const entries = languages.map((language) => {
         const accessibilty =
           groupKeywords.ACCESSIBILITY in value &&
           processAccessiblity(language, value[groupKeywords.ACCESSIBILITY]);
@@ -46,7 +46,7 @@ const aggregate = (data, languages, keyPath) => {
           language: language,
           keyPath: newKeyPath,
           ...(accessibilty && { [groupKeywords.ACCESSIBILITY]: accessibilty }),
-          ...(copy && { [groupKeywords.COPY]: copy })
+          ...(copy && { [groupKeywords.COPY]: copy }),
         };
       });
       return [...acc, ...entries];
@@ -60,12 +60,12 @@ const aggregate = (data, languages, keyPath) => {
 const processAccessiblity = (language, value) => ({
   ...processAccessiblityItem(accessiblityKeywords.HINT, language, value),
   ...processAccessiblityItem(accessiblityKeywords.LABEL, language, value),
-  ...processAccessiblityItem(accessiblityKeywords.VALUE, language, value)
+  ...processAccessiblityItem(accessiblityKeywords.VALUE, language, value),
 });
 
 const processAccessiblityItem = (keyword, language, value) =>
   keyword in value && {
-    [keyword]: processTranslation(language, value[keyword])
+    [keyword]: processTranslation(language, value[keyword]),
   };
 
 const processTranslation = (language, value) => {
@@ -75,7 +75,7 @@ const processTranslation = (language, value) => {
   return {
     type: SINGULAR,
     translation: value[language],
-    containsFormatting: isFormattingString(value[language])
+    containsFormatting: isFormattingString(value[language]),
   };
 };
 
@@ -86,16 +86,16 @@ const processPlural = (plurals, language) => {
     containsFormatting = containsFormatting || isFormattingString(translation);
     return {
       ...result,
-      [key]: translation
+      [key]: translation,
     };
   }, {});
   return {
     type: PLURAL,
     translation: pluralMap,
-    containsFormatting
+    containsFormatting,
   };
 };
 
-const isFormattingString = string => string.includes("{{s}}") || string.includes("{{d}}");
+const isFormattingString = (string) => string.includes("{{s}}") || string.includes("{{d}}");
 
 module.exports = { normalizeYaml, PLURAL, SINGULAR };
