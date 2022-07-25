@@ -1,5 +1,5 @@
 const Ajv = require("ajv");
-const betterAjvErrors = require("better-ajv-errors");
+const betterAjvErrors = require("better-ajv-errors").default;
 const Result = require("../utils/result");
 const schemaTemplate = require("../../schemas/schema.json");
 
@@ -9,7 +9,7 @@ const validate = (data, requiredLanguages, optionalLanguages, collections) => {
 };
 
 const validateData = (schema, data) => {
-  const validator = new Ajv({ jsonPointers: true });
+  const validator = new Ajv({ allowMatchingProperties: true });
   const valid = validator.validate(schema, data);
   if (valid) {
     return Result.success({});

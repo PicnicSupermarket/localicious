@@ -7,8 +7,8 @@
   "author": "Picnic Technologies",
   "license": "MIT",
   "dependencies": {
-    "ajv": "^6.10.2",
-    "better-ajv-errors": "^0.6.7",
+    "ajv": "^8.11.0",
+    "better-ajv-errors": "^1.2.0",
     "commander": "^9.4.0",
     "git-clone": "^0.1.0",
     "handlebars": "^4.4.5",
