@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const path = require("path");
-const program = require("commander");
 const keywords = require("../src/model/keywords");
 const validateAndRender = require("../src/actions/validateAndRender");
+const program = require("commander");
 
 const commaSeparatedList = (value) => {
   return value.split(",");

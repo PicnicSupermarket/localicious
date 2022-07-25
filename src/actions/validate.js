@@ -1,7 +1,7 @@
-const Ajv = require("ajv");
-const betterAjvErrors = require("better-ajv-errors").default;
 const Result = require("../utils/result");
 const schemaTemplate = require("../../schemas/schema.json");
+const Ajv = require("ajv");
+const betterAjvErrors = require("better-ajv-errors").default;
 
 const validate = (data, requiredLanguages, optionalLanguages, collections) => {
   const schema = generateSchema(requiredLanguages, optionalLanguages, collections);

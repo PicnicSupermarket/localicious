@@ -48,18 +48,16 @@ test("result.flatMap propagates error", () => {
   expect(res.error.description).toBe("something went wrong");
 });
 
-test("onSuccess gets called on a successful result", (done) => {
+test("onSuccess gets called on a successful result", async () => {
   let res = r.success(42);
   res.onError().onSuccess((value) => {
     expect(value).toBe(42);
-    done();
   });
 });
 
-test("onError gets called on an unsuccessful result", (done) => {
+test("onError gets called on an unsuccessful result", async () => {
   let res = r.error("Something went wrong");
   res.onSuccess().onError((error) => {
     expect(error.description).toBe("Something went wrong");
-    done();
   });
 });

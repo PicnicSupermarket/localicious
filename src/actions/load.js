@@ -1,6 +1,6 @@
-const clone = require("git-clone");
 const { createTmpDir } = require("../utils/fileUtils");
 const Result = require("../utils/result");
+const clone = require("git-clone");
 
 /**
  * Pull the Localicipe from a designated source.

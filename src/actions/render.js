@@ -1,11 +1,11 @@
 const path = require("path");
-const Handlebars = require("handlebars");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
 const { accessiblityKeywords, groupKeywords, outputType } = require("../model/keywords");
 const { groupByKey } = require("../utils/arrayUtils");
 const { flatten } = require("../utils/arrayUtils");
+const Handlebars = require("handlebars");
 
 const percentEncodingPattern = /%(?!\d+{{.}})/;
 

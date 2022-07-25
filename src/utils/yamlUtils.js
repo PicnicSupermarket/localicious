@@ -1,6 +1,6 @@
 const fs = require("fs");
-const yaml = require("js-yaml");
 const Result = require("../utils/result");
+const yaml = require("js-yaml");
 
 const loadYaml = (filePath) => {
   try {
