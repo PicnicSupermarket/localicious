@@ -492,7 +492,7 @@ __metadata:
     eslint-plugin-jest: ^22.19.0
     eslint-plugin-prettier: ^3.1.1
     git-clone: ^0.2.0
-    handlebars: ^4.4.5
+    handlebars: ^4.7.7
     jest: ^24.9.0
     js-yaml: ^3.13.1
     prettier: ^1.18.2
@@ -2610,7 +2610,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"handlebars@npm:^4.4.5":
+"handlebars@npm:^4.7.7":
   version: 4.7.7
   resolution: "handlebars@npm:4.7.7"
   dependencies:

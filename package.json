@@ -11,7 +11,7 @@
     "better-ajv-errors": "^1.2.0",
     "commander": "^9.4.0",
     "git-clone": "^0.2.0",
-    "handlebars": "^4.4.5",
+    "handlebars": "^4.7.7",
     "js-yaml": "^3.13.1"
   },
   "devDependencies": {
