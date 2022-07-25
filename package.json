@@ -2,13 +2,10 @@
   "name": "@picnicsupermarket/localicious",
   "version": "1.0.1",
   "description": "A toolchain for working with localization files in a platform-agnostic way.",
-  "bin": {
-    "localicious": "bin/localicious"
-  },
+  "bin": "bin/localicious",
   "repository": "https://github.com/PicnicSupermarket/localicious",
   "author": "Picnic Technologies",
   "license": "MIT",
-  "private": false,
   "dependencies": {
     "ajv": "^6.10.2",
     "better-ajv-errors": "^0.6.7",
@@ -35,6 +32,8 @@
     "printWidth": 100
   },
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "packageManager": "yarn@3.2.2"
 }
