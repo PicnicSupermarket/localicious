@@ -1,7 +1,7 @@
-const Ajv = require("ajv");
-const betterAjvErrors = require("better-ajv-errors");
 const Result = require("../utils/result");
 const schemaTemplate = require("../../schemas/schema.json");
+const Ajv = require("ajv");
+const betterAjvErrors = require("better-ajv-errors").default;
 
 const validate = (data, requiredLanguages, optionalLanguages, collections) => {
   const schema = generateSchema(requiredLanguages, optionalLanguages, collections);
@@ -9,20 +9,20 @@ const validate = (data, requiredLanguages, optionalLanguages, collections) => {
 };
 
 const validateData = (schema, data) => {
-  const validator = new Ajv({ jsonPointers: true });
+  const validator = new Ajv({ allowMatchingProperties: true });
   const valid = validator.validate(schema, data);
   if (valid) {
     return Result.success({});
   } else {
     const errorMessages = ["❌ Your Localicipe contains validation issues:"];
     const allErrors = betterAjvErrors(schema, data, validator.errors, {
-      format: "js"
+      format: "js",
     });
     const errorDescription = errorMessages
       .concat(allErrors.reduce((acc, error) => acc.concat([`    - ${error.error}`]), []))
       .join("\n");
     return Result.error(errorDescription, {
-      allErrors: allErrors
+      allErrors: allErrors,
     });
   }
 };
@@ -30,14 +30,14 @@ const validateData = (schema, data) => {
 const generateSchema = (requiredLanguages, optionalLanguages, collections) => {
   let schema = schemaTemplate;
 
-  const upperCaseCollections = collections.map(s => s.toUpperCase());
+  const upperCaseCollections = collections.map((s) => s.toUpperCase());
 
   // To check if all requested collections are present in the YAML file.
   schema["required"] = upperCaseCollections;
   schema["properties"] = upperCaseCollections.reduce(
     (acc, collection) => ({
       ...acc,
-      [collection]: { $ref: "#/definitions/Node" }
+      [collection]: { $ref: "#/definitions/Node" },
     }),
     {}
   );
@@ -45,13 +45,13 @@ const generateSchema = (requiredLanguages, optionalLanguages, collections) => {
     schema["definitions"]["Translation"]["properties"] = requiredLanguages.reduce(
       (acc, language) => ({
         ...acc,
-        [language]: { type: "string" }
+        [language]: { type: "string" },
       }),
       {}
     );
     schema["definitions"]["Translation"]["required"] = requiredLanguages;
     schema["definitions"]["Translation"]["additionalProperties"] = {
-      type: "string"
+      type: "string",
     };
   } else {
     schema["definitions"]["Translation"]["properties"] = requiredLanguages
@@ -59,7 +59,7 @@ const generateSchema = (requiredLanguages, optionalLanguages, collections) => {
       .reduce(
         (acc, language) => ({
           ...acc,
-          [language]: { type: "string" }
+          [language]: { type: "string" },
         }),
         {}
       );

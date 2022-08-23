@@ -1,20 +1,20 @@
 const path = require("path");
-const Handlebars = require("handlebars");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
 const { accessiblityKeywords, groupKeywords, outputType } = require("../model/keywords");
 const { groupByKey } = require("../utils/arrayUtils");
 const { flatten } = require("../utils/arrayUtils");
+const Handlebars = require("handlebars");
 
 const percentEncodingPattern = /%(?!\d+{{.}})/;
 
 const render = (data, outputPath, languages, outputTypes, collections) => {
   const translations = normalizeYaml(data, languages, collections);
-  const translationsPerLanguage = groupByKey(translations, t => t.language);
+  const translationsPerLanguage = groupByKey(translations, (t) => t.language);
   const localizationRenders = Object.keys(translationsPerLanguage).reduce((acc, language) => {
     const translationsForLanguage = translationsPerLanguage[language];
-    const renderResults = outputTypes.map(outputType => {
+    const renderResults = outputTypes.map((outputType) => {
       const view = createLocalizationView(translationsForLanguage, outputType);
       return renderLocalizationView(view, outputType, language, outputPath);
     });
@@ -26,24 +26,24 @@ const render = (data, outputPath, languages, outputTypes, collections) => {
   );
 
   const codeGenerationRenders = outputTypes
-    .map(outputType => [createCodeGenView(uniqueTranslations, outputType, languages), outputType])
+    .map((outputType) => [createCodeGenView(uniqueTranslations, outputType, languages), outputType])
     .map(([view, outputType]) => renderCodeGenView(view, outputType, outputPath));
 
   return [...localizationRenders, ...codeGenerationRenders]
-    .filter(render => !!render)
+    .filter((render) => !!render)
     .reduce(
-      (acc, result) => acc.flatMap(value => result.map(r => value.concat([r]))),
+      (acc, result) => acc.flatMap((value) => result.map((r) => value.concat([r]))),
       Result.success([])
     );
 };
 
 const renderLocalizationView = (view, outputType, language, basePath) => {
   const outputPath = localizationOutputPath(basePath, outputType, language);
-  Handlebars.registerHelper("lowerCase", string => string.toLowerCase());
+  Handlebars.registerHelper("lowerCase", (string) => string.toLowerCase());
   return localizationTemplate(outputType)
-    .map(source => Handlebars.compile(source))
-    .map(template => template(view))
-    .map(render => ({ path: outputPath, data: render }));
+    .map((source) => Handlebars.compile(source))
+    .map((template) => template(view))
+    .map((render) => ({ path: outputPath, data: render }));
 };
 
 const renderCodeGenView = (view, outputType, basePath) => {
@@ -58,12 +58,12 @@ const renderCodeGenView = (view, outputType, basePath) => {
         }
         return Handlebars.compile(fileTemplate);
       })
-      .map(template => template(view))
-      .map(render => ({ path: outputPath, data: render }));
+      .map((template) => template(view))
+      .map((render) => ({ path: outputPath, data: render }));
   }
 };
 
-const localizationTemplate = type => {
+const localizationTemplate = (type) => {
   switch (type) {
     case outputType.ANDROID:
       return loadFile(path.resolve(__dirname, "../../templates/strings_xml_file.hbs"));
@@ -74,22 +74,22 @@ const localizationTemplate = type => {
   }
 };
 
-const codeGenerationTemplate = type => {
+const codeGenerationTemplate = (type) => {
   switch (type) {
     case outputType.ANDROID:
       return undefined;
     case outputType.IOS:
       return loadFile(
         path.resolve(__dirname, "../../templates/code_generation_swift_file.hbs")
-      ).flatMap(fileTemplate =>
+      ).flatMap((fileTemplate) =>
         loadFile(
           path.resolve(__dirname, "../../templates/code_generation_swift_child.hbs")
-        ).flatMap(childTemplate => Result.success({ fileTemplate, childTemplate }))
+        ).flatMap((childTemplate) => Result.success({ fileTemplate, childTemplate }))
       );
     case outputType.JS:
       return loadFile(
         path.resolve(__dirname, "../../templates/code_generation_js_file.hbs")
-      ).flatMap(fileTemplate => Result.success({ fileTemplate, undefined }));
+      ).flatMap((fileTemplate) => Result.success({ fileTemplate, undefined }));
   }
 };
 
@@ -101,7 +101,7 @@ const codeGenerationOutputPath = (basePath, outputType) => {
   return `${basePath}/${outputType.toLowerCase()}/${codeGenerationFileName(outputType)}`;
 };
 
-const localizationFileName = type => {
+const localizationFileName = (type) => {
   switch (type) {
     case outputType.ANDROID:
       return "strings.xml";
@@ -112,7 +112,7 @@ const localizationFileName = type => {
   }
 };
 
-const codeGenerationFileName = type => {
+const codeGenerationFileName = (type) => {
   switch (type) {
     case outputType.ANDROID:
       return "Localizable.kt";
@@ -123,7 +123,7 @@ const codeGenerationFileName = type => {
   }
 };
 
-const substitutionsForOutputType = type => {
+const substitutionsForOutputType = (type) => {
   switch (type) {
     case outputType.ANDROID:
       // prettier-ignore
@@ -147,7 +147,7 @@ const substitutionsForOutputType = type => {
         { search: percentEncodingPattern, replace: "%%" },
         { search: "{{s}}", replace: "$@" },
         { search: "{{d}}", replace: "$d" },
-        { search: '"', replace: '\\"' }
+        { search: '"', replace: '\\"' },
       ];
     case outputType.JS:
       return [
@@ -158,12 +158,12 @@ const substitutionsForOutputType = type => {
         { search: "\r", replace: "\\r" },
         { search: "\n", replace: "\\n" },
         { search: "\t", replace: "\\t" },
-        { search: '"', replace: '\\"' }
+        { search: '"', replace: '\\"' },
       ];
   }
 };
 
-const keyDelimiterForOutputType = type => {
+const keyDelimiterForOutputType = (type) => {
   switch (type) {
     case outputType.ANDROID:
       return "_";
@@ -175,7 +175,7 @@ const keyDelimiterForOutputType = type => {
 };
 
 const substitute = (value, valueSubstitutions) => {
-  valueSubstitutions.forEach(substitution => {
+  valueSubstitutions.forEach((substitution) => {
     value = value.split(substitution.search).join(substitution.replace);
   });
   return value;
@@ -185,7 +185,7 @@ const createCodeGenView = (translations, outputType, languages) => {
   const delimiter = keyDelimiterForOutputType(outputType);
 
   let translationsView = {};
-  translations.forEach(item => {
+  translations.forEach((item) => {
     let result = translationsView;
     item.keyPath.forEach((name, index) => {
       if (index === item.keyPath.length - 1) {
@@ -212,11 +212,11 @@ const createCodeGenView = (translations, outputType, languages) => {
           requiresFunction: containsFormatting || containsQuantity,
           identifier: item.keyPath.join(delimiter),
           ...{ [copyKey]: (item[copyKey] && createCopyView(item, delimiter)) || {} },
-          ...{ [accKey]: (item[accKey] && createAccessibilityViews(item, delimiter)) || {} }
+          ...{ [accKey]: (item[accKey] && createAccessibilityViews(item, delimiter)) || {} },
         };
         result.children = [...(result.children || []), { ...view, hasChildren: false }];
       } else {
-        const child = result.children && result.children.find(child => child.name === name);
+        const child = result.children && result.children.find((child) => child.name === name);
         if (child) {
           result = child;
         } else {
@@ -229,7 +229,7 @@ const createCodeGenView = (translations, outputType, languages) => {
   });
   return {
     languages: languages,
-    translations: translationsView
+    translations: translationsView,
   };
 };
 
@@ -245,7 +245,7 @@ const createCopyView = (translation, delimiter) => {
   const keyword = groupKeywords.COPY;
   return {
     keyPath: [...translation.keyPath, keyword].join(delimiter),
-    isPlural: translation[keyword].type === PLURAL
+    isPlural: translation[keyword].type === PLURAL,
   };
 };
 
@@ -257,8 +257,8 @@ const createAccessibilityViews = (translation, delimiter) => {
       ...acc,
       [key]: {
         keyPath: [...translation.keyPath, keyword, key].join(delimiter),
-        isPlural: translation.type === PLURAL
-      }
+        isPlural: translation.type === PLURAL,
+      },
     };
   }, {});
 };
@@ -267,8 +267,8 @@ const createLocalizationView = (translations, outputType) => {
   const substitutions = substitutionsForOutputType(outputType);
   const delimiter = keyDelimiterForOutputType(outputType);
   const copyViews = translations
-    .filter(t => groupKeywords.COPY in t)
-    .map(t =>
+    .filter((t) => groupKeywords.COPY in t)
+    .map((t) =>
       createTranslationView(
         t[groupKeywords.COPY],
         [...t.keyPath, groupKeywords.COPY],
@@ -278,16 +278,16 @@ const createLocalizationView = (translations, outputType) => {
     );
 
   const accessibilityViews = translations
-    .filter(t => groupKeywords.ACCESSIBILITY in t)
-    .map(t => {
+    .filter((t) => groupKeywords.ACCESSIBILITY in t)
+    .map((t) => {
       const keyword = groupKeywords.ACCESSIBILITY;
       const group = t[keyword];
-      return Object.keys(group).map(key =>
+      return Object.keys(group).map((key) =>
         createTranslationView(group[key], [...t.keyPath, keyword, key], delimiter, substitutions)
       );
     });
   const allViews = [...copyViews, ...flatten(accessibilityViews)];
-  return groupByKey(allViews, val => val.type);
+  return groupByKey(allViews, (val) => val.type);
 };
 
 const createTranslationView = (translation, keyPath, delimiter, substitutions) => {
@@ -297,18 +297,18 @@ const createTranslationView = (translation, keyPath, delimiter, substitutions) =
       return {
         key,
         type: translation.type,
-        value: substitute(translation.translation, substitutions)
+        value: substitute(translation.translation, substitutions),
       };
     case PLURAL:
       return {
         key,
         type: translation.type,
-        value: Object.keys(translation.translation).map(quantity => {
+        value: Object.keys(translation.translation).map((quantity) => {
           return {
             quantity,
-            value: substitute(translation.translation[quantity], substitutions)
+            value: substitute(translation.translation[quantity], substitutions),
           };
-        })
+        }),
       };
   }
 };

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 const path = require("path");
-const program = require("commander");
 const { loadYaml } = require("../src/utils/yamlUtils");
 const validate = require("../src/actions/validate");
+const program = require("commander");
 
-const commaSeparatedList = value => {
+const commaSeparatedList = (value) => {
   return value.split(",");
 };
 
@@ -24,7 +24,7 @@ if (program.args.length < 1) {
 const localicipePath = path.resolve(process.cwd(), program.args[0]);
 
 loadYaml(localicipePath)
-  .flatMap(data => {
+  .flatMap((data) => {
     return validate(
       data,
       program.requiredLanguages,
@@ -36,7 +36,7 @@ loadYaml(localicipePath)
     console.log("✅ Your Localicipe is perfect, keep up the good work!");
     process.exit(0);
   })
-  .onError(error => {
+  .onError((error) => {
     console.error(error.description);
     process.exit(1);
   });

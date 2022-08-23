@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 const path = require("path");
-const program = require("commander");
 const keywords = require("../src/model/keywords");
 const validateAndRender = require("../src/actions/validateAndRender");
+const program = require("commander");
 
-const commaSeparatedList = value => {
+const commaSeparatedList = (value) => {
   return value.split(",");
 };
 
-const hasValidLanguages = languages => {
+const hasValidLanguages = (languages) => {
   if (languages === undefined || languages.length == 0) {
     console.error(`❌ This command requires one or more output languages.`);
     return false;
@@ -16,7 +16,7 @@ const hasValidLanguages = languages => {
   return true;
 };
 
-const hasValidCollections = collections => {
+const hasValidCollections = (collections) => {
   if (collections === undefined || collections.length == 0) {
     console.error(`❌ This command requires one or more string collections.`);
     return false;
@@ -24,8 +24,8 @@ const hasValidCollections = collections => {
   return true;
 };
 
-const hasValidOutputTypes = outputTypes => {
-  const supportedOutputTypes = Object.keys(keywords.outputType).map(s => s.toLowerCase());
+const hasValidOutputTypes = (outputTypes) => {
+  const supportedOutputTypes = Object.keys(keywords.outputType).map((s) => s.toLowerCase());
 
   if (outputTypes === undefined || outputTypes.length == 0) {
     console.error(
@@ -36,7 +36,7 @@ const hasValidOutputTypes = outputTypes => {
     return false;
   }
 
-  const invalidOutputTypes = outputTypes.filter(option => !supportedOutputTypes.includes(option));
+  const invalidOutputTypes = outputTypes.filter((option) => !supportedOutputTypes.includes(option));
 
   if (invalidOutputTypes.length != 0) {
     console.error(
@@ -69,8 +69,8 @@ if (
 
 const localicipePath = path.resolve(process.cwd(), program.args[0]);
 const outputPath = path.resolve(process.cwd(), program.args[1]);
-const outputTypes = program.outputTypes.map(outputType => outputType.toUpperCase());
-const collections = program.collections.map(collection => collection.toUpperCase());
+const outputTypes = program.outputTypes.map((outputType) => outputType.toUpperCase());
+const collections = program.collections.map((collection) => collection.toUpperCase());
 
 validateAndRender(localicipePath, outputPath, program.languages, outputTypes, collections)
   .onSuccess(() => {
@@ -84,7 +84,7 @@ validateAndRender(localicipePath, outputPath, program.languages, outputTypes, co
     );
     process.exit(0);
   })
-  .onError(error => {
+  .onError((error) => {
     console.log(`❌ Something went wrong rendering.`);
     console.error(error.description);
     process.exit(1);

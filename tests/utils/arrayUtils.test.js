@@ -4,13 +4,13 @@ test("grouping an array", () => {
   let list = [
     {
       language: "nl",
-      translation: "Een vertaling"
+      translation: "Een vertaling",
     },
     {
       language: "en",
-      translation: "A translation"
-    }
+      translation: "A translation",
+    },
   ];
-  let res = groupByKey(list, item => item.language);
+  let res = groupByKey(list, (item) => item.language);
   expect(res).toMatchSnapshot();
 });
