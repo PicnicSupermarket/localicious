@@ -1,0 +1,7 @@
+COLLECTION:
+  Checkout:
+    1KeyStartingWithADigit:
+      Total:
+        COPY:
+          en: 'This is copy'
+    
