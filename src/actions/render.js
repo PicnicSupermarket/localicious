@@ -1,11 +1,12 @@
 const path = require("path");
+const Handlebars = require("handlebars");
+const LodashUpdateWith = require("lodash.updatewith");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
-const { accessiblityKeywords, groupKeywords, outputType } = require("../model/keywords");
+const { accessiblityKeywords, groupKeywords, outputTypes } = require("../model/keywords");
 const { groupByKey } = require("../utils/arrayUtils");
 const { flatten } = require("../utils/arrayUtils");
-const Handlebars = require("handlebars");
 
 const percentEncodingPattern = /%(?!\d+{{.}})/;
 
@@ -43,6 +44,7 @@ const renderLocalizationView = (view, outputType, language, basePath) => {
   return localizationTemplate(outputType)
     .map((source) => Handlebars.compile(source))
     .map((template) => template(view))
+    .map((renderedTemplate) => postTemplateRenderFormatting(renderedTemplate, outputType))
     .map((render) => ({ path: outputPath, data: render }));
 };
 
@@ -63,22 +65,37 @@ const renderCodeGenView = (view, outputType, basePath) => {
   }
 };
 
+const postTemplateRenderFormatting = (renderedTemplate, outputType) => {
+  if (outputType === outputTypes.JS) {
+    // Convert 1-on-1 key mapping to a JSON object
+    const renderedTemplateAsJSON = JSON.parse(renderedTemplate);
+    const localizationObject = {};
+    Object.keys(renderedTemplateAsJSON).forEach((key) => {
+      LodashUpdateWith(localizationObject, key, () => renderedTemplateAsJSON[key], Object);
+    });
+
+    return JSON.stringify(localizationObject, null, 2);
+  }
+
+  return renderedTemplate;
+};
+
 const localizationTemplate = (type) => {
   switch (type) {
-    case outputType.ANDROID:
+    case outputTypes.ANDROID:
       return loadFile(path.resolve(__dirname, "../../templates/strings_xml_file.hbs"));
-    case outputType.IOS:
+    case outputTypes.IOS:
       return loadFile(path.resolve(__dirname, "../../templates/localizable_strings_file.hbs"));
-    case outputType.JS:
+    case outputTypes.JS:
       return loadFile(path.resolve(__dirname, "../../templates/json_strings_file.hbs"));
   }
 };
 
 const codeGenerationTemplate = (type) => {
   switch (type) {
-    case outputType.ANDROID:
+    case outputTypes.ANDROID:
       return undefined;
-    case outputType.IOS:
+    case outputTypes.IOS:
       return loadFile(
         path.resolve(__dirname, "../../templates/code_generation_swift_file.hbs")
       ).flatMap((fileTemplate) =>
@@ -86,7 +103,7 @@ const codeGenerationTemplate = (type) => {
           path.resolve(__dirname, "../../templates/code_generation_swift_child.hbs")
         ).flatMap((childTemplate) => Result.success({ fileTemplate, childTemplate }))
       );
-    case outputType.JS:
+    case outputTypes.JS:
       return loadFile(
         path.resolve(__dirname, "../../templates/code_generation_js_file.hbs")
       ).flatMap((fileTemplate) => Result.success({ fileTemplate, undefined }));
@@ -103,29 +120,29 @@ const codeGenerationOutputPath = (basePath, outputType) => {
 
 const localizationFileName = (type) => {
   switch (type) {
-    case outputType.ANDROID:
+    case outputTypes.ANDROID:
       return "strings.xml";
-    case outputType.IOS:
+    case outputTypes.IOS:
       return "Localizable.strings";
-    case outputType.JS:
+    case outputTypes.JS:
       return "strings.json";
   }
 };
 
 const codeGenerationFileName = (type) => {
   switch (type) {
-    case outputType.ANDROID:
+    case outputTypes.ANDROID:
       return "Localizable.kt";
-    case outputType.IOS:
+    case outputTypes.IOS:
       return "Localizable.swift";
-    case outputType.JS:
+    case outputTypes.JS:
       return "Localizable.ts";
   }
 };
 
 const substitutionsForOutputType = (type) => {
   switch (type) {
-    case outputType.ANDROID:
+    case outputTypes.ANDROID:
       // prettier-ignore
       return [
         // Important: & should be substituted before we introduce new ampersands as part of our substitutions
@@ -141,7 +158,7 @@ const substitutionsForOutputType = (type) => {
         { search: ">", replace: "&gt;" },
         { search: "\"", replace: "&quot;" },
       ];
-    case outputType.IOS:
+    case outputTypes.IOS:
       return [
         // Important: % should be substituted before we substitute {{s}} and {{d}}
         { search: percentEncodingPattern, replace: "%%" },
@@ -149,7 +166,7 @@ const substitutionsForOutputType = (type) => {
         { search: "{{d}}", replace: "$d" },
         { search: '"', replace: '\\"' },
       ];
-    case outputType.JS:
+    case outputTypes.JS:
       return [
         { search: "{{s}}", replace: "$s" },
         { search: "{{d}}", replace: "$d" },
@@ -165,11 +182,11 @@ const substitutionsForOutputType = (type) => {
 
 const keyDelimiterForOutputType = (type) => {
   switch (type) {
-    case outputType.ANDROID:
+    case outputTypes.ANDROID:
       return "_";
-    case outputType.IOS:
+    case outputTypes.IOS:
       return ".";
-    case outputType.JS:
+    case outputTypes.JS:
       return ".";
   }
 };

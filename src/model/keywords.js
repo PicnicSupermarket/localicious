@@ -15,7 +15,7 @@ const accessiblityKeywords = {
   VALUE: "VALUE",
 };
 
-const outputType = {
+const outputTypes = {
   ANDROID: "ANDROID",
   IOS: "IOS",
   JS: "JS",
@@ -29,7 +29,7 @@ const isPluralGroup = (group) =>
 module.exports = {
   groupKeywords,
   accessiblityKeywords,
-  outputType,
+  outputTypes,
   isLeafGroup,
   isPluralGroup,
 };
