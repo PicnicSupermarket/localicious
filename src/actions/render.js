@@ -1,12 +1,12 @@
 const path = require("path");
-const Handlebars = require("handlebars");
-const LodashUpdateWith = require("lodash.updatewith");
 const Result = require("../utils/result");
 const { normalizeYaml, PLURAL, SINGULAR } = require("../actions/normalize");
 const { loadFile } = require("../utils/fileUtils");
 const { accessiblityKeywords, groupKeywords, outputTypes } = require("../model/keywords");
 const { groupByKey } = require("../utils/arrayUtils");
 const { flatten } = require("../utils/arrayUtils");
+const Handlebars = require("handlebars");
+const LodashUpdateWith = require("lodash.updatewith");
 
 const percentEncodingPattern = /%(?!\d+{{.}})/;
 
