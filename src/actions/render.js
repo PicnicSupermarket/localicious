@@ -6,7 +6,7 @@ const { accessiblityKeywords, groupKeywords, outputTypes } = require("../model/k
 const { groupByKey } = require("../utils/arrayUtils");
 const { flatten } = require("../utils/arrayUtils");
 const Handlebars = require("handlebars");
-const LodashUpdateWith = require("lodash.updatewith");
+const lodashUpdateWith = require("lodash.updatewith");
 
 const percentEncodingPattern = /%(?!\d+{{.}})/;
 
@@ -44,7 +44,7 @@ const renderLocalizationView = (view, outputType, language, basePath) => {
   return localizationTemplate(outputType)
     .map((source) => Handlebars.compile(source))
     .map((template) => template(view))
-    .map((renderedTemplate) => postTemplateRenderFormatting(renderedTemplate, outputType))
+    .map((renderedTemplate) => formatToJSon(renderedTemplate, outputType))
     .map((render) => ({ path: outputPath, data: render }));
 };
 
@@ -65,13 +65,14 @@ const renderCodeGenView = (view, outputType, basePath) => {
   }
 };
 
-const postTemplateRenderFormatting = (renderedTemplate, outputType) => {
+// Converts 1-1 key mapping to a JSON object
+const formatToJSon = (renderedTemplate, outputType) => {
   if (outputType === outputTypes.JS) {
     // Convert 1-on-1 key mapping to a JSON object
     const renderedTemplateAsJSON = JSON.parse(renderedTemplate);
     const localizationObject = {};
     Object.keys(renderedTemplateAsJSON).forEach((key) => {
-      LodashUpdateWith(localizationObject, key, () => renderedTemplateAsJSON[key], Object);
+      lodashUpdateWith(localizationObject, key, () => renderedTemplateAsJSON[key], Object);
     });
 
     return JSON.stringify(localizationObject, null, 2);
