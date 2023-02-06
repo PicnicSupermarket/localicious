@@ -12,7 +12,8 @@
     "commander": "^9.4.0",
     "git-clone": "^0.2.0",
     "handlebars": "^4.7.7",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "lodash.updatewith": "^4.10.2"
   },
   "devDependencies": {
     "eslint": "^8.20.0",

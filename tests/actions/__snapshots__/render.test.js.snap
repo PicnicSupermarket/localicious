@@ -5,28 +5,72 @@ Result {
   "value": Array [
     Object {
       "data": "{
-
-  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
-  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
-  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
-  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
-  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
-  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
-  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
-  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
-}
-",
+  \\"Delivery\\": {
+    \\"Widget\\": {
+      \\"SubTitle\\": {
+        \\"COPY\\": {
+          \\"ZERO\\": \\"%1$d Pending order\\",
+          \\"ONE\\": \\"%1$d Pending order\\",
+          \\"OTHER\\": \\"%1$d Pending Orders\\"
+        }
+      },
+      \\"Title\\": {
+        \\"COPY\\": \\"Help: %1$s\\"
+      },
+      \\"SpecialCharacters\\": {
+        \\"COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\"
+      },
+      \\"MultilineStrings\\": {
+        \\"COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"
+      }
+    }
+  },
+  \\"Accessible\\": {
+    \\"PluralComponent\\": {
+      \\"COPY\\": {
+        \\"ONE\\": \\"The singular copy\\",
+        \\"OTHER\\": \\"The plural copy\\"
+      },
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": {
+          \\"ONE\\": \\"The singular hint\\",
+          \\"OTHER\\": \\"The plural hint\\"
+        },
+        \\"LABEL\\": {
+          \\"ONE\\": \\"The singular label\\",
+          \\"OTHER\\": \\"The plural label\\"
+        },
+        \\"VALUE\\": {
+          \\"ZERO\\": \\"No value for this component\\",
+          \\"ONE\\": \\"The singular value\\",
+          \\"OTHER\\": \\"The plural value\\"
+        }
+      }
+    },
+    \\"RegularComponent\\": {
+      \\"COPY\\": \\"This is a component with accessiblity support\\",
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": \\"This is the hint\\",
+        \\"LABEL\\": \\"This is the label\\"
+      }
+    }
+  },
+  \\"Something\\": {
+    \\"With\\": {
+      \\"An\\": {
+        \\"Arbitrary\\": {
+          \\"Amount\\": {
+            \\"Of\\": {
+              \\"Nesting\\": {
+                \\"COPY\\": \\"We support nesting as deep as you'd like\\"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}",
       "path": ".//js/en/strings.json",
     },
     Object {
@@ -111,28 +155,72 @@ It may also contain empty lines to break up text into paragraphs.\\";
     },
     Object {
       "data": "{
-
-  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
-  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
-  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
-  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
-  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
-  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
-  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
-  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
-}
-",
+  \\"Delivery\\": {
+    \\"Widget\\": {
+      \\"SubTitle\\": {
+        \\"COPY\\": {
+          \\"ZERO\\": \\"%1$d Pending order\\",
+          \\"ONE\\": \\"%1$d Pending order\\",
+          \\"OTHER\\": \\"%1$d Pending Orders\\"
+        }
+      },
+      \\"Title\\": {
+        \\"COPY\\": \\"Help: %1$s\\"
+      },
+      \\"SpecialCharacters\\": {
+        \\"COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\"
+      },
+      \\"MultilineStrings\\": {
+        \\"COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"
+      }
+    }
+  },
+  \\"Accessible\\": {
+    \\"PluralComponent\\": {
+      \\"COPY\\": {
+        \\"ONE\\": \\"The singular copy\\",
+        \\"OTHER\\": \\"The plural copy\\"
+      },
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": {
+          \\"ONE\\": \\"The singular hint\\",
+          \\"OTHER\\": \\"The plural hint\\"
+        },
+        \\"LABEL\\": {
+          \\"ONE\\": \\"The singular label\\",
+          \\"OTHER\\": \\"The plural label\\"
+        },
+        \\"VALUE\\": {
+          \\"ZERO\\": \\"No value for this component\\",
+          \\"ONE\\": \\"The singular value\\",
+          \\"OTHER\\": \\"The plural value\\"
+        }
+      }
+    },
+    \\"RegularComponent\\": {
+      \\"COPY\\": \\"This is a component with accessiblity support\\",
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": \\"This is the hint\\",
+        \\"LABEL\\": \\"This is the label\\"
+      }
+    }
+  },
+  \\"Something\\": {
+    \\"With\\": {
+      \\"An\\": {
+        \\"Arbitrary\\": {
+          \\"Amount\\": {
+            \\"Of\\": {
+              \\"Nesting\\": {
+                \\"COPY\\": \\"We support nesting as deep as you'd like\\"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}",
       "path": ".//js/en/strings.json",
     },
     Object {
@@ -721,28 +809,72 @@ Result {
     },
     Object {
       "data": "{
-
-  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
-  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
-  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
-  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
-  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
-  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
-  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
-  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
-}
-",
+  \\"Delivery\\": {
+    \\"Widget\\": {
+      \\"SubTitle\\": {
+        \\"COPY\\": {
+          \\"ZERO\\": \\"%1$d Pending order\\",
+          \\"ONE\\": \\"%1$d Pending order\\",
+          \\"OTHER\\": \\"%1$d Pending Orders\\"
+        }
+      },
+      \\"Title\\": {
+        \\"COPY\\": \\"Help: %1$s\\"
+      },
+      \\"SpecialCharacters\\": {
+        \\"COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\"
+      },
+      \\"MultilineStrings\\": {
+        \\"COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"
+      }
+    }
+  },
+  \\"Accessible\\": {
+    \\"PluralComponent\\": {
+      \\"COPY\\": {
+        \\"ONE\\": \\"The singular copy\\",
+        \\"OTHER\\": \\"The plural copy\\"
+      },
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": {
+          \\"ONE\\": \\"The singular hint\\",
+          \\"OTHER\\": \\"The plural hint\\"
+        },
+        \\"LABEL\\": {
+          \\"ONE\\": \\"The singular label\\",
+          \\"OTHER\\": \\"The plural label\\"
+        },
+        \\"VALUE\\": {
+          \\"ZERO\\": \\"No value for this component\\",
+          \\"ONE\\": \\"The singular value\\",
+          \\"OTHER\\": \\"The plural value\\"
+        }
+      }
+    },
+    \\"RegularComponent\\": {
+      \\"COPY\\": \\"This is a component with accessiblity support\\",
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": \\"This is the hint\\",
+        \\"LABEL\\": \\"This is the label\\"
+      }
+    }
+  },
+  \\"Something\\": {
+    \\"With\\": {
+      \\"An\\": {
+        \\"Arbitrary\\": {
+          \\"Amount\\": {
+            \\"Of\\": {
+              \\"Nesting\\": {
+                \\"COPY\\": \\"We support nesting as deep as you'd like\\"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}",
       "path": ".//js/en/strings.json",
     },
     Object {
@@ -809,28 +941,72 @@ It may also contain empty lines to break up text into paragraphs.\\";
     },
     Object {
       "data": "{
-
-  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Lopende bestelling\\",
-  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Lopende bestelling\\",
-  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Lopende bestellingen\\",
-  \\"Accessible.PluralComponent.COPY.ONE\\": \\"De enkelvoudige copy\\",
-  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"De meervoudige copy\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"De enkelvoudige hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"De meervoudige hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"De enkelvoudige label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"De meervoudige label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"Geen waarde voor dit component\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"De enkelvoudige waarde\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The meervoudige waarde\\",
-  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"Je kan zo veel lagen maken als je zelf wil\\",
-  \\"Delivery.Widget.Title.COPY\\": \\"Help %1$s\\",
-  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1$s of %42$d.\\",
-  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\",
-  \\"Accessible.RegularComponent.COPY\\": \\"Dit is een component met accessiblity support\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"Dit is de hint\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"Dit is de label\\"
-}
-",
+  \\"Delivery\\": {
+    \\"Widget\\": {
+      \\"SubTitle\\": {
+        \\"COPY\\": {
+          \\"ZERO\\": \\"%1$d Lopende bestelling\\",
+          \\"ONE\\": \\"%1$d Lopende bestelling\\",
+          \\"OTHER\\": \\"%1$d Lopende bestellingen\\"
+        }
+      },
+      \\"Title\\": {
+        \\"COPY\\": \\"Help %1$s\\"
+      },
+      \\"SpecialCharacters\\": {
+        \\"COPY\\": \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"
+      },
+      \\"MultilineStrings\\": {
+        \\"COPY\\": \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"
+      }
+    }
+  },
+  \\"Accessible\\": {
+    \\"PluralComponent\\": {
+      \\"COPY\\": {
+        \\"ONE\\": \\"De enkelvoudige copy\\",
+        \\"OTHER\\": \\"De meervoudige copy\\"
+      },
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": {
+          \\"ONE\\": \\"De enkelvoudige hint\\",
+          \\"OTHER\\": \\"De meervoudige hint\\"
+        },
+        \\"LABEL\\": {
+          \\"ONE\\": \\"De enkelvoudige label\\",
+          \\"OTHER\\": \\"De meervoudige label\\"
+        },
+        \\"VALUE\\": {
+          \\"ZERO\\": \\"Geen waarde voor dit component\\",
+          \\"ONE\\": \\"De enkelvoudige waarde\\",
+          \\"OTHER\\": \\"The meervoudige waarde\\"
+        }
+      }
+    },
+    \\"RegularComponent\\": {
+      \\"COPY\\": \\"Dit is een component met accessiblity support\\",
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": \\"Dit is de hint\\",
+        \\"LABEL\\": \\"Dit is de label\\"
+      }
+    }
+  },
+  \\"Something\\": {
+    \\"With\\": {
+      \\"An\\": {
+        \\"Arbitrary\\": {
+          \\"Amount\\": {
+            \\"Of\\": {
+              \\"Nesting\\": {
+                \\"COPY\\": \\"Je kan zo veel lagen maken als je zelf wil\\"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}",
       "path": ".//js/nl/strings.json",
     },
     Object {
@@ -1136,32 +1312,92 @@ Result {
     },
     Object {
       "data": "{
-
-  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Pending order\\",
-  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Pending Orders\\",
-  \\"Accessible.PluralComponent.COPY.ONE\\": \\"The singular copy\\",
-  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"The plural copy\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"The singular hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"The plural hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"The singular label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"The plural label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"No value for this component\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"The singular value\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The plural value\\",
-  \\"Checkout.OrderOverview.Total.COPY\\": \\"Total price: %1$s\\",
-  \\"Checkout.OrderOverview.Subtotal.COPY\\": \\"Total price before taxes: %1$s\\",
-  \\"Settings.PushPermissionsRequest.Title.COPY\\": \\"Stay up to date\\",
-  \\"Settings.PushPermissionsRequest.Subtitle.COPY\\": \\"Stay up to date\\",
-  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"We support nesting as deep as you'd like\\",
-  \\"Delivery.Widget.Title.COPY\\": \\"Help: %1$s\\",
-  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\",
-  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\",
-  \\"Accessible.RegularComponent.COPY\\": \\"This is a component with accessiblity support\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"This is the hint\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"This is the label\\"
-}
-",
+  \\"Delivery\\": {
+    \\"Widget\\": {
+      \\"SubTitle\\": {
+        \\"COPY\\": {
+          \\"ZERO\\": \\"%1$d Pending order\\",
+          \\"ONE\\": \\"%1$d Pending order\\",
+          \\"OTHER\\": \\"%1$d Pending Orders\\"
+        }
+      },
+      \\"Title\\": {
+        \\"COPY\\": \\"Help: %1$s\\"
+      },
+      \\"SpecialCharacters\\": {
+        \\"COPY\\": \\"The following characters need special handling for some output types: @ ? < & ' \\\\\\". And then there is the percent-sign: most cases should be replaced (e.g. 99.9% and %1 and %.1) but not the percentage-sign in strings like %1$s or %42$d.\\"
+      },
+      \\"MultilineStrings\\": {
+        \\"COPY\\": \\"This is a multiline string that may contain <a href=\\\\\\"about:blank\\\\\\">links</a>\\\\nYou better watch out!\\\\n\\\\nIt may also contain empty lines to break up text into paragraphs.\\"
+      }
+    }
+  },
+  \\"Accessible\\": {
+    \\"PluralComponent\\": {
+      \\"COPY\\": {
+        \\"ONE\\": \\"The singular copy\\",
+        \\"OTHER\\": \\"The plural copy\\"
+      },
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": {
+          \\"ONE\\": \\"The singular hint\\",
+          \\"OTHER\\": \\"The plural hint\\"
+        },
+        \\"LABEL\\": {
+          \\"ONE\\": \\"The singular label\\",
+          \\"OTHER\\": \\"The plural label\\"
+        },
+        \\"VALUE\\": {
+          \\"ZERO\\": \\"No value for this component\\",
+          \\"ONE\\": \\"The singular value\\",
+          \\"OTHER\\": \\"The plural value\\"
+        }
+      }
+    },
+    \\"RegularComponent\\": {
+      \\"COPY\\": \\"This is a component with accessiblity support\\",
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": \\"This is the hint\\",
+        \\"LABEL\\": \\"This is the label\\"
+      }
+    }
+  },
+  \\"Checkout\\": {
+    \\"OrderOverview\\": {
+      \\"Total\\": {
+        \\"COPY\\": \\"Total price: %1$s\\"
+      },
+      \\"Subtotal\\": {
+        \\"COPY\\": \\"Total price before taxes: %1$s\\"
+      }
+    }
+  },
+  \\"Settings\\": {
+    \\"PushPermissionsRequest\\": {
+      \\"Title\\": {
+        \\"COPY\\": \\"Stay up to date\\"
+      },
+      \\"Subtitle\\": {
+        \\"COPY\\": \\"Stay up to date\\"
+      }
+    }
+  },
+  \\"Something\\": {
+    \\"With\\": {
+      \\"An\\": {
+        \\"Arbitrary\\": {
+          \\"Amount\\": {
+            \\"Of\\": {
+              \\"Nesting\\": {
+                \\"COPY\\": \\"We support nesting as deep as you'd like\\"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}",
       "path": ".//js/en/strings.json",
     },
     Object {
@@ -1236,32 +1472,92 @@ It may also contain empty lines to break up text into paragraphs.\\";
     },
     Object {
       "data": "{
-
-  \\"Delivery.Widget.SubTitle.COPY.ZERO\\": \\"%1$d Lopende bestelling\\",
-  \\"Delivery.Widget.SubTitle.COPY.ONE\\": \\"%1$d Lopende bestelling\\",
-  \\"Delivery.Widget.SubTitle.COPY.OTHER\\": \\"%1$d Lopende bestellingen\\",
-  \\"Accessible.PluralComponent.COPY.ONE\\": \\"De enkelvoudige copy\\",
-  \\"Accessible.PluralComponent.COPY.OTHER\\": \\"De meervoudige copy\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.ONE\\": \\"De enkelvoudige hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.HINT.OTHER\\": \\"De meervoudige hint\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.ONE\\": \\"De enkelvoudige label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.LABEL.OTHER\\": \\"De meervoudige label\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ZERO\\": \\"Geen waarde voor dit component\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.ONE\\": \\"De enkelvoudige waarde\\",
-  \\"Accessible.PluralComponent.ACCESSIBILITY.VALUE.OTHER\\": \\"The meervoudige waarde\\",
-  \\"Checkout.OrderOverview.Total.COPY\\": \\"Totaal: %1$s\\",
-  \\"Checkout.OrderOverview.Subtotal.COPY\\": \\"Subtotaal: %1$s\\",
-  \\"Settings.PushPermissionsRequest.Title.COPY\\": \\"Blijf op de hoogte\\",
-  \\"Settings.PushPermissionsRequest.Subtitle.COPY\\": \\"Blijf op de hoogte\\",
-  \\"Something.With.An.Arbitrary.Amount.Of.Nesting.COPY\\": \\"Je kan zo veel lagen maken als je zelf wil\\",
-  \\"Delivery.Widget.Title.COPY\\": \\"Help %1$s\\",
-  \\"Delivery.Widget.SpecialCharacters.COPY\\": \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1$s of %42$d.\\",
-  \\"Delivery.Widget.MultilineStrings.COPY\\": \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\",
-  \\"Accessible.RegularComponent.COPY\\": \\"Dit is een component met accessiblity support\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.HINT\\": \\"Dit is de hint\\",
-  \\"Accessible.RegularComponent.ACCESSIBILITY.LABEL\\": \\"Dit is de label\\"
-}
-",
+  \\"Delivery\\": {
+    \\"Widget\\": {
+      \\"SubTitle\\": {
+        \\"COPY\\": {
+          \\"ZERO\\": \\"%1$d Lopende bestelling\\",
+          \\"ONE\\": \\"%1$d Lopende bestelling\\",
+          \\"OTHER\\": \\"%1$d Lopende bestellingen\\"
+        }
+      },
+      \\"Title\\": {
+        \\"COPY\\": \\"Help %1$s\\"
+      },
+      \\"SpecialCharacters\\": {
+        \\"COPY\\": \\"De volgende karakters moeten herschreven voor sommige output types: @ ? < & ' \\\\\\". En let op met het procent-teken: in de meeste gevallen moet het vervangen worden (e.g. 99.9% en %1 en %.1) maar niet het procent-teken in strings als %1$s of %42$d.\\"
+      },
+      \\"MultilineStrings\\": {
+        \\"COPY\\": \\"Dit is een string van meerdere regels die <a href=\\\\\\"about:blank\\\\\\">links</a> kan bevatten.\\\\nLet maar eens op!\\\\n\\\\nDe tekst kan zelfs witregels bevatten!\\"
+      }
+    }
+  },
+  \\"Accessible\\": {
+    \\"PluralComponent\\": {
+      \\"COPY\\": {
+        \\"ONE\\": \\"De enkelvoudige copy\\",
+        \\"OTHER\\": \\"De meervoudige copy\\"
+      },
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": {
+          \\"ONE\\": \\"De enkelvoudige hint\\",
+          \\"OTHER\\": \\"De meervoudige hint\\"
+        },
+        \\"LABEL\\": {
+          \\"ONE\\": \\"De enkelvoudige label\\",
+          \\"OTHER\\": \\"De meervoudige label\\"
+        },
+        \\"VALUE\\": {
+          \\"ZERO\\": \\"Geen waarde voor dit component\\",
+          \\"ONE\\": \\"De enkelvoudige waarde\\",
+          \\"OTHER\\": \\"The meervoudige waarde\\"
+        }
+      }
+    },
+    \\"RegularComponent\\": {
+      \\"COPY\\": \\"Dit is een component met accessiblity support\\",
+      \\"ACCESSIBILITY\\": {
+        \\"HINT\\": \\"Dit is de hint\\",
+        \\"LABEL\\": \\"Dit is de label\\"
+      }
+    }
+  },
+  \\"Checkout\\": {
+    \\"OrderOverview\\": {
+      \\"Total\\": {
+        \\"COPY\\": \\"Totaal: %1$s\\"
+      },
+      \\"Subtotal\\": {
+        \\"COPY\\": \\"Subtotaal: %1$s\\"
+      }
+    }
+  },
+  \\"Settings\\": {
+    \\"PushPermissionsRequest\\": {
+      \\"Title\\": {
+        \\"COPY\\": \\"Blijf op de hoogte\\"
+      },
+      \\"Subtitle\\": {
+        \\"COPY\\": \\"Blijf op de hoogte\\"
+      }
+    }
+  },
+  \\"Something\\": {
+    \\"With\\": {
+      \\"An\\": {
+        \\"Arbitrary\\": {
+          \\"Amount\\": {
+            \\"Of\\": {
+              \\"Nesting\\": {
+                \\"COPY\\": \\"Je kan zo veel lagen maken als je zelf wil\\"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}",
       "path": ".//js/nl/strings.json",
     },
     Object {
