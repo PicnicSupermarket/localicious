@@ -13,6 +13,7 @@
     "git-clone": "^0.2.0",
     "handlebars": "^4.7.7",
     "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
     "lodash.updatewith": "^4.10.2"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
   "scripts": {
     "lint": "yarn eslint --fix bin/**/* src/**/*.js tests/**/*.js",
     "lint-on-ci": "yarn eslint bin/**/* src/**/*.js tests/**/*.js",
+    "lc": "./bin/localicious install ./LocaliciousConfig.yaml ./output",
     "test": "jest"
   },
   "prettier": {

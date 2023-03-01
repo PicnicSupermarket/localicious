@@ -1,18 +1,20 @@
 // DO NOT EDIT. This file is auto-generated using Localicious (https://github.com/PicnicSupermarket/localicious).
 
+import de from "./de/strings.json";
+import nl from "./nl/strings.json";
+import en from "./en/strings.json";
+import fr from "./fr/strings.json";
 import {at as lodashAt} from "lodash";
-{{#languages}}
-import {{.}} from "./{{.}}/strings.json";
-{{/languages}}
 
-// type LanguageStrings ={{#languages}} | typeof {{.}}{{/languages}};
+// type LanguageStrings = typeof de | typeof nl | typeof en | typeof fr;
 
-type Language ={{#languages}} | "{{.}}"{{/languages}};
+type Language = "de" | "nl" | "en" | "fr";
 
 const strings = {
-  {{#languages}}
-  {{.}}: {{.}},
-  {{/languages}}
+  de: de,
+  nl: nl,
+  en: en,
+  fr: fr,
 } as const;
 
 type AllLanguageStrings = typeof strings;

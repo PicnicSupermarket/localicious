@@ -45,6 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["handlebars", "npm:4.7.7"],\
             ["jest", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:28.1.3"],\
             ["js-yaml", "npm:4.1.0"],\
+            ["lodash", "npm:4.17.21"],\
             ["lodash.updatewith", "npm:4.10.2"],\
             ["prettier", "npm:2.8.0"]\
           ],\
@@ -1298,6 +1299,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["handlebars", "npm:4.7.7"],\
             ["jest", "virtual:d16b11d7de4f5ccfdc3b7cc0687cf2c030e086de9464c5c90a1447bb4eef6dc2440a66a93e4f5afdac1a894ed776684d477f2121eca0caa2f475def7f5aa10f5#npm:28.1.3"],\
             ["js-yaml", "npm:4.1.0"],\
+            ["lodash", "npm:4.17.21"],\
             ["lodash.updatewith", "npm:4.10.2"],\
             ["prettier", "npm:2.8.0"]\
           ],\
@@ -4595,6 +4597,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["locate-path", "npm:6.0.0"],\
             ["p-locate", "npm:5.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["lodash", [\
+        ["npm:4.17.21", {\
+          "packageLocation": "./.yarn/cache/lodash-npm-4.17.21-6382451519-eb835a2e51.zip/node_modules/lodash/",\
+          "packageDependencies": [\
+            ["lodash", "npm:4.17.21"]\
           ],\
           "linkType": "HARD"\
         }]\
