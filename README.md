@@ -88,7 +88,7 @@ collections:
 
 To retrieve the latest version of the file in your repository, simply run `localicious install`. localicious also supports specifying a specific Git branch (by adding `:branch`).
 
-An alternative approach would be to use a local file as the source of translations. This can be useful in scenarios where the translations are not managed in another repository, but instead are maintained locally. To use a Localicipe file located in a local directory, simply specify the :path variable as the source. This approach allows for more flexibility and control over the process, particularly for smaller projects or teams with limited resources.
+An alternative option would be to use a local file as the source of translations. This can be useful in scenarios where the translations are not managed in another repository, but instead are maintained locally. To use a Localicipe file located in a local directory, simply specify the :path variable as the source. This approach allows for more flexibility and control over the process, particularly for smaller projects or teams with limited resources.
 
 ```
 source:
