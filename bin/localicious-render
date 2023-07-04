@@ -57,9 +57,9 @@ program
 
 if (
   program.args.length < 2 ||
-  !hasValidLanguages(program.languages) ||
-  !hasValidOutputTypes(program.outputTypes) ||
-  !hasValidCollections(program.collections)
+  !hasValidLanguages(program.opts().languages) ||
+  !hasValidOutputTypes(program.opts().outputTypes) ||
+  !hasValidCollections(program.opts().collections)
 ) {
   console.log(
     `Usage: localicious render <localicipe> <output_path> -l <languages> -ot <output_types> -c <collections>`
@@ -69,8 +69,8 @@ if (
 
 const localicipePath = path.resolve(process.cwd(), program.args[0]);
 const outputPath = path.resolve(process.cwd(), program.args[1]);
-const outputTypes = program.outputTypes.map((outputType) => outputType.toUpperCase());
-const collections = program.collections.map((collection) => collection.toUpperCase());
+const outputTypes = program.opts().outputTypes.map(outputType => outputType.toUpperCase());
+const collections = program.opts().collections.map(collection => collection.toUpperCase());
 
 validateAndRender(localicipePath, outputPath, program.languages, outputTypes, collections)
   .onSuccess(() => {
