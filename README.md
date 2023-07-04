@@ -31,7 +31,18 @@ localicious assumes the following workflow:
 
 ## Requirements and installation
 
-localicious requires node 10.12.0 or later.
+localicious requires node 10.12.0 or later and npm.
+- Clone the code
+```
+cd ~
+git clone https://github.com/PicnicSupermarket/localicious.git
+```
+- Install node dependencies
+```
+cd ~/localicious/
+npm install -g
+```
+
 
 ## The Localicipe
 
